@@ -1,0 +1,7 @@
+docs/_build
+example_doc/_build
+example_doc/_webslides_build
+*.pyc
+*.egg-info
+.vscode
+*_build
