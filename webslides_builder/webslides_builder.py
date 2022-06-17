@@ -1,5 +1,7 @@
 from os import path
 from typing import Any, Dict, Iterator, Set, Tuple
+import shutil
+from pathlib import Path
 
 from docutils.io import StringOutput
 from docutils.nodes import Node
@@ -46,6 +48,10 @@ class WebslidesBuilder(Builder):
                 f.write(self.writer.output)
         except OSError as err:
             logger.warning(__("error writing file %s: %s"), outfilename, err)
+        static_dir_destination = Path(self.outdir) / 'static'
+        if not static_dir_destination.exists():
+            source_dir = Path(self.srcdir) / '_static'
+            shutil.copytree(source_dir, static_dir_destination)
 
     def get_target_uri(self, docname: str, typ: str = None) -> str:
         return ''

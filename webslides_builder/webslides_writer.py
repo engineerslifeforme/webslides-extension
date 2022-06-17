@@ -33,7 +33,9 @@ class WebslidesTranslator(SphinxTranslator):
         pass
 
     def depart_Text(self, node):
-        self.body.append(node.astext())
+        node_text = node.astext()
+        if node_text not in self.body[-1]:
+            self.body.append(node_text)
 
     def visit_document(self, node):
         pass
