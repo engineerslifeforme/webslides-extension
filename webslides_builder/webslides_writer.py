@@ -51,5 +51,11 @@ class WebslidesTranslator(HTMLTranslator):
         self.slide_open = True
         super().visit_title(node)
 
+    def visit_literal_block(self, node):
+        self.body.append(f'<code>')
+
+    def depart_literal_block(self, node):
+        self.body.append('</code>')
+
 class WebslidesWriter(HTMLWriter):
     translator_class = WebslidesTranslator

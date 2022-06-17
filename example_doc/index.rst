@@ -7,4 +7,5 @@
    :maxdepth: 2
 
    content
+   demo_copy
 
