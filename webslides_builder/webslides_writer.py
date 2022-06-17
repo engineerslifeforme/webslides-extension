@@ -5,6 +5,7 @@ from sphinx.util.docutils import SphinxTranslator
 from sphinx.writers.html import HTMLWriter, HTMLTranslator
 #from sphinx.writers.html import HTMLWriter
 #from docutils.writers.html4css1 import HTMLTranslator, HTMLWriter
+from bs4 import BeautifulSoup
 
 from docutils import nodes, writers
 
@@ -19,7 +20,11 @@ class WebslidesTranslator(HTMLTranslator):
         while '<section' not in current_element:
             index -= 1
             current_element = self.body[index]
-        self.body[index] = f"<section class=\"{node.astext()}\">"
+        soup = BeautifulSoup(current_element, 'html.parser')
+        soup.find('section')['class'] = soup.find('section').get('class', []) + [node.astext()]
+        # bs4 adds a close tag, removing
+        self.body[index] = str(soup).replace('</section>', '')
+        #pass
 
     def depart_slide_class_node(self, node):
         pass
@@ -39,6 +44,7 @@ class WebslidesTranslator(HTMLTranslator):
         self.body.pop()
 
     def visit_title(self, node):
+        # Having an issue where slides would be immediately closed
         if self.slide_open:
             self.body.append("</section>")
         self.body.append("<section>")
