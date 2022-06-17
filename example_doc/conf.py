@@ -29,6 +29,7 @@ author = 'Creative Rigor, LLC'
 # ones.
 extensions = [
     'webslides_builder',
+    'myst_parser',
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -51,3 +52,10 @@ html_theme = 'webslides_theme'
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['_static']
+
+html_css_files = [
+    'css/custom.css',
+]
+
+# These did not look good in presentation format, little paragraph symbols
+html_permalinks = False
