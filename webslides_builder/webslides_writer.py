@@ -1,5 +1,6 @@
 from typing import (TYPE_CHECKING, Any, Dict, Generator, Iterable, List, Optional, Set, Tuple,
                     Union, cast)
+import copy
                     
 from sphinx.util.docutils import SphinxTranslator
 from sphinx.writers.html import HTMLWriter, HTMLTranslator
@@ -32,7 +33,7 @@ class WebslidesTranslator(HTMLTranslator):
     slide_open = False
     slide_size_open = False
     flexblock_open = False
-    flexblock_feature = False
+    flexblock_classes = []
 
     def visit_slide_class_node(self, node):
         index = find_previous_index(self.body, '<section')
@@ -81,16 +82,11 @@ class WebslidesTranslator(HTMLTranslator):
     def depart_slide_size_node(self, node):
         pass
 
-    def visit_flexblock_feature_list_node(self, node):
-        self.flexblock_open = True
-        self.flexblock_feature = True
-    
     def visit_flexblock_list_node(self, node):
         self.flexblock_open = True
+        self.flexblock_classes = copy.deepcopy(node['classes'])
+        print('debug')
 
-    def depart_flexblock_feature_list_node(self, node):
-        pass
-    
     def depart_flexblock_list_node(self, node):
         pass
 
@@ -98,10 +94,10 @@ class WebslidesTranslator(HTMLTranslator):
         super().visit_bullet_list(node)
         if self.flexblock_open:
             self.body[-1] = add_class_to_tag(self.body[-1], 'ul', 'flexblock')
-            if self.flexblock_feature:
-                self.body[-1] = add_class_to_tag(self.body[-1], 'ul', 'features')
+            for class_name in self.flexblock_classes:
+                self.body[-1] = add_class_to_tag(self.body[-1], 'ul', class_name)
             self.flexblock_open = False
-            self.flexblock_feature = False
+            self.flexblock_classes = []
 
     def visit_div_node(self, node):
         self.body.append('<div>')
@@ -155,5 +151,16 @@ class WebslidesTranslator(HTMLTranslator):
     def depart_generic_node(self, node):
         self.body.append(f"</{node['tag']}>")
 
+    def visit_fa_node(self, node):
+        fa_type = node['fa_type']
+        self.body.append(f"""<svg class=\"{fa_type}\">
+    <use xlink:href=\"#{fa_type}\"></use>
+</svg>""")
+        pass
+
+    def depart_fa_node(self, node):
+        pass
+
 class WebslidesWriter(HTMLWriter):
     translator_class = WebslidesTranslator
+

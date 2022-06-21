@@ -74,13 +74,17 @@ classes: bg-apple
 ---
 ```
 
-```{flexblock-feature}
+```{flexblock}
+---
+classes: features
+---
+
 - {span-raw}`&rarr;` {ph2}`Simple Navigation` with arrow keys and swipe.
 - {{fa_link}} {ph2}`Permalinks` Go to a specific slide.
-- Slide Counter Current/Total number
-- 40+ Beautiful Components Covers, cards, quotes...
-- Vertical Rhythm Use multiple of 8.
-- 500+ SVG Icons Font Awesome Kit.
+- {fa}`fa-clock-o` {ph2}`Slide Counter` Current/Total number
+- {ph2}`40+ Beautiful Components` Covers, cards, quotes...
+- {fa}`fa-text-height` {ph2}`Vertical Rhythm` Use multiple of 8.
+- {ph2}`500+ SVG Icons` Font Awesome Kit.
 ```
 
 ## content-left div test
@@ -91,13 +95,16 @@ classes: bg-apple
 ---
 ```
 ````{div}
+---
 classes: wrap
+---
+
 ```{div}
 ---
 classes: content-left
 ---
 
-Webslides was made to inspire people.
+{ph2}`Webslides was made to inspire people.`
 ```
 
 ```{div}
@@ -117,4 +124,41 @@ WebSlides is a wonderful way to showcase your company. All content is for demo p
 
 # Testing psuedo heading
 
-{ph1}`some test ext`
+```{slide-config}
+---
+classes: bg-apple
+---
+```
+
+````{div}
+---
+classes: wrap
+---
+
+```{div}
+---
+classes: content-left
+---
+
+{ph2}`WebSlides help you build a culture of excellence.`
+```
+
+```{div}
+---
+classes: content-left
+---
+
+The art of storytelling. Hypertext, clean code, and beauty as narrative elements. Just essential features and lovely CSS. All content is for demo purposes only.
+```
+
+```{flexblock}
+---
+classes: metrics
+---
+
+- Founded 1976
+- {fa}`fa-users` 524M Subscribers
+- {Fa}`fa-line-chart` Revenue: $16M
+- Montly Growth 64%
+````
+

@@ -38,21 +38,21 @@ class Div(SphinxDirective):
         node += par
         return [node]
 
-class flexblock_feature_list_node(nodes.Structural, nodes.Element):
+class flexblock_list_node(nodes.Element):
     pass
 
-class flexblock_list_node(flexblock_feature_list_node):
-    pass
-
-class FlexBlockBase(SphinxDirective):
+class FlexBlock(SphinxDirective):
     has_content = True
-    features = False
+    option_spec = {
+        'classes': directives.unchanged,
+    }
 
     def run(self):
-        if self.features:
-            this_node = flexblock_feature_list_node()
-        else:
-            this_node = flexblock_list_node()
+        this_node = flexblock_list_node()
+        this_node['classes'] = []
+        if 'classes' in self.options:
+            for class_name in self.options['classes'].split(' '):
+                this_node['classes'].append(class_name)
         new_nodes = [
             this_node
         ]
@@ -60,12 +60,6 @@ class FlexBlockBase(SphinxDirective):
         self.state.nested_parse(self.content, self.content_offset, par)
         new_nodes.append(par)
         return new_nodes
-
-class FlexBlock(FlexBlockBase):
-    pass
-
-class FlexBlockFeatures(FlexBlockBase):
-    features = True
 
 class SlideConfigDirective(SphinxDirective):
 
@@ -114,6 +108,14 @@ def span_roles(raw=False):
             node += nodes.Text(text)
         return [node], []
     return span_role
+
+class fa_node(nodes.Element):
+    pass
+
+def fa_role(name, rawtext, text, lineno, inliner, options={}, content=[]):
+    node = fa_node()
+    node['fa_type'] = text
+    return [node], []
 
 class generic_node(nodes.Element):
     pass
