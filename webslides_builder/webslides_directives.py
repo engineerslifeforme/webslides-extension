@@ -18,20 +18,54 @@ ALLOWED_SIZES = [
 class slide_size_node(nodes.Text):
     pass
 
+class div_node(nodes.Structural, nodes.Element):
+    pass
+
+class Div(SphinxDirective):
+    has_content = True
+    option_spec = {
+        'classes': directives.unchanged,
+    }
+
+    def run(self):
+        node = div_node()
+        if 'classes' in self.options:
+            node['classes'] = self.options['classes'].split(' ')
+        else:
+            node['classes'] = []
+        par = nodes.paragraph()
+        self.state.nested_parse(self.content, self.content_offset, par)
+        node += par
+        return [node]
+
 class flexblock_feature_list_node(nodes.Structural, nodes.Element):
     pass
 
-class FlexBlockFeatures(SphinxDirective):
+class flexblock_list_node(flexblock_feature_list_node):
+    pass
+
+class FlexBlockBase(SphinxDirective):
     has_content = True
+    features = False
 
     def run(self):
+        if self.features:
+            this_node = flexblock_feature_list_node()
+        else:
+            this_node = flexblock_list_node()
         new_nodes = [
-            flexblock_feature_list_node()
+            this_node
         ]
         par = nodes.paragraph()
         self.state.nested_parse(self.content, self.content_offset, par)
         new_nodes.append(par)
         return new_nodes
+
+class FlexBlock(FlexBlockBase):
+    pass
+
+class FlexBlockFeatures(FlexBlockBase):
+    features = True
 
 class SlideConfigDirective(SphinxDirective):
 
@@ -52,3 +86,58 @@ class SlideConfigDirective(SphinxDirective):
             else:
                 new_nodes.append(slide_size_node(requested_size))
         return new_nodes
+
+class pseudo_heading_node(nodes.Element):
+    pass
+
+def pseudo_heading_role(tag: str):
+    def role(name, rawtext, text, lineno, inliner, options={}, content=[]):
+        node = pseudo_heading_node()
+        node += nodes.Text(text)
+        node['tag'] = tag
+        return [node], []
+    return role
+
+class span_node(nodes.Element):
+    pass
+
+class span_raw_node(nodes.Element):
+    pass
+
+def span_roles(raw=False):
+    def span_role(name, rawtext, text, lineno, inliner, options={}, content=[]):
+        if raw:
+            node = span_raw_node()
+            node['content'] = text
+        else:
+            node = span_node()
+            node += nodes.Text(text)
+        return [node], []
+    return span_role
+
+class generic_node(nodes.Element):
+    pass
+
+class GenericDirective(SphinxDirective):
+
+    option_spec = {
+        'attribute_names': directives.unchanged,
+        'attribute_values': directives.unchanged,
+    }
+    has_content = True
+    required_arguments = 1
+
+    def run(self):
+        node = generic_node()
+        node['tag'] = self.arguments[0]
+        if 'attribute_names' in self.options:
+            node['attribute_names'] = self.options['attribute_names'].split(' ')
+            node['attribute_values'] = self.options['attribute_values'].split(' ')
+        else:
+            node['attribute_names'] = []
+            node['attribute_values'] = []
+        par = nodes.paragraph()
+        self.state.nested_parse(self.content, self.content_offset, par)
+        node += par
+        return [node]
+        
