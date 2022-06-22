@@ -120,13 +120,35 @@ class WebslidesTranslator(HTMLTranslator):
         )
 
     def visit_pseudo_heading_node(self, node):
-        self.body.append(f"<{node['tag']}>")
+        content = f"<{node['tag']}>"
+        if 'classes' in node:
+            for class_name in node['classes']:
+                content = add_class_to_tag(
+                    content, node['tag'], class_name
+                )
+        self.body.append(content)
     
     def depart_pseudo_heading_node(self, node):
-        self.body.append(f"</{node['tag']}>")
+        content = f"</{node['tag']}>"
+        self.body.append(content)
 
     def visit_span_node(self, node):
-        self.body.append('<span>')
+        content = '<span>'
+        if 'classes' in node:
+            for class_name in node['classes']:
+                content = add_class_to_tag(
+                    content,
+                    'span',
+                    class_name,
+                )
+        if 'style' in node:
+            content = add_attribute_to_tag(
+                content,
+                'span',
+                'style',
+                node['style']
+            )
+        self.body.append(content)
     
     def depart_span_node(self, node):
         self.body.append('</span>')
@@ -156,10 +178,43 @@ class WebslidesTranslator(HTMLTranslator):
         self.body.append(f"""<svg class=\"{fa_type}\">
     <use xlink:href=\"#{fa_type}\"></use>
 </svg>""")
-        pass
+
+    def visit_fa_span_node(self, node):
+        self.body.append('<span>')
+        self.visit_fa_node(node)
 
     def depart_fa_node(self, node):
         pass
+    
+    def depart_fa_span_node(self, node):
+        self.body.append('</span>')
+
+    def visit_paragraph_node(self, node):
+        content = '<p>'
+        if 'classes' in node:
+            for class_name in node['classes']:
+                content = add_class_to_tag(
+                    content, 'p', class_name
+                )
+        self.body.append(content)
+
+    def depart_paragraph_node(self, node):
+        self.body.append('</p>')
+
+    def visit_slide_node(self, node):
+        if self.slide_open:
+            self.body.append('</section>')
+        content = '<section>'
+        for class_name in node['classes']:
+            content = add_class_to_tag(
+                content, 'section', class_name
+            )
+        self.body.append(content)
+
+    def depart_slide_node(self, node):
+        self.body.append('</section>')
+        self.slide_open = False       
+
 
 class WebslidesWriter(HTMLWriter):
     translator_class = WebslidesTranslator

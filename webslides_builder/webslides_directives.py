@@ -92,6 +92,48 @@ def pseudo_heading_role(tag: str):
         return [node], []
     return role
 
+class HeadingDirective(SphinxDirective):
+    required_arguments = 1
+    option_spec = {
+        'classes': directives.unchanged,
+    }
+    has_content = True
+
+    def run(self):
+        node = pseudo_heading_node()
+        node['tag'] = self.arguments[0]
+        node['classes'] = []
+        if 'classes' in self.options:
+            node['classes'] = self.options['classes'].split(' ')
+        par = nodes.paragraph()
+        self.state.nested_parse(self.content, self.content_offset, par)
+        node += par
+        return [node]
+
+class paragraph_node(nodes.Element):
+    pass
+
+def paragraph_role(name, rawtext, text, lineno, inliner, options={}, content=[]):
+    node = paragraph_node()
+    node += nodes.Text(text)
+    return [node], []
+
+class ParagraphDirective(SphinxDirective):
+    has_content = True
+    option_spec = {
+        'classes': directives.unchanged,
+    }
+
+    def run(self):
+        node = paragraph_node()
+        if 'classes' in self.options:
+            node['classes'] = self.options['classes'].split(' ')
+        par = nodes.paragraph()
+        self.state.nested_parse(self.content, self.content_offset, par)
+        node += par
+        return [node]
+
+
 class span_node(nodes.Element):
     pass
 
@@ -112,10 +154,18 @@ def span_roles(raw=False):
 class fa_node(nodes.Element):
     pass
 
-def fa_role(name, rawtext, text, lineno, inliner, options={}, content=[]):
-    node = fa_node()
-    node['fa_type'] = text
-    return [node], []
+class fa_span_node(nodes.Element):
+    pass
+
+def fa_role_maker(span=False):
+    def fa_role(name, rawtext, text, lineno, inliner, options={}, content=[]):
+        if span:
+            node = fa_span_node()
+        else:
+            node = fa_node()
+        node['fa_type'] = text
+        return [node], []
+    return fa_role
 
 class generic_node(nodes.Element):
     pass
@@ -143,3 +193,38 @@ class GenericDirective(SphinxDirective):
         node += par
         return [node]
         
+class Span(SphinxDirective):
+
+    option_spec = {
+        'classes': directives.unchanged,
+        'style': directives.unchanged,
+    }
+
+    def run(self):
+        node = span_node()
+        node['classes'] = []
+        if 'classes' in self.options:
+            node['classes'] = self.options['classes'].split(' ')
+        node['style'] = []
+        if 'style' in self.options:
+            node['style'] = self.options['style']
+        return [node]
+
+class slide_node(nodes.Element):
+    pass
+
+class Slide(SphinxDirective):
+    option_spec = {
+        'classes': directives.unchanged,
+    }
+    has_content = True
+
+    def run(self):
+        node = slide_node()
+        node['classes'] = []
+        if 'classes' in self.options:
+            node['classes'] = self.options['classes'].split(' ')
+        par = nodes.paragraph()
+        self.state.nested_parse(self.content, self.content_offset, par)
+        node += par
+        return [node]
