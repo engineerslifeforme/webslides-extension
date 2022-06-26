@@ -34,6 +34,7 @@ class WebslidesTranslator(HTMLTranslator):
     slide_size_open = False
     flexblock_open = False
     flexblock_classes = []
+    description_list_open = False
 
     def visit_slide_class_node(self, node):
         index = find_previous_index(self.body, '<section')
@@ -91,13 +92,18 @@ class WebslidesTranslator(HTMLTranslator):
         pass
 
     def visit_bullet_list(self, node):
-        super().visit_bullet_list(node)
-        if self.flexblock_open:
-            self.body[-1] = add_class_to_tag(self.body[-1], 'ul', 'flexblock')
-            for class_name in self.flexblock_classes:
-                self.body[-1] = add_class_to_tag(self.body[-1], 'ul', class_name)
-            self.flexblock_open = False
-            self.flexblock_classes = []
+        if not self.description_list_open:
+            super().visit_bullet_list(node)
+            if self.flexblock_open:
+                self.body[-1] = add_class_to_tag(self.body[-1], 'ul', 'flexblock')
+                for class_name in self.flexblock_classes:
+                    self.body[-1] = add_class_to_tag(self.body[-1], 'ul', class_name)
+                self.flexblock_open = False
+                self.flexblock_classes = []
+
+    def depart_bullet_list(self, node):
+        if not self.description_list_open:
+            super().depart_bullet_list(node)
 
     def visit_div_node(self, node):
         self.body.append('<div>')
@@ -232,6 +238,24 @@ class WebslidesTranslator(HTMLTranslator):
     def depart_topic_shift_node(self, node):
         pass
 
+    def visit_description_list_node(self, node):
+        self.description_list_open = True
+        content = '<ul>'
+        for class_name in node['classes']:
+            content = add_class_to_tag(
+                content, 'ul', class_name
+            )
+        self.body.append(content)
+
+    def depart_description_list_node(self, node):
+        self.description_list_open = False
+        self.body.append('</ul>')
+
+    def visit_preformatted_node(self, node):
+        self.body.append('<pre>')
+
+    def depart_preformatted_node(self, node):
+        self.body.append('</pre>')
 
 class WebslidesWriter(HTMLWriter):
     translator_class = WebslidesTranslator

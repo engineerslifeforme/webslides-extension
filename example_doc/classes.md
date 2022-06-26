@@ -125,8 +125,60 @@ classes: text-intro
 WebSlides is so easy to understand and love. Baseline: 8.
 ```
 {hr}`a`
-
-- Typography:
-- BG Colors:
+```{description-list}
+- {text-label}`Typography:` .text-landing, .text-subtitle, .text-data, .text-intro...
+- {text-label}`BG Colors:` .bg-primary, .bg-blue,.bg-apple...
+- {text-label}`BG Images:` .background, .background-center-bottom...
+- {text-label}`Cards:` .card-60, .card-50, .card-40...
+- {text-label}`Sizes:` .size-50, .size-40...
+- {text-label}`Flex Blocks:` .flexblock.clients, .flexblock.gallery, .flexblock.metrics...`
+```
 ````
 `````
+
+````````{slide}
+```````{div}
+---
+classes: wrap
+---
+``````{div}
+---
+classes: grid vertical-align
+---
+`````{div}
+---
+classes: column
+---
+**{ph3}`WebSlides is really easy`**
+````{paragraph}
+---
+classes: text-intro
+---
+Each parent `<section>` in the #webslides element is an individual slide.
+````
+Code is neat, scalable, and well documented. It uses **intuitive markup with popular naming conventions**. There's no need to overuse classes or nesting. **Based on [SimpleSlides](https://github.com/jennschiffer/SimpleSlides), by [Jenn Schiffer](http://jennmoney.biz)** :)
+`````
+`````{div}
+---
+classes: column
+---
+````{preformatted}
+```
+<article id="webslides">
+  <!-- Slide 1 -->
+  <section>
+    <h1>Design for trust</h1>
+  </section>
+  <!-- Slide 2 -->
+  <section class="bg-primary">
+    <div class="wrap">
+      <h2>.wrap = container (width: 90%) with fadein</h2>
+    </div>
+  </section>
+</article>
+```
+````
+`````
+``````
+```````
+````````

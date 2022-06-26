@@ -117,6 +117,19 @@ def topic_shift_role(name, rawtext, text, lineno, inliner, options={}, content=[
     node = topic_shift_node()
     return [node], []
 
+class preformatted_node(nodes.Element):
+    pass
+
+class PreformattedDirective(SphinxDirective):
+    has_content = True
+
+    def run(self):
+        node = preformatted_node()
+        par = nodes.paragraph()
+        self.state.nested_parse(self.content, self.content_offset, par)
+        node += par
+        return [node]
+
 class link_node(nodes.Element):
     pass
 
@@ -176,6 +189,12 @@ def span_roles(raw=False):
             node += nodes.Text(text)
         return [node], []
     return span_role
+
+def span_text_label_role(name, rawtext, text, lineno, inliner, options={}, content=[]):
+    node = span_node()
+    node['classes'] = ['text-label']
+    node += nodes.Text(text)
+    return [node], []
 
 class fa_node(nodes.Element):
     pass
@@ -250,6 +269,20 @@ class Slide(SphinxDirective):
         node['classes'] = []
         if 'classes' in self.options:
             node['classes'] = self.options['classes'].split(' ')
+        par = nodes.paragraph()
+        self.state.nested_parse(self.content, self.content_offset, par)
+        node += par
+        return [node]
+
+class description_list_node(nodes.Element):
+    pass
+
+class DescriptionList(SphinxDirective):
+    has_content = True
+
+    def run(self):
+        node = description_list_node()
+        node['classes'] = ['description']
         par = nodes.paragraph()
         self.state.nested_parse(self.content, self.content_offset, par)
         node += par
