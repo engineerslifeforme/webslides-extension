@@ -213,7 +213,24 @@ class WebslidesTranslator(HTMLTranslator):
 
     def depart_slide_node(self, node):
         self.body.append('</section>')
-        self.slide_open = False       
+        self.slide_open = False 
+
+    def visit_link_node(self, node):
+        content = '<a>'
+        for class_name in node['classes']:
+            content = add_class_to_tag(
+                content, 'a', class_name
+            )
+        self.body.append(content)
+
+    def depart_link_node(self, node):
+        self.body.append('</a>')
+
+    def visit_topic_shift_node(self, node):
+        self.body.append('<hr>')
+
+    def depart_topic_shift_node(self, node):
+        pass
 
 
 class WebslidesWriter(HTMLWriter):

@@ -110,6 +110,32 @@ class HeadingDirective(SphinxDirective):
         node += par
         return [node]
 
+class topic_shift_node(nodes.Element):
+    pass
+
+def topic_shift_role(name, rawtext, text, lineno, inliner, options={}, content=[]):
+    node = topic_shift_node()
+    return [node], []
+
+class link_node(nodes.Element):
+    pass
+
+class LinkDirective(SphinxDirective):
+    has_content = True
+    option_spec = {
+        'classes': directives.unchanged,
+    }
+
+    def run(self):
+        node = link_node()
+        node['classes'] = []
+        if 'classes' in self.options:
+            node['classes'] = self.options['classes'].split(' ')
+        par = nodes.paragraph()
+        self.state.nested_parse(self.content, self.content_offset, par)
+        node += par
+        return [node]
+
 class paragraph_node(nodes.Element):
     pass
 
