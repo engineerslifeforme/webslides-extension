@@ -180,5 +180,55 @@ classes: column
 ````
 `````
 ``````
+{hr}`a`
+``````{paragraph}
+---
+classes: aligncenter
+---
+Vertical sliding? `<article id="webslides" class="vertical">`
+``````
 ```````
 ````````
+
+``````{slide}
+`````{header}
+````{div}
+---
+classes: wrap
+---
+Header (logo)
+```{span-content}
+---
+classes: alignright
+---
+.alignright
+```
+````
+`````
+`````{div}
+---
+classes: aligncenter
+---
+{ph2}`Simple CSS Alignments`
+Put content wherever you want.
+`````
+`````{footer}
+````{div}
+---
+classes: wrap
+---
+```{span-content}
+---
+classes: alignleft
+---
+Footer: logo, credits... (.alignleft)
+```
+```{span-content}
+---
+classes: alignright
+---
+{fa}`fa-twitter` @username .alignright
+```
+````
+`````
+``````

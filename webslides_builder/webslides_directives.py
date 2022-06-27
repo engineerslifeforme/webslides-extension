@@ -237,9 +237,9 @@ class GenericDirective(SphinxDirective):
         self.state.nested_parse(self.content, self.content_offset, par)
         node += par
         return [node]
-        
-class Span(SphinxDirective):
 
+class Span(SphinxDirective):
+    has_content = True
     option_spec = {
         'classes': directives.unchanged,
         'style': directives.unchanged,
@@ -250,9 +250,23 @@ class Span(SphinxDirective):
         node['classes'] = []
         if 'classes' in self.options:
             node['classes'] = self.options['classes'].split(' ')
-        node['style'] = []
         if 'style' in self.options:
             node['style'] = self.options['style']
+        return [node]
+
+class SpanWithContent(Span):
+    has_content = True
+
+    def run(self):
+        node = span_node()
+        node['classes'] = []
+        if 'classes' in self.options:
+            node['classes'] = self.options['classes'].split(' ')
+        if 'style' in self.options:
+            node['style'] = self.options['style']
+        par = nodes.paragraph()
+        self.state.nested_parse(self.content, self.content_offset, par)
+        node += par
         return [node]
 
 class slide_node(nodes.Element):
@@ -283,6 +297,32 @@ class DescriptionList(SphinxDirective):
     def run(self):
         node = description_list_node()
         node['classes'] = ['description']
+        par = nodes.paragraph()
+        self.state.nested_parse(self.content, self.content_offset, par)
+        node += par
+        return [node]
+
+class slide_header_node(nodes.Element):
+    pass
+
+class SlideHeader(SphinxDirective):
+    has_content = True
+
+    def run(self):
+        node = slide_header_node()
+        par = nodes.paragraph()
+        self.state.nested_parse(self.content, self.content_offset, par)
+        node += par
+        return [node]
+
+class slide_footer_node(nodes.Element):
+    pass
+
+class SlideFooter(SphinxDirective):
+    has_content = True
+
+    def run(self):
+        node = slide_footer_node()
         par = nodes.paragraph()
         self.state.nested_parse(self.content, self.content_offset, par)
         node += par

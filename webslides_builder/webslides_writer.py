@@ -257,6 +257,18 @@ class WebslidesTranslator(HTMLTranslator):
     def depart_preformatted_node(self, node):
         self.body.append('</pre>')
 
+    def visit_slide_header_node(self, node):
+        self.body.append('<header>')
+
+    def depart_slide_header_node(self, node):
+        self.body.append('</header>')
+    
+    def visit_slide_footer_node(self, node):
+        self.body.append('<footer>')
+
+    def depart_slide_footer_node(self, node):
+        self.body.append('</footer>')
+
 class WebslidesWriter(HTMLWriter):
     translator_class = WebslidesTranslator
 
