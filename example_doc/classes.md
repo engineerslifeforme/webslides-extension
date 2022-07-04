@@ -672,3 +672,93 @@ The experience of "beauty" often involves an interpretation of some entity as be
 ````
 `````
 ``````
+
+``````{slide}
+`````{div}
+---
+classes: wrap
+---
+{ph2}`.grid.sms (sidebar + main + sidebar)`
+
+{hr}`a`
+
+````{div}
+---
+classes: grid sms
+---
+```{div}
+---
+classes: column
+---
+{ph3}`.column 1`
+
+Information architecture is considered to have been founded by Richard Saul Wurman.
+```
+```{div}
+---
+classes: column
+---
+{ph3}`.column 2`
+
+Information architecture (IA) is the structural design of shared information environments; the art and science of organizing and labelling websites, intranets, online communities and software to support usability and findability; and an emerging community of practice focused on bringing principles of design and architecture to the digital landscape.
+```
+```{div}
+---
+classes: column
+---
+{ph3}`.column 3`
+
+The difficulty in establishing a common definition for "information architecture" arises partly from the term's existence in multiple fields.
+```
+````
+`````
+``````
+
+```````{slide}
+``````{div}
+---
+classes: wrap
+---
+`````{div}
+---
+classes: card-50 bg-white
+---
+````{div}
+---
+classes: flex-content
+---
+{ph2}`Unsplash`
+
+.card-50.bg-white
+
+```{paragraph}
+---
+classes: text-intro
+---
+
+[Unsplash](http://unsplash.com) is a really cool resource. It is a collection of Creative Commons Zero licensed photos that are really great.
+```
+```{description-list}
+- **Role:** Fronted
+- **Client:** Acme
+- **Year:** 2018
+```
+````
+````{figure} https://source.unsplash.com/rCOWMC8qf8A/
+````
+`````
+``````
+```````
+
+`````{slide}
+````{div}
+---
+classes: wrap
+---
+```{div}
+---
+classes: card-50 bg-white
+---
+```
+````
+`````

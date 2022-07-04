@@ -5,3 +5,4 @@ example_doc/_webslides_build
 *.egg-info
 .vscode
 *_build
+_webslides_builder
