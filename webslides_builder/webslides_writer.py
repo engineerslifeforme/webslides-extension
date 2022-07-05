@@ -2,11 +2,17 @@ from sphinx.writers.html import HTMLWriter
 
 from .slide import SlideTranslator
 from .font_awesome import FontAwesomeTranslator
-from .header import HeadingTranslator
+from .heading import HeadingTranslator
+from .header import HeaderTranslator
 from .div import DivTranslator
 from .span import SpanTranslator
 from .paragraph import ParagraphTranslator
 from .link import LinkTranslator
+from .flexblock import FlexblockTranslator
+from .hr import HRTranslator
+from .description_list import DescriptionListTranslator
+from .preformatted import PreformattedTranslator
+from .footer import FooterTranslator
 
 class WebslidesTranslator(
     SlideTranslator,
@@ -15,6 +21,13 @@ class WebslidesTranslator(
     DivTranslator,
     SpanTranslator,
     ParagraphTranslator,
+    LinkTranslator,
+    FlexblockTranslator,
+    HRTranslator,
+    DescriptionListTranslator,
+    PreformattedTranslator,
+    HeaderTranslator,
+    FooterTranslator,
 ):
 
     def visit_section(self, node):

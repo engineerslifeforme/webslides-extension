@@ -20,5 +20,13 @@ A test again h
 dark-background-image: https://source.unsplash.com/6njoEbtarec/
 ---
 
-third slide a
+third slide b
+```
+
+```{slide}
+---
+horizontal-alignment: right
+---
+
+Some right aligned text
 ```

@@ -14,15 +14,15 @@ from .common import (
     GenericDirective,
 )
 
-TAG = 'header'
+TAG = 'footer'
 
-class header_node(BaseNode): pass
+class footer_node(BaseNode): pass
 
-class HeaderDirective(GenericDirective):
-    node_type = header_node
+class FooterDirective(GenericDirective):
+    node_type = footer_node
 
     def run(self):
-        node = header_node()
+        node = footer_node()
         div = div_wrap_node()
         node += div
         active_node = div
@@ -30,7 +30,6 @@ class HeaderDirective(GenericDirective):
         if ha in self.options:
             requested_alignment = self.options[ha].lower()
             good_alignment = False
-            # TODO: can it do center?
             if requested_alignment == 'right':
                 class_alignment = 'alignright'
                 good_alignment = True
@@ -49,11 +48,11 @@ class HeaderDirective(GenericDirective):
         return [node]
 
 
-def setup_header(app):
-    app.add_node(header_node)
-    app.add_directive('header', HeaderDirective)
+def setup_footer(app):
+    app.add_node(footer_node)
+    app.add_directive('footer', FooterDirective)
 
-class HeaderTranslator(HTMLTranslator):
+class FooterTranslator(HTMLTranslator):
     pass
 
-add_visit_depart(HeaderTranslator, header_node.__name__, TAG)
+add_visit_depart(FooterTranslator, footer_node.__name__, TAG)

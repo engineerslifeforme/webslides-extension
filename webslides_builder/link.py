@@ -11,40 +11,58 @@ from .common import (
     create_directive,
     generic_visit,
     generic_depart,
+    get_node,
+    get_generic_translator_class,
+    add_role_and_directive,
+    BaseNode,
+    BaseClassNode,
+    add_visit_depart,
+    process_style,
 )
 
 TAG = 'a'
 
+class link_node(BaseNode): pass
+class ghost_button_node(BaseClassNode):
+    classes=['ghost', 'button']
+
 def setup_link(app):
-    link_map = {
-        'link': link_node,
-        'ghost-button': ghost_button_node,
-    }
-    for label in link_map:
-        node_type = link_map[label]
-        app.add_node(node_type)
-        app.add_role(label, create_role(node_type))
-        app.add_directive(label, create_directive(node_type))
+    app.add_node(link_node)
+    app.add_node(ghost_button_node)
+    app.add_directive('link', LinkDirective)
+    app.add_directive('ghost-button-link', GhostButtonLinkDirective)
+    app.add_role('ghost-button-link', ghost_button_role)
 
-class link_node(nodes.Element):
-    pass
+class LinkDirective(GenericDirective):
+    required_arguments = 1
+    node_type = link_node
 
-class ghost_button_node(link_node):
+    def run(self):
+        node = super().run()[0]
+        node['target'] = self.arguments[0]
+        return [node]
 
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs):
-        self['classes'] = ['ghost', 'button']
+class GhostButtonLinkDirective(LinkDirective):
+    node_type = ghost_button_node    
+
+def ghost_button_role(name, rawtext, text, lineno, inliner, options={}, content=[]):
+    node = ghost_button_node()
+    node['target'] = text
+    return [node], []
 
 class LinkTranslator(HTMLTranslator):
-
+    
     def visit_link_node(self, node):
-        generic_visit(self, TAG, node)
+        content = f"<{TAG} href=\"{node['target']}\">"
+        content = process_classes(content, node, TAG)
+        content = process_style(content, node, TAG)
+        self.body.append(content)
 
     def depart_link_node(self, node):
         generic_depart(self, TAG)
-    
+
     def visit_ghost_button_node(self, node):
-        generic_visit(self, TAG, node)
+        self.visit_link_node(node)
 
     def depart_ghost_button_node(self, node):
         generic_depart(self, TAG)

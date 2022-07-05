@@ -6,9 +6,12 @@ from sphinx.writers.html import HTMLTranslator
 def setup_fa(app):
     app.add_node(fa_node)
     app.add_node(fa_span_node)
-    app.add_role('fa', fa_role_maker())
-    app.add_role('fa_span', fa_role_maker(span=True))
+    app.add_role('font-awesome', fa_role_maker())
+    app.add_role('font-awesome-span', fa_role_maker(span=True))
     app.add_directive('font-awesome', FontAwesomeDirective)
+    # Convenience
+    app.add_role('fa', fa_role_maker())
+    app.add_role('fa-span', fa_role_maker(span=True))
 
 class fa_node(nodes.Element):
     pass

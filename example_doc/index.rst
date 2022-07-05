@@ -6,7 +6,5 @@
 .. toctree::
    :maxdepth: 2
 
-   content
-   keynote
    classes
 
