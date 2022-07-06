@@ -21,7 +21,7 @@ from .common import (
 
 TAG = 'div'
 
-class div_node(BaseNode): pass
+class div_node(BaseClassNode): pass
 class div_wrap_node(BaseClassNode):
     classes=['wrap']
 class grid_node(BaseClassNode):

@@ -13,6 +13,7 @@ from .hr import HRTranslator
 from .description_list import DescriptionListTranslator
 from .preformatted import PreformattedTranslator
 from .footer import FooterTranslator
+from .figure import FigureTranslator
 
 class WebslidesTranslator(
     SlideTranslator,
@@ -28,6 +29,7 @@ class WebslidesTranslator(
     PreformattedTranslator,
     HeaderTranslator,
     FooterTranslator,
+    #FigureTranslator,
 ):
 
     def visit_section(self, node):

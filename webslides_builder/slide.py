@@ -51,17 +51,19 @@ class Slide(GenericDirective):
 
     def run(self):
         node = slide_node()
-        # Slide Node modifcations
-        active_node = self.set_horizontal_alignment(node)
+        active_node = node
+        # Slide Node modifcations        
+        active_node = self.set_horizontal_alignment(active_node)
         active_node = self.set_vertical_alignment(active_node)
         active_node = self.set_class_options(active_node)
         active_node = self.set_background_color(active_node)
         # Adding child nodes
+        # Background needs to be added before wrap
         active_node = self.set_background_image(active_node)        
         active_node = self.check_wrap(active_node)  
         active_node = self._process_content(active_node)      
         return [node]
-
+    
     def set_background_color(self, node):
         bc = 'background-color'
         if bc in self.options:
@@ -112,6 +114,7 @@ class Slide(GenericDirective):
                 print(f'ERROR: Bad requested content alignment: {requested_alignment}, ignoring...')
             if good_request:
                 active_node += div
+                active_node = div
         return active_node
 
     def set_vertical_alignment(self, node):

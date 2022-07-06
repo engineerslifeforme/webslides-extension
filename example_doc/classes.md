@@ -199,3 +199,149 @@ class: aligncenter size-40
 `img.aligncenter.size-40`
 ```
 ````
+
+```{slide}
+---
+content-alignment: left
+vertical-alignment: top
+wrap: True
+---
+{ph3}`1/9 left top`
+
+Put content wherever you want. Have less. Do more. Create beautiful solutions.
+
+`.slide-top and .content-left`
+```
+
+```{slide}
+---
+content-alignment: center
+vertical-alignment: top
+wrap: True
+---
+{ph3}`2/9 center top`
+
+In a village of La Mancha, the name of which I have no desire to call to mind,
+
+`.slide-top and .content-center`
+```
+
+```{slide}
+---
+content-alignment: right
+vertical-alignment: top
+wrap: True
+---
+{ph3}`3/9 right top`
+
+there lived not long since one of those gentlemen that keep a lance in the lance-rack, an old buckler, a lean hack, and a greyhound for coursing.
+
+`.slide-top and .content-right`
+```
+
+```{slide}
+---
+content-alignment: left
+wrap: True
+---
+{ph3}`4/9 left center`
+
+An olla of rather more beef than mutton, a salad on most nights, scraps on Saturdays,
+
+`.content-left`
+```
+
+```{slide}
+---
+content-alignment: center
+wrap: True
+---
+{ph3}`5/9 center`
+
+lentils on Fridays, and a pigeon or so extra on Sundays, made away with three-quarters of his income.
+
+`.content-center`
+```
+
+```{slide}
+---
+content-alignment: right
+wrap: True
+---
+{ph3}`6/9 right center`
+
+he rest of it went in a doublet of fine cloth and velvet breeches and shoes to match for holidays,
+
+`.content-right`
+```
+
+```{slide}
+---
+vertical-alignment: bottom
+content-alignment: left
+wrap: True
+---
+{ph3}`7/9 left bottom`
+
+while on week-days he made a brave figure in his best homespun.
+
+`.slide-bottom` and `.content-left`
+```
+
+```{slide}
+---
+vertical-alignment: bottom
+content-alignment: center
+wrap: True
+---
+{ph3}`8/9 center bottom`
+
+He had in his house a housekeeper past forty, a niece under twenty, and a lad for the field and market-place,
+
+`.slide-bottom` and `.content-center`
+```
+
+```{slide}
+---
+vertical-alignment: bottom
+content-alignment: right
+wrap: True
+---
+{ph3}`9/9 right bottom`
+
+who used to saddle the hack as well as handle the bill-hook.
+
+`.slide-bottom` and `.content-right`
+```
+
+``````{slide}
+---
+horizontal-alignment: center
+wrap: True
+---
+{ph2}`.grid + .column`
+{ti}`Basic Grid (auto-fill and equal height).`
+`````{grid}
+````{column}
+{ph6}`Why Webslides?`
+
+There're excellent presentation tools out there. WebSlides is about good karma and sharing content. Hypertext, clean code, and beauty as narrative elements.
+
+{ts}`a * * *`
+````
+````{column}
+```{figure} _static/images/setup.png
+---
+class: aligncenter
+---
+```
+````
+````{column}
+{ph6}`How easy is WebSlides?`
+
+You can create your own presentation instantly. Just a basic knowledge of HTML and CSS is required. Simply choose a demo and customize it.
+
+{ts}`a * * *`
+````
+`````
+``````
