@@ -14,6 +14,7 @@ from .description_list import DescriptionListTranslator
 from .preformatted import PreformattedTranslator
 from .footer import FooterTranslator
 from .figure import FigureTranslator
+from .web import WebTranslator
 
 class WebslidesTranslator(
     SlideTranslator,
@@ -29,7 +30,8 @@ class WebslidesTranslator(
     PreformattedTranslator,
     HeaderTranslator,
     FooterTranslator,
-    #FigureTranslator,
+    FigureTranslator,
+    WebTranslator,
 ):
 
     def visit_section(self, node):

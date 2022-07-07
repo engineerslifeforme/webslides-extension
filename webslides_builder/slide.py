@@ -47,6 +47,10 @@ class Slide(GenericDirective):
         'background-color': directives.unchanged,
         'vertical-alignment': directives.unchanged,
         'content-alignment': directives.unchanged,
+        'card-size': directives.unchanged,
+        'card-background': directives.unchanged,
+        'flex-content': directives.unchanged,
+        'full-screen': directives.unchanged,
     })
 
     def run(self):
@@ -57,12 +61,37 @@ class Slide(GenericDirective):
         active_node = self.set_vertical_alignment(active_node)
         active_node = self.set_class_options(active_node)
         active_node = self.set_background_color(active_node)
+        active_node = self.set_full_screen(active_node)
         # Adding child nodes
         # Background needs to be added before wrap
         active_node = self.set_background_image(active_node)        
         active_node = self.check_wrap(active_node)  
+        active_node = self.check_card(active_node)
         active_node = self._process_content(active_node)      
         return [node]
+    
+    def set_full_screen(self, node):
+        fs = 'full-screen'
+        if fs in self.options:
+            node.add_class('fullscreen')
+        return node
+    
+    def check_card(self, node):
+        cs = 'card-size'
+        active_node = node
+        if cs in self.options:
+            # TODO: probably need to verify size against
+            # what is in the CSS
+            requested_size = self.options[cs]
+            div = div_node()
+            node += div
+            div.add_class(f'card-{requested_size}')
+            active_node = div
+            cb = 'card-background'
+            if cb in self.options:
+                div.add_class(self.options[cb])
+        return active_node
+
     
     def set_background_color(self, node):
         bc = 'background-color'

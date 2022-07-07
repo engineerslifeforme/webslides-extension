@@ -47,6 +47,7 @@ def setup_paragraph(app):
     # Convenience label
     add_role_and_directive(app, text_intro_node, 'ti')
     add_role_and_directive(app, text_center_node, 'c')
+    add_role_and_directive(app, text_center_node, 'tsym')
 
 class ParagraphTranslator(HTMLTranslator):
     pass

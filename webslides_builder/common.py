@@ -11,13 +11,28 @@ def add_attribute_to_tag(html: str, tag_name: str, attribute_name: str, value: s
     soup = BeautifulSoup(html, 'html.parser')
     soup.find(tag_name)[attribute_name] = soup.find(tag_name).get(attribute_name, []) + [value]
     # bs4 adds a close tag, removing
-    return str(soup).replace(f'</{tag_name}>', '')
+    try:
+        return str(soup).replace(f'</{tag_name}>', '')
+    except:
+        pass
 
 def process_classes(content: str, node, tag_name: str) -> str:
     for class_name in node['classes']:
         content = add_class_to_tag(
             content, tag_name, class_name
         )
+    return content
+
+def process_attributes(content: str, node, tag_name: str, ) -> str:
+    a = 'attributes' 
+    if a in node:
+        for label in node[a]:
+            content = add_attribute_to_tag(
+                content,
+                tag_name,
+                label,
+                node[a][label],
+            )
     return content
 
 def process_style(content: str, node, tag_name: str) -> str:
@@ -96,6 +111,7 @@ def generic_visit(translator, tag: str, node):
     content = f'<{tag}>'
     content = process_classes(content, node, tag)
     content = process_style(content, node, tag)
+    content = process_attributes(content, node, tag)
     translator.body.append(content)
 
 def generic_depart(translator, tag):

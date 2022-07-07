@@ -30,25 +30,35 @@ class column_node(BaseClassNode):
     classes=['column']
 class center_node(BaseClassNode):
     classes=['aligncenter']
+class flex_content_node(BaseClassNode):
+    classes=['flex-content']
 
+ALLOWED_SIDEBAR_CONFIGS = [
+    'sm', 'ms', 'sms'
+]
 class GridDirective(GenericDirective):
     
     node_type = grid_node
     option_spec = copy.deepcopy(GenericDirective.option_spec)
     option_spec.update({
-        'alignment': directives.unchanged
+        'alignment': directives.unchanged,
+        'sidebar-config': directives.unchanged,
     })
 
     def run(self):
         node = super().run()[0]
         a = 'alignment'
-        if a not in self.options:
-            self.options[a] = 'vertical'
-        requested_alignment = self.options[a]
-        if requested_alignment == 'vertical':
-            node.add_class('vertical-align')
-        else:
-            print(f'ERROR: Unknown grid alignment: {requested_alignment}, ignoring')
+        if a in self.options:
+            requested_alignment = self.options[a]
+            if requested_alignment == 'vertical':
+                node.add_class('vertical-align')
+            else:
+                print(f'ERROR: Unknown grid alignment: {requested_alignment}, ignoring')
+        sc = 'sidebar-config'
+        if sc in self.options:
+            requested_config = self.options[sc].lower()
+            if requested_config in ALLOWED_SIDEBAR_CONFIGS:
+                node.add_class(requested_config)
         return [node]
 
 div_map = {
@@ -56,6 +66,7 @@ div_map = {
     'div-wrap': div_wrap_node,
     'column': column_node,
     'center': center_node,
+    'flex-content': flex_content_node,
 }
 
 def setup_div(app):

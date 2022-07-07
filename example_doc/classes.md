@@ -327,7 +327,7 @@ wrap: True
 
 There're excellent presentation tools out there. WebSlides is about good karma and sharing content. Hypertext, clean code, and beauty as narrative elements.
 
-{ts}`a * * *`
+{tsym}`a * * *`
 ````
 ````{column}
 ```{figure} _static/images/setup.png
@@ -341,7 +341,276 @@ class: aligncenter
 
 You can create your own presentation instantly. Just a basic knowledge of HTML and CSS is required. Simply choose a demo and customize it.
 
-{ts}`a * * *`
+{tsym}`a * * *`
 ````
 `````
 ``````
+
+``````{slide}
+---
+horizontal-alignment: center
+wrap: True
+---
+`````{heading} h2
+.grid.**vertical-align** + .column
+`````
+{ti}`Basic Grid (auto-fill and equal height).`
+`````{grid}
+---
+alignment: vertical
+---
+````{column}
+{ph6}`Why Webslides?`
+
+There're excellent presentation tools out there. WebSlides is about good karma and sharing content. Hypertext, clean code, and beauty as narrative elements.
+
+{tsym}`a* * *`
+````
+````{column}
+```{figure} _static/images/setup.png
+---
+class: aligncenter
+---
+```
+````
+````{column}
+{ph6}`How easy is WebSlides?`
+
+You can create your own presentation instantly. Just a basic knowledge of HTML and CSS is required. Simply choose a demo and customize it.
+
+{tsym}`a* * *`
+````
+`````
+``````
+
+`````{slide}
+---
+wrap: True
+---
+````{heading} h2
+.grid.**sm** (sidebar + main)
+````
+````hr
+````
+````{grid}
+---
+sidebar-config: sm
+---
+```{column}
+{ph3}`.column 1`
+
+Stendhal syndrome is a psychosomatic disorder that causes rapid heartbeat, dizziness, fainting, confusion and even hallucinations when an individual is exposed to an experience of great personal significance, particularly viewing art.
+
+```
+```{column}
+{ph3}`.column 2`
+
+The illness is named after the 19th-century French author Stendhal (pseudonym of Marie-Henri Beyle), who described his experience with the phenomenon during his 1817 visit to Florence in his book Naples and Florence: A Journey from Milan to Reggio.
+
+When he visited the Basilica of Santa Croce, where Niccolò Machiavelli, Michelangelo and Galileo Galilei are buried, he saw Giotto's frescoes for the first time and was overcome with emotion.
+```
+````
+`````
+
+`````{slide}
+---
+wrap: True
+---
+````{heading} h2
+.grid.**ms** (main +  sidebar)
+````
+````hr
+````
+````{grid}
+---
+sidebar-config: ms
+---
+```{column}
+{ph3}`.column 1`
+
+Beauty is a characteristic of an animal, idea, object, person or place that provides a perceptual experience of pleasure or satisfaction. Beauty is studied as part of aesthetics, culture, social psychology and sociology. 
+
+An "ideal beauty" is an entity which is admired, or possesses features widely attributed to beauty in a particular culture, for perfection.
+```
+```{column}
+{ph3}`.column 2`
+
+The experience of "beauty" often involves an interpretation of some entity as being in balance and harmony with nature, which may lead to feelings of attraction and emotional well-being.
+```
+````
+`````
+
+`````{slide}
+---
+wrap: True
+---
+````{heading} h2
+.grid.**sms** (sidebar + main + sidebar)
+````
+````{hr}
+````
+````{grid}
+---
+sidebar-config: sms
+---
+```{column}
+{ph3}`.column 1`
+
+Information architecture is considered to have been founded by Richard Saul Wurman.
+```
+```{column}
+{ph3}`.column 2`
+
+Information architecture (IA) is the structural design of shared information environments; the art and science of organizing and labelling websites, intranets, online communities and software to support usability and findability; and an emerging community of practice focused on bringing principles of design and architecture to the digital landscape.
+```
+```{column}
+{ph3}`.column 3`
+
+The difficulty in establishing a common definition for "information architecture" arises partly from the term's existence in multiple fields.
+```
+````
+`````
+
+`````{slide}
+---
+wrap: True
+card-size: 50
+card-background: bg-white
+---
+````{flex-content}
+{ph2}`Unsplash`
+
+.card-50.bg-white
+
+```{ti}
+[Unsplash](http://unsplash.com) is a really cool resource. It is a collection of Creative Commons Zero licensed photos that are really great.
+```
+
+```{description-list}
+- **Role:** Fronted
+- **Client:** Acme
+- **Year:** 2018
+```
+````
+````{figure} https://source.unsplash.com/rCOWMC8qf8A/
+````
+`````
+
+`````{slide}
+---
+wrap: True
+card-size: 50
+card-background: bg-white
+---
+````{web} https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1241.8442158987712!2d-0.1268272!3d51.5005848!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487604c38c8cd1d9%3A0xb78f2474b9a45aa9!2sBig+Ben!5e0!3m2!1ses!2ses!4v1491497625579
+```{link} https://maps.google.com
+{fa}`fa-maps` Google Maps
+```
+````
+````{flex-content}
+{ph2}`Discover London`
+
+.card-50.bg-white
+
+```{description-list}
+- **Density:** 5,518/km
+- **Population:** 8,673,713
+- **Website:** [visitlondon.com](http://www.visitlondon.com/)
+
+There are many reasons to visit London. London has a diverse range of people and cultures, and more than 300 languages are spoken in the region.
+```
+````
+`````
+
+````{slide}
+---
+full-screen: True
+card-size: 50
+---
+```{figure} https://source.unsplash.com/8lODM_TYmkI/800x600
+Yosemite National Park
+```
+```{flex-content}
+{ph2}`What is inspiration?`
+
+In Greek thought, inspiration meant that the poet or artist would go into ecstasy or furor poeticus, the divine frenzy or poetic madness. The Muses are the inspirational goddesses of literature, science, and the arts in Greek mythology.
+```
+````
+
+```{slide}
+---
+horizontal-alignment: center
+background-color: bg-apple
+---
+{ph1}`Backgrounds` 
+
+`<section class="bg-apple">`
+```
+
+```{slide}
+
+I'm not sure how to handle the classes on list items in a not
+painful way
+```
+
+````{slide}
+---
+background-color: bg-gradient-h
+wrap: True
+---
+{ph1}`Gradients`
+```{flexblock-border}
+- Horizontal `.bg-gradient-h`
+- Radial `.bg-gradient-r`
+- Vertical `.bg-gradient-v`
+```
+````
+
+```{slide}
+---
+background-color: bg-gradient-h
+wrap: True
+horizontal-alignment: center
+---
+{ph1}`Horizontal Gradient`
+
+`section.bg-gradient-h`
+```
+
+```{slide}
+---
+background-color: bg-gradient-r
+wrap: True
+horizontal-alignment: center
+---
+{ph1}`Radial Gradient`
+
+`section.bg-gradient-r`
+```
+
+```{slide}
+---
+background-color: bg-gradient-v
+wrap: True
+horizontal-alignment: center
+---
+{ph1}`Vertical Gradient`
+
+`section.bg-gradient-v`
+```
+
+`````{slide}
+---
+wrap: True
+wrap-size: 60
+---
+{ph3}`Background Videos`
+````{pre}
+```
+<video class="background-video" autoplay muted loop poster="image.jpg">
+  <source src="video.mp4" type="video/mp4">
+</video>
+```
+````
+`.background-video`
+`````

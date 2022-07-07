@@ -9,17 +9,24 @@ from .common import (
 )
 
 TAG = 'figure'
+CAPTION_TAG = 'figcaption'
+
+# TODO: The Figure directive will need to be replaced
+# to allow complex caption contents like links and svg
 
 class FigureTranslator(HTMLTranslator):
-    """ Figure directive works fine EXCEPT
-    webslides uses a "figure" tag around the
-    normal stuff
-    """
-
+    """ webslides needs a figure tag
+    around the image.  No super() because
+    visit_figure adds a div that ruins things"""
+    
     def visit_figure(self, node):
         generic_visit(self, TAG, node)
-        super().visit_figure(node)
 
     def depart_figure(self, node):
         generic_depart(self, TAG)
-        super().depart_figure(node)
+
+    def visit_caption(self, node):
+        generic_visit(self, CAPTION_TAG, node)
+
+    def depart_caption(self, node):
+        generic_depart(self, CAPTION_TAG)
