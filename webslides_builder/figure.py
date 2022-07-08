@@ -13,6 +13,7 @@ CAPTION_TAG = 'figcaption'
 
 # TODO: The Figure directive will need to be replaced
 # to allow complex caption contents like links and svg
+# The legend functionality is also problematic
 
 class FigureTranslator(HTMLTranslator):
     """ webslides needs a figure tag

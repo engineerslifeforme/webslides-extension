@@ -746,3 +746,207 @@ wrap: True
 ---
 {ph2}`.background.anim`
 ```
+
+````{slide}
+---
+horizontal-alignment: center
+wrap: True
+---
+```{heading} h2
+**Flexible blocks**
+```
+`ul.flexblock` = Flexible blocks with auto-fill and equal height.
+```{hr}
+```
+```{flexblock}
+- **{fa}`fa-bar-chart` .flexblock li 1**
+  
+  Multipurpose: servies, features, specs...
+- **{fa}`fa-balance-scale` .flexblock li 2**
+  
+  Multipurpose: benefits, clients, work...
+- **{fa}`fa-cog` .flexblock li 3**
+  
+  Multipurpose: news, metrics, plans...
+```
+````
+
+```{slide}
+Skipped how to write in html slide
+```
+
+```{slide}
+Skipped blink vs without, could not see a difference
+
+Other than the bottom seems to a be link, maybe, cursor changes
+```
+
+````{slide}
+---
+wrap: True
+---
+{ph3}`ul.flexblock.blink.border`
+```{flexblock-border}
+- {ph3}`Google` 2016.- Google Drive
+- **Facebook** 2016.- F8 Conference
+- **Airbnb**2015.- Creative Direction
+- **Microsoft** 2015.- Content Strategy
+- **The New York Times**2015.- Recruitment
+- **Netflix** 2014.- Mobile Apps
+- **Instagram**2014.- Identity
+- **Spotify** 2013.- TV Commercials
+```
+````
+
+`````{slide}
+---
+wrap: True
+---
+{ph2}`Clients`
+
+`ul.flexblock.clients`
+````{flexblock-clients}
+- ```{figure} _static/images/logos/google.svg
+  ---
+  class: blacklogo
+  ---
+  {ph3}`Interfaces`
+
+  Collaboration with the Acme team to design their mobile apps. `img.blacklogo`
+  ```
+- ```{figure} _static/images/logos/microsoft.svg
+  ---
+  class: blacklogo
+  ---
+  {ph3}`Interfaces`
+
+  Collaboration with the Acme team to design their mobile apps. `img.blacklogo`
+  ```
+- ```{figure} _static/images/logos/instagram.svg
+  ---
+  class: blacklogo
+  ---
+  {ph3}`Interfaces`
+
+  Collaboration with the Acme team to design their mobile apps. `img.blacklogo`
+  ```
+- ```{figure} _static/images/logos/netflix.svg
+  ---
+  class: blacklogo
+  ---
+  {ph3}`Interfaces`
+
+  Collaboration with the Acme team to design their mobile apps. `img.blacklogo`
+  ```
+````
+`````
+
+`````{slide}
+---
+wrap: True
+---
+{ph3}`ul.flexblock.features`
+````{flexblock-features}
+- ```{heading} h2
+  {span}`100%` customizable` 
+  ```
+  Well documented.
+- {span}`$48` {ph2}`Extra virgin olive oil` The Spanish caviar.
+- ```{heading} h2
+  {fa}`fa-wifi` Ultra-fast Wifi
+  ```
+  Simple file sharing.
+````
+````{hr}
+````
+{ph3}`ul.flexblock.features.blink`
+````{flexblock-features}
+- {span}`$48` {ph2}`Extra virgin olive oil` The Spanish caviar.
+- ```{heading} h2
+  {fa}`fa-wifi` Ultra-fast Wifi
+  ```
+  Simple file sharing.
+````
+`````
+
+`````{slide}
+---
+wrap: True
+background-color: bg-primary
+---
+{ph3}`ul.flexblock.gallery`
+````{flexblock-gallery}
+- ```{figure} https://source.unsplash.com/vCF5sB7QecM/800x600
+  {ph2}`uWatch` By Jan Doe
+  ```
+- ```{figure} https://source.unsplash.com/yvx7LSZSzeo/800x600
+  {ph2}`Ellen Daniels` CEO
+  ```
+- ```{figure} https://source.unsplash.com/-sQ4FsomXEs/800x600
+  {ph2}`New York` 3.456 rooms
+  ```
+````
+`````
+
+`````{slide}
+---
+wrap: True
+---
+{ph3}`ul.flexblock.gallery + .overlay`
+````{flexblock-gallery}
+- ```{overlay}
+  {ph2}`uWatch` By Jan Doe
+  ```
+  ![Thumbnail](https://source.unsplash.com/vCF5sB7QecM/800x600)
+- ```{overlay} 
+  {ph2}`Ellen Daniels` CEO
+  ```
+  ![Thumbnail](https://source.unsplash.com/yvx7LSZSzeo/800x600)
+- ```{overlay} 
+  {ph2}`New York` 3.456 rooms
+  ```
+  ![Thumbnail](https://source.unsplash.com/-sQ4FsomXEs/800x600)
+````
+`````
+
+```{slide}
+Already shown metrics
+```
+
+```{slide}
+skipping the plans stuff for now
+```
+
+`````{slide}
+---
+card-size: 50
+---
+````{flex-content}
+{ph3}`ul.flexblock.specs`
+```{flexblock-spec}
+- {fa}`fa-wifi` {ph2}`Ultra-Fast Wifi` Simple and secure file sharing.
+- {fa}`fa-battery-full` {ph2}`All day battery life` Your battery worries may be over.
+- {fa}`fa-life-ring` {ph2}`Lifetime Warranty` We'll fix it or if we can't, we'll replace it.
+```
+````
+````{figure} _static/images/android.png
+---
+class: aligncenter
+---
+````
+`````
+
+````{slide}
+---
+background-color: bg-gradient-gray
+wrap: True
+wrap-size: 50
+---
+{ph3}`.flexblock.reasons`
+```{hr}
+```
+```{flexblock-reasons}
+- {ph2}`Why WebSlides? Work better, faster.` Designers and marketers can now focus on the content. Simply <a href="../demos" title="WebSlides Demos">choose a demo</a> and customize it in minutes. Be memorable!
+- {ph2}`Good karma. Just the essentials and using lovely CSS.` WebSlides is about telling the story, and sharing it in a beautiful way. Hypertext and clean code as narrative elements.
+```
+````
