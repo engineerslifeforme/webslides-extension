@@ -58,6 +58,7 @@ class Slide(GenericDirective):
         'background-video': directives.unchanged,
         'background-video-poster': directives.unchanged,
         'background-video-dark': directives.unchanged,
+        'text-serif': directives.unchanged,
     })
 
     def run(self):
@@ -69,6 +70,7 @@ class Slide(GenericDirective):
         active_node = self.set_class_options(active_node)
         active_node = self.set_background_color(active_node)
         active_node = self.set_full_screen(active_node)
+        active_node = self.set_text_serif(active_node)
         # Adding child nodes
         # Add before wrap
         active_node = self.set_background_image(active_node)        
@@ -106,6 +108,12 @@ class Slide(GenericDirective):
         bc = 'background-color'
         if bc in self.options:
             node.add_class(self.options[bc])
+        return node
+
+    def set_text_serif(self, node):
+        ts = 'text-serif'
+        if ts in self.options:
+            node.add_class('text-serif')
         return node
 
     def set_background_video(self, node):

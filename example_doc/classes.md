@@ -946,7 +946,260 @@ wrap-size: 50
 ```{hr}
 ```
 ```{flexblock-reasons}
-- {ph2}`Why WebSlides? Work better, faster.` Designers and marketers can now focus on the content. Simply <a href="../demos" title="WebSlides Demos">choose a demo</a> and customize it in minutes. Be memorable!
+- {ph2}`Why WebSlides? Work better, faster.` Designers and marketers can now focus on the content. Simply choose a demo and customize it in minutes. Be memorable!
 - {ph2}`Good karma. Just the essentials and using lovely CSS.` WebSlides is about telling the story, and sharing it in a beautiful way. Hypertext and clean code as narrative elements.
 ```
 ````
+
+`````{slide}
+---
+wrap: True
+---
+{ph3}`ul.flexblock.steps`
+````{flexblock-steps}
+- ```{span}
+  {fa}`fa-heartbeat`
+  ```
+  {ph2}`01. Passion` When you're really passionate about your job, you can change the world.
+- ```{process-step} 2
+  ```
+  ```{span}
+  {fa}`fa-magic`
+  ```
+  {ph2}`02. Purpose` Why does this business exist? How are you different? Why matters?
+- ```{process-step} 3
+  ```
+  ```{span}
+  {fa}`fa-balance-scale`
+  ```
+  {ph2}`03. Principles` Leadership through usefulness, openness, empathy, and good taste.
+- ```{process-step} 4
+  ```
+  ```{span}
+  {fa}`fa-cog`
+  ```
+  {ph2}`04. Process`
+  - Useful
+  - Easy
+  - Fast
+  - Beautiful
+````
+`````
+
+````{slide}
+---
+wrap: True
+---
+{ph3}`ul.flexblock.activity`
+```{flexblock-activity}
+- {year}`2016` {title}`UX Designer at ACME` {summary}`This is a job description for the UX Designer role at ACME. Be concise. Content like a tweet: 2-3 lines recommended.`
+- {year}`2 mins ago` {title}`14 world famous buildings to inspire you` {summary}`From the Colosseum to the Chrysler building, get a dose of inspiration from 14 of the world's most famous buildings.`
+- {year}`2013` {title}`Co-Founder of GAMMA` {summary}`The culture within an organization is an essential part for success. This is a job description. Be concise. 2-3 lines recommended.`
+```
+````
+
+``````{slide}
+---
+wrap: True
+---
+`````{cta}
+````{number}
+{span}`Ag`
+````
+````{benefit}
+```{tsub}
+Roboto in [Google Fonts](https://www.google.com/fonts#QuickUsePlace:quickUse/Family:Roboto:400,700,700italic,400italic,300,300italic)
+```
+```{heading} h3
+**The quick brown fox jumps over the lazy dog**
+```
+
+ABCDEFGHIJKLMNOPQRSTUVWXYZ
+
+abcdefghijklmnopqrstuvwxyz
+
+1234567890(,.;:?!$&*)
+````
+`````
+``````
+
+```{slide}
+---
+wrap: True
+horizontal-alignment: center
+---
+{tlh1}`Landings` `.text-landing`
+```
+
+```{slide}
+---
+wrap: True
+horizontal-alignment: center
+---
+{tlh1}`Landings` {ti}`Create a simple web presence.` `.text-intro`
+```
+
+````{slide}
+---
+wrap: True
+horizontal-alignment: center
+---
+```{tsub}
+Powered by [#WebSlides](https://twitter.com/search?f=tweets&vertical=default&q=%23WebSlides&src=typd)
+```
+`.text-subtitle`
+{tlh1}`Landings` {ti}`Create a simple web presence.`
+````
+
+````{slide}
+---
+horizontal-alignment: center
+background-color: bg-black
+background-image: https://source.unsplash.com/C1HhAQrbykQ/
+wrap: True
+---
+```{text-landing} h1
+---
+classes: text-shadow
+---
+**Landings**
+```
+```{text-intro}
+`.text-shadow`
+```
+````
+
+````{slide}
+---
+background-color: bg-apple
+horizontal-alignment: center
+---
+```{heading} h2
+---
+classes: text-data
+---
+4,235,678
+```
+`.text-data`
+````
+
+```{slide}
+---
+wrap: True
+---
+{tc}`Why WebSlides? .text-context` {ph2}`WebSlides is incredibly easy and versatile. The easiest way to make HTML presentations.`
+```
+
+````{slide}
+---
+wrap: True
+---
+`.text-cols (2 columns)`
+```{text-cols-div}
+**Why WebSlides?** There are excellent presentation tools out there. WebSlides is about sharing content, essential features, and clean markup. **Each parent `<section>`** in the #webslides element is an individual slide.
+
+**WebSlides help you build a culture of innovation and excellence.** When you're really passionate about your job, you can change the world. How to manage a design-driven organization? Leadership through usefulness, openness, empathy, and good taste.
+```
+```{flexblock-metrics}
+- {fa}`fa-phone` Call us at 555.345.6789
+- {fa}`fa-twitter` @username
+- {fa}`fa-envelope` Send us an email
+```
+````
+
+``````{slide}
+---
+wrap: True
+---
+`````{grid}
+---
+alignment: vertical
+---
+````{column}
+{ph2}`A Phone by Google` {ti}`Pixel's camera lets you take brilliant photos in low light, bright light or any light.`
+```{description-list}
+- {tl}`.text-label:` Google (2016).
+- {tl}`Services:` Industrial Design.
+- {tl}`Website:` [madeby.google.com/phone/](https://madeby.google.com/phone/)
+````
+````{column}
+```{figure} _static/images/android.png
+```
+````
+`````
+``````
+
+```{slide}
+Skipping `text-serif` slide
+```
+
+````{slide}
+---
+text-serif: True
+horizontal-alignment: center
+wrap: True
+---
+```{content-left}
+{ph2}`WebSlides is incredibly easy and versatile.` `.text-serif` (Maitree)
+```
+```{content-left}
+Each parent `<section>` in the #webslides element is an individual slide.
+
+Clean markup with popular naming conventions. Minimum effort. Just focus on your content.
+```
+````
+
+````{slide}
+---
+wrap: True
+wrap-size: 50
+---
+```{heading} h3
+**What is Stendhal Syndrome?**
+```
+```{text-intro}
+Beauty overdose. `.text-pull-right`
+```
+Imagine that you are in Florence. If you suddenly start to feel that you literally cannot breathe, you may be experiencing Stendhal Syndrome.
+{tpr}`Psychiatrists have long debated whether it really exists.`
+
+The syndrome is not only associated with viewing a beautiful place, but also good art. 
+
+The beauty of Italian art has a concentrated perfection and transcendent sensuality that is incredibly addictive.
+
+{tsym}`a* * *`
+````
+
+```{slide}
+---
+background-color: bg-apple
+horizontal-alignment: center
+---
+{ph2}`One more thing...` 
+
+`.text-apple / .bg-apple`
+```
+
+`````{slide}
+---
+horizontal-alignment: center
+wrap: True
+---
+````{flexblock-gallery}
+- ```{figure} https://webslides.tv/static/images/demos-why.png  
+  ```
+  {ph2}`Why WebSlides?`
+- ```{figure} https://webslides.tv/static/images/demos-landings.png
+  ```
+  {ph2}`Landings`
+- ```{figure} https://webslides.tv/static/images/demos-portfolios.png
+  ```
+  {ph2}`Portfolios`
+- ```{figure} https://webslides.tv/static/images/demos-apple.png
+  ```
+  {ph2}`Appple Keynote`
+````
+`````
+  
+
+

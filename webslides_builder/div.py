@@ -36,6 +36,34 @@ class content_left_node(BaseClassNode):
     classes=['content-left']
 class overlay_node(BaseClassNode):
     classes=['overlay']
+class cta_node(BaseClassNode):
+    classes=['cta']
+class number_node(BaseClassNode):
+    classes=['number']
+class benefit_node(BaseClassNode):
+    classes=['benefit']
+class text_cols_div_node(BaseClassNode):
+    classes=['text-cols']
+class process_step_node(BaseClassNode):
+    classes=['process']
+
+    def __init__(self, *args, step_number: int = None, **kwargs):
+        super().__init__(*args, **kwargs)
+        if step_number is not None:
+            self.add_step_number(step_number)
+
+    def add_step_number(self, step_number: int):
+        self.add_class(f"step-{step_number}")
+
+class ProcessStepDirective(GenericDirective):
+    required_arguments = 1
+    node_type = process_step_node
+
+    def run(self):
+        node = super().run()[0]
+        node.add_step_number(self.arguments[0])
+        return [node]
+
 
 ALLOWED_SIDEBAR_CONFIGS = [
     'sm', 'ms', 'sms'
@@ -73,7 +101,16 @@ div_map = {
     'flex-content': flex_content_node,
     'content-left': content_left_node,
     'overlay': overlay_node,
+    'cta': cta_node,
+    'number': number_node,
+    'benefit': benefit_node,
+    'text-cols-div': text_cols_div_node,
 }
+
+def process_step_role(name, rawtext, text, lineno, inliner, options={}, content=[]):
+    node = process_step_node()
+    node.add_step_number(int(text))
+    return [node], []
 
 def setup_div(app):
     for label in div_map:
@@ -81,12 +118,18 @@ def setup_div(app):
         app.add_node(node_type)
         add_role_and_directive(app, node_type, label)
     app.add_node(grid_node)
+    app.add_node(process_step_node)
     app.add_directive('grid', GridDirective)
+    app.add_directive('process-step', ProcessStepDirective)
+    app.add_role('process-step', process_step_role)
+    # Convenience
+    app.add_role('ps', process_step_role)
 
 class DivTranslator(HTMLTranslator):
     pass
 
 add_visit_depart(DivTranslator, grid_node.__name__, TAG)
+add_visit_depart(DivTranslator, process_step_node.__name__, TAG)
 for node_type in div_map.values():
     add_visit_depart(DivTranslator, node_type.__name__, TAG)
 

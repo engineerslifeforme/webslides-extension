@@ -84,7 +84,7 @@ class GenericDirective(SphinxDirective):
         if 'classes' not in node:
             node['classes'] = []
         if 'classes' in self.options:
-            node['classes'] = self.options['classes'].split(' ')
+            node['classes'] = node['classes'] + self.options['classes'].split(' ')
         return node
 
     def set_horizontal_alignment(self, node):

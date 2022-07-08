@@ -107,6 +107,7 @@ def setup_span(app):
     add_role_and_directive(app, span_node, 'span')
     app.add_role('span-raw', raw_span_role)
     add_role_and_directive(app, text_label_node, 'text-label')
+    add_role_and_directive(app, text_label_node, 'tl')
     app.add_directive('background-image', BackgroundImageDirective)
     app.add_role('background-image', create_role(background_node))
     

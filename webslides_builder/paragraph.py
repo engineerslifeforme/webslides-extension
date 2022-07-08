@@ -30,6 +30,16 @@ class text_intro_node(BaseClassNode, paragraph_node):
     classes=['text-intro']
 class text_center_node(BaseClassNode, paragraph_node):
     classes=['aligncenter']
+class text_year_node(BaseClassNode, paragraph_node):
+    classes=['year']
+class text_title_node(BaseClassNode, paragraph_node):
+    classes=['title']
+class text_summary_node(BaseClassNode, paragraph_node):
+    classes=['summary']
+class text_context_node(BaseClassNode, paragraph_node):
+    classes=['text-context']
+class text_pull_right_node(BaseClassNode, paragraph_node):
+    classes=['text-pull-right']
 
 paragraph_map = {
     'paragraph': paragraph_node,
@@ -37,6 +47,11 @@ paragraph_map = {
     'text-symbols': text_symbols_node,
     'text-intro': text_intro_node,
     'text-center': text_center_node,
+    'year': text_year_node,
+    'title': text_title_node,
+    'summary': text_summary_node,
+    'text-context': text_context_node,
+    'text-pull-right': text_pull_right_node,
 }
 
 def setup_paragraph(app):
@@ -48,6 +63,9 @@ def setup_paragraph(app):
     add_role_and_directive(app, text_intro_node, 'ti')
     add_role_and_directive(app, text_center_node, 'c')
     add_role_and_directive(app, text_center_node, 'tsym')
+    add_role_and_directive(app, text_subtitle_node, 'tsub')
+    add_role_and_directive(app, text_context_node, 'tc')
+    add_role_and_directive(app, text_pull_right_node, 'tpr')
 
 class ParagraphTranslator(HTMLTranslator):
     pass

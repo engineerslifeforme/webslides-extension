@@ -16,7 +16,7 @@ from .common import (
     BaseNode,
 )
 
-class pseudo_heading_node(BaseNode): pass
+class pseudo_heading_node(BaseClassNode): pass
 class text_landing_node(BaseClassNode):
     classes=['text-landing']
 

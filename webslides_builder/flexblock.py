@@ -17,10 +17,16 @@ class flexblock_list_border_node(BaseClassNode, flexblock_list_node):
     classes = ['border']
 class flexblock_list_reasons_node(BaseClassNode, flexblock_list_node):
     classes = ['reasons']
+class flexblock_list_steps_node(BaseClassNode, flexblock_list_node):
+    classes = ['steps']
 class flexblock_list_clients_node(BaseClassNode, flexblock_list_node):
     classes = ['clients']
 class flexblock_list_features_node(BaseClassNode, flexblock_list_node):
     classes = ['features']
+class flexblock_list_metrics_node(BaseClassNode, flexblock_list_node):
+    classes = ['metrics']
+class flexblock_list_activity_node(BaseClassNode, flexblock_list_node):
+    classes = ['activity']
 class flexblock_list_gallery_node(BaseClassNode, flexblock_list_node):
     classes = ['gallery']
 class flexblock_list_spec_node(BaseClassNode, flexblock_list_node):
@@ -33,10 +39,16 @@ class FlexblockBorderDirective(GenericDirective):
     node_type = flexblock_list_border_node
 class FlexblockReasonsDirective(GenericDirective):
     node_type = flexblock_list_reasons_node
+class FlexblockStepsDirective(GenericDirective):
+    node_type = flexblock_list_steps_node
 class FlexblockClientsDirective(GenericDirective):
     node_type = flexblock_list_clients_node
 class FlexblockFeaturesDirective(GenericDirective):
     node_type = flexblock_list_features_node
+class FlexblockMetricsDirective(GenericDirective):
+    node_type = flexblock_list_metrics_node
+class FlexblockActivityDirective(GenericDirective):
+    node_type = flexblock_list_activity_node
 class FlexblockGalleryDirective(GenericDirective):
     node_type = flexblock_list_gallery_node
 class FlexblockSpecDirective(GenericDirective):
@@ -48,16 +60,22 @@ def setup_flexblock(app):
     app.add_node(flexblock_list_node)
     app.add_node(flexblock_list_border_node)
     app.add_node(flexblock_list_reasons_node)
+    app.add_node(flexblock_list_steps_node)
     app.add_node(flexblock_list_clients_node)
     app.add_node(flexblock_list_features_node)
+    app.add_node(flexblock_list_metrics_node)
+    app.add_node(flexblock_list_activity_node)
     app.add_node(flexblock_list_gallery_node)
     app.add_node(flexblock_list_spec_node)
     app.add_node(text_cols_list_node)
     app.add_directive('flexblock', FlexblockDirective)
     app.add_directive('flexblock-border', FlexblockBorderDirective)
     app.add_directive('flexblock-reasons', FlexblockReasonsDirective)
+    app.add_directive('flexblock-steps', FlexblockStepsDirective)
     app.add_directive('flexblock-clients', FlexblockClientsDirective)
     app.add_directive('flexblock-features', FlexblockFeaturesDirective)
+    app.add_directive('flexblock-metrics', FlexblockMetricsDirective)
+    app.add_directive('flexblock-activity', FlexblockActivityDirective)
     app.add_directive('flexblock-gallery', FlexblockGalleryDirective)
     app.add_directive('flexblock-spec', FlexblockSpecDirective)
     app.add_directive('text-cols', TextColsDirective)
@@ -90,6 +108,12 @@ class FlexblockTranslator(HTMLTranslator):
         self.depart_flexblock_list_node(node)
         self.body.append("</div>")
     
+    def visit_flexblock_list_steps_node(self, node):
+        self.visit_flexblock_list_node(node)
+
+    def depart_flexblock_list_steps_node(self, node):
+        self.depart_flexblock_list_node(node)
+        
     def visit_flexblock_list_clients_node(self, node):
         self.visit_flexblock_list_node(node)
 
@@ -101,6 +125,22 @@ class FlexblockTranslator(HTMLTranslator):
         self.visit_flexblock_list_node(node)
 
     def depart_flexblock_list_features_node(self, node):
+        self.flexblock_div_open = False
+        self.depart_flexblock_list_node(node)
+    
+    def visit_flexblock_list_metrics_node(self, node):
+        self.flexblock_div_open = True
+        self.visit_flexblock_list_node(node)
+
+    def depart_flexblock_list_metrics_node(self, node):
+        self.flexblock_div_open = False
+        self.depart_flexblock_list_node(node)
+    
+    def visit_flexblock_list_activity_node(self, node):
+        self.flexblock_div_open = True
+        self.visit_flexblock_list_node(node)
+
+    def depart_flexblock_list_activity_node(self, node):
         self.flexblock_div_open = False
         self.depart_flexblock_list_node(node)
     
