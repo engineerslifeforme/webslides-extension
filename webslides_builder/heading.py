@@ -1,3 +1,5 @@
+from copy import deepcopy
+
 from sphinx.util.docutils import SphinxDirective
 from docutils import nodes
 from docutils.parsers.rst import directives
@@ -56,6 +58,16 @@ class HeadingDirective(GenericDirective):
 
 class TextLandingDirective(HeadingDirective):
     node_type = text_landing_node
+    option_spec = deepcopy(HeadingDirective.option_spec)
+    option_spec.update({
+        'shadow': directives.unchanged,
+    })
+
+    def run(self):
+        node = super().run()[0]
+        if 'shadow' in self.options:
+            node.add_class('text-shadow')
+        return [node]
 
 class HeadingTranslator(HTMLTranslator):
 

@@ -9,12 +9,14 @@ def add_class_to_tag(html: str, tag_name: str, class_name: str) -> str:
 
 def add_attribute_to_tag(html: str, tag_name: str, attribute_name: str, value: str) -> str:
     soup = BeautifulSoup(html, 'html.parser')
-    soup.find(tag_name)[attribute_name] = soup.find(tag_name).get(attribute_name, []) + [value]
+    # value None is for attributes that do not assign
+    if value is None:
+        result = None
+    else:
+        result = soup.find(tag_name).get(attribute_name, []) + [value]
+    soup.find(tag_name)[attribute_name] = result
     # bs4 adds a close tag, removing
-    try:
-        return str(soup).replace(f'</{tag_name}>', '')
-    except:
-        pass
+    return str(soup).replace(f'</{tag_name}>', '')
 
 def process_classes(content: str, node, tag_name: str) -> str:
     for class_name in node['classes']:
@@ -190,3 +192,10 @@ class BaseClassNode(BaseNode):
 
     def add_class(self, class_name: str):
         self['classes'] = self['classes'] + [class_name]
+
+    def add_attributes(self, attribute_dict):
+        a = 'attributes'
+        if a in self:
+            self[a].update(attribute_dict)
+        else:
+            self[a] = attribute_dict

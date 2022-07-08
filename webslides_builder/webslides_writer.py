@@ -15,6 +15,7 @@ from .preformatted import PreformattedTranslator
 from .footer import FooterTranslator
 from .figure import FigureTranslator
 from .web import WebTranslator
+from .video import VideoTranslator
 
 class WebslidesTranslator(
     SlideTranslator,
@@ -32,6 +33,7 @@ class WebslidesTranslator(
     FooterTranslator,
     FigureTranslator,
     WebTranslator,
+    VideoTranslator,
 ):
 
     def visit_section(self, node):

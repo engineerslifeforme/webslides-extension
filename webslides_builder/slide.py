@@ -6,7 +6,8 @@ from docutils.parsers.rst import directives
 from sphinx.writers.html import HTMLTranslator
 
 from .div import div_wrap_node, div_node
-from .span import background_node, dark_background_node
+from .span import background_node
+from .video import video_node
 from .common import (
     add_class_to_tag,
     process_classes,
@@ -44,6 +45,9 @@ class Slide(GenericDirective):
         'wrap-size': directives.unchanged,
         'background-image': directives.unchanged,
         'dark-background-image': directives.unchanged,
+        'light-background-image': directives.unchanged,
+        'background-image-location': directives.unchanged,
+        'background-image-animation': directives.unchanged,
         'background-color': directives.unchanged,
         'vertical-alignment': directives.unchanged,
         'content-alignment': directives.unchanged,
@@ -51,6 +55,9 @@ class Slide(GenericDirective):
         'card-background': directives.unchanged,
         'flex-content': directives.unchanged,
         'full-screen': directives.unchanged,
+        'background-video': directives.unchanged,
+        'background-video-poster': directives.unchanged,
+        'background-video-dark': directives.unchanged,
     })
 
     def run(self):
@@ -63,9 +70,12 @@ class Slide(GenericDirective):
         active_node = self.set_background_color(active_node)
         active_node = self.set_full_screen(active_node)
         # Adding child nodes
-        # Background needs to be added before wrap
+        # Add before wrap
         active_node = self.set_background_image(active_node)        
+        active_node = self.set_background_video(active_node)
+        # wrap
         active_node = self.check_wrap(active_node)  
+        # after wrap
         active_node = self.check_card(active_node)
         active_node = self._process_content(active_node)      
         return [node]
@@ -91,12 +101,23 @@ class Slide(GenericDirective):
             if cb in self.options:
                 div.add_class(self.options[cb])
         return active_node
-
     
     def set_background_color(self, node):
         bc = 'background-color'
         if bc in self.options:
             node.add_class(self.options[bc])
+        return node
+
+    def set_background_video(self, node):
+        bv = 'background-video'
+        bvp = 'background-video-poster'
+        if bv in self.options:
+            video = video_node(
+                poster_target=self.options[bvp],
+                video_target=self.options[bv],
+                dark=('background-video-dark' in self.options),
+            )
+            node += video
         return node
 
     def set_background_image(self, node):
@@ -107,13 +128,15 @@ class Slide(GenericDirective):
                 self.options[bi]
             )
             node += background
-        dbi = 'dark-background-image'
-        if dbi in self.options:
-            background = dark_background_node()
-            background.set_background_image(
-                self.options[dbi]
-            )
-            node += background
+            if 'dark-background-image' in self.options:
+                background.set_dark()
+            if 'light-background-image' in self.options:
+                background.set_light()
+            if 'background-image-animation' in self.options:
+                background.set_animation()
+            bil = 'background-image-location'
+            if bil in self.options:
+                background.add_location(self.options[bil])
         return node
     
     def check_wrap(self, node):

@@ -15,6 +15,7 @@ from .description_list import setup_description_list
 from .preformatted import setup_preformatted
 from .footer import setup_footer
 from .web import setup_web
+from .video import setup_video
 
 def setup(app):
     app.add_builder(WebslidesBuilder)
@@ -33,3 +34,4 @@ def setup(app):
     setup_heading(app)
     setup_footer(app)
     setup_web(app)
+    setup_video(app)

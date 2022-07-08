@@ -614,3 +614,135 @@ wrap-size: 60
 ````
 `.background-video`
 `````
+
+````{slide}
+---
+background-color: bg-black
+background-video: https://webslides.tv/static/videos/working.mp4
+background-video-poster: https://webslides.tv/static/images/working.jpg
+wrap: True
+---
+`.background-video`
+
+```{heading} h2
+**WebSlides is the easiest way to make HTML presentations. Inspire and engage.**
+```
+````
+
+```{slide}
+---
+background-video-poster: https://webslides.tv/static/images/working.jpg 
+background-video: https://webslides.tv/static/videos/working.mp4
+horizontal-alignment: center
+background-color: bg-blue
+wrap: True
+background-video-dark: True
+---
+{tlh2}`BG Video with Overlay`
+
+`section.bg-blue > .background-video.dark` or .light
+```
+
+``````{slide}
+---
+wrap: True
+---
+`````{content-left}
+{ph3}`Fullscreen Background Iamges`
+````{pre}
+```
+<section>
+  <span class="background" style="background-image:url('https://source.unsplash.com/UJbHNoVPZW0/')"></span>
+  <div class="wrap">
+    <h1>Slide</h1>
+  </div>
+</section>
+```
+````
+
+How to [embed Unsplash photos](https://source.unsplash.com/)?
+`````
+`````{content-left}
+{ph3}`16 Different Background`
+````{text-cols}
+- **.background** (cover)
+- .background-top (cover)
+- .background-bottom (cover)
+- .background.light (opacity)
+- .background.dark (opacity)
+- .background-center
+- .background-center-top
+- .background-center-bottom
+- .background-left
+- .background-left-top
+- .background-left-bottom
+- .background-right
+- .background-right-top
+- .background-right-bottom
+- .background-anim (animated)
+- .**background-video** (fullscreen)
+````
+`````
+``````
+
+`````{slide}
+---
+background-image: _static/images/iphone-hand.png
+background-image-location: right-bottom
+wrap: True
+---
+````{content-left}
+{ph3}`.background-(position)`
+
+`.background-right-bottom`
+```{flexblock-spec}
+- {fa}`fa-wifi` {ph2}`Ultra-Fast Wifi` Simple and secure file sharing.
+- {fa}`fa-battery-full` {ph2}`All day battery life` Your battery worries may be over.
+- {fa}`fa-life-ring` {ph2}`Lifetime Warranty` We'll fix it for if we can't, we'll replace it.
+````
+`````
+
+````{slide}
+---
+background-color: bg-black
+horizontal-alignment: center
+background-image: https://source.unsplash.com/UJbHNoVPZW0/
+wrap: True
+dark-background-image: True
+---
+```{text-landing} h1
+---
+shadow: True
+---
+Iceland
+```
+`section[class*="bg-"] > .background.dark`
+````
+
+````{slide}
+---
+background-color: bg-black
+horizontal-alignment: center
+background-image: https://source.unsplash.com/UJbHNoVPZW0/
+wrap: True
+light-background-image: True
+---
+```{text-landing} h1
+---
+shadow: True
+---
+Iceland
+```
+`section[class*="bg-"] > .background.light`
+````
+
+```{slide}
+---
+background-image-animation: True
+horizontal-alignment: center
+background-color: bg-black
+background-image: https://source.unsplash.com/n9WPPWiPPJw/
+wrap: True
+---
+{ph2}`.background.anim`
+```

@@ -32,6 +32,8 @@ class center_node(BaseClassNode):
     classes=['aligncenter']
 class flex_content_node(BaseClassNode):
     classes=['flex-content']
+class content_left_node(BaseClassNode):
+    classes=['content-left']
 
 ALLOWED_SIDEBAR_CONFIGS = [
     'sm', 'ms', 'sms'
@@ -67,6 +69,7 @@ div_map = {
     'column': column_node,
     'center': center_node,
     'flex-content': flex_content_node,
+    'content-left': content_left_node,
 }
 
 def setup_div(app):
