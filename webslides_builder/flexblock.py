@@ -88,77 +88,85 @@ class FlexblockTranslator(HTMLTranslator):
     flexblock_div_open = False
 
     def visit_flexblock_list_node(self, node):
+        self.flexblock_div_open = True
+        self.base_visit_flexblock_list_node(node)
+
+    def depart_flexblock_list_node(self, node):
+        self.base_depart_flexblock_list_node(node)
+        self.flexblock_div_open = False
+    
+    def base_visit_flexblock_list_node(self, node):
         self.flexblock_open = True
         self.flexblock_classes = copy.deepcopy(node['classes'])
 
-    def depart_flexblock_list_node(self, node):
+    def base_depart_flexblock_list_node(self, node):
         pass
 
     def visit_flexblock_list_border_node(self, node):
-        self.visit_flexblock_list_node(node)
+        self.base_visit_flexblock_list_node(node)
 
     def depart_flexblock_list_border_node(self, node):
-        self.depart_flexblock_list_node(node)
+        self.base_depart_flexblock_list_node(node)
     
     def visit_flexblock_list_reasons_node(self, node):
         self.body.append("<div class=\"bg-white shadow\">")
-        self.visit_flexblock_list_node(node)
+        self.base_visit_flexblock_list_node(node)
 
     def depart_flexblock_list_reasons_node(self, node):
-        self.depart_flexblock_list_node(node)
+        self.base_depart_flexblock_list_node(node)
         self.body.append("</div>")
     
     def visit_flexblock_list_steps_node(self, node):
-        self.visit_flexblock_list_node(node)
+        self.base_visit_flexblock_list_node(node)
 
     def depart_flexblock_list_steps_node(self, node):
-        self.depart_flexblock_list_node(node)
+        self.base_depart_flexblock_list_node(node)
         
     def visit_flexblock_list_clients_node(self, node):
-        self.visit_flexblock_list_node(node)
+        self.base_visit_flexblock_list_node(node)
 
     def depart_flexblock_list_clients_node(self, node):
-        self.depart_flexblock_list_node(node)
+        self.base_depart_flexblock_list_node(node)
     
     def visit_flexblock_list_features_node(self, node):
         self.flexblock_div_open = True
-        self.visit_flexblock_list_node(node)
+        self.base_visit_flexblock_list_node(node)
 
     def depart_flexblock_list_features_node(self, node):
         self.flexblock_div_open = False
-        self.depart_flexblock_list_node(node)
+        self.base_depart_flexblock_list_node(node)
     
     def visit_flexblock_list_metrics_node(self, node):
         self.flexblock_div_open = True
-        self.visit_flexblock_list_node(node)
+        self.base_visit_flexblock_list_node(node)
 
     def depart_flexblock_list_metrics_node(self, node):
         self.flexblock_div_open = False
-        self.depart_flexblock_list_node(node)
+        self.base_depart_flexblock_list_node(node)
     
     def visit_flexblock_list_activity_node(self, node):
         self.flexblock_div_open = True
-        self.visit_flexblock_list_node(node)
+        self.base_visit_flexblock_list_node(node)
 
     def depart_flexblock_list_activity_node(self, node):
         self.flexblock_div_open = False
-        self.depart_flexblock_list_node(node)
+        self.base_depart_flexblock_list_node(node)
     
     def visit_flexblock_list_gallery_node(self, node):
         self.flexblock_div_open = True
-        self.visit_flexblock_list_node(node)
+        self.base_visit_flexblock_list_node(node)
 
     def depart_flexblock_list_gallery_node(self, node):
         self.flexblock_div_open = False
-        self.depart_flexblock_list_node(node)
+        self.base_depart_flexblock_list_node(node)
     
     def visit_flexblock_list_spec_node(self, node):
         self.flexblock_div_open = True
-        self.visit_flexblock_list_node(node)
+        self.base_visit_flexblock_list_node(node)
 
     def depart_flexblock_list_spec_node(self, node):
         self.flexblock_div_open = False
-        self.depart_flexblock_list_node(node)
+        self.base_depart_flexblock_list_node(node)
     
     def visit_text_cols_list_node(self, node):
         self.text_cols_open = True
