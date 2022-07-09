@@ -41,3 +41,9 @@ jobs:
           pip install -e .
           sphinx-build -b webslides example_doc example_doc/_webslides_build
           echo test, and deploy your project.
+      - name: Archive results
+        uses: actions/upload-artifact@v3
+        with:
+          name: example_doc_html
+          path: |
+            example_doc/_webslides_build
