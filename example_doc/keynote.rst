@@ -108,3 +108,67 @@
             :fa:`fa-line-chart` 
           Revenue: $16M
         - Monthly Growth :span:`64%`
+
+.. slide::
+    :background-color: bg-apple
+    :wrap: True
+
+    .. flexblock-metrics::
+        :classes: border
+
+        - Founded :span:`1976`
+        - :fa:`fa-users` 524M Subscribers
+        - .. span::
+
+            :fa:`fa-line-chart`
+          Revenue: $16M
+        - Monthly Growth :span:`64%`
+        - .. span::
+
+            :fa:`fa-building-o`
+          6 Offices
+        - .. span::
+
+            :fa:`fa-smile-o`
+          14K Employees
+        - :span:`$4M` EBITDA
+        - .. span::
+
+            :fa:`fa-university`
+          Bank: $76B
+
+.. slide::
+    :background-color: bg-apple
+    :horizontal-alignment: center
+    :background-image: https://source.unsplash.com/pb_lF8VWaPU/
+    :dark-background-image: True
+    :wrap: True
+
+    .. heading:: h2
+        :classes: text-data
+
+        3,456,789
+    :ph3:`iPhone 7 in first 24 hours`
+
+.. slide::
+    :background-color: bg-apple
+    :horizontal-alignment: center
+    :wrap: True
+
+    .. heading:: h2
+        :classes: text-data
+
+        $48 Billion
+    :ph3:`Revenue in Q4 2024`
+
+.. slide::
+    :background-color: bg-apple
+    :vertical-alignment: bottom
+    :wrap: True
+    :background-image: https://source.unsplash.com/Y5Tjb62cxl8/
+
+    .. content-left::
+
+        :fa:`fa-tree`
+        :ph2:`1,000,000`
+        :ph3:`We're working to protect up to a million acres of sustainable forest.`

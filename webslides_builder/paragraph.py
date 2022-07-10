@@ -68,7 +68,19 @@ def setup_paragraph(app):
     add_role_and_directive(app, text_pull_right_node, 'tpr')
 
 class ParagraphTranslator(HTMLTranslator):
-    pass
+    
+    def visit_paragraph(self, node):
+        """ Filter blank paragraphs
+
+        webslides is very sensitive to blank paragraphs
+        AND sphinx really likes to produce them.
+        """
+        if node.astext() != '':
+            super().visit_paragraph(node)
+
+    def depart_paragraph(self, node):
+        if node.astext() != '':
+            super().depart_paragraph(node)
 
 for thing in paragraph_map.values():
     add_visit_depart(
