@@ -169,6 +169,64 @@
 
     .. content-left::
 
-        :fa:`fa-tree`
+        :fa-l:`fa-tree`
         :ph2:`1,000,000`
         :ph3:`We're working to protect up to a million acres of sustainable forest.`
+
+.. slide::
+    :wrap: True
+    :background-color: bg-apple
+    :card-size: 50
+
+    .. figure:: _static/images/iphone.png
+        :class: aligncenter
+
+    .. flex-content::
+
+        .. heading:: h2
+
+            :fa:`fa-apple` iPhone 7
+        
+        :ti:`3D Touch, 12MP photos, and 4K video.`
+
+        Every iPhone they have made was built on the same belief. That a phone should be more than a collection of features. That, above all, a phone should be absolutely simple, beautiful, and magical to use.
+
+.. slide::
+    :wrap: True
+    :background-color: bg-apple
+
+    .. grid::
+        :alignment: vertical
+
+        .. column::
+
+            .. heading:: h2
+
+                :fa:`fa-apple` iPhone 7
+            :ti:`We worked closely with the very talented people at Acme and created a new website. Content demo.`
+            
+            .. description-list::
+
+                - :tl:`Client:` Apple (2016)
+                - :tl:`Services:` Web Design 
+                - :tl:`Website:` `apple.com/iphone <https://apple.com/iphone/>`_
+
+        .. column::
+
+            .. figure:: _static/images/iphone.png
+
+.. slide::
+    :wrap: True
+    :background-color: bg-apple
+    :card-size: 50
+
+    .. flex-content::
+
+        .. flexblock-spec::
+
+            - :fa:`fa-wifi` :ph2:`Ultra-Fast Wifi` Faster LTE with the best worldwide roaming.
+            - :fa:`fa-camera` :ph2:`Two camera that shoot as one.` 12MP wide angle.
+            - :fa:`fa-life-ring` :ph2:`Lifetime Warranty` We'll fix it or if we can't, we'll replace it.
+
+    .. figure:: _static/images/iphone.png
+        
