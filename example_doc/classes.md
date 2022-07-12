@@ -3,7 +3,6 @@
 horizontal-alignment: center
 background-color: bg-black-blue
 dark-background-image: https://source.unsplash.com/6njoEbtarec/
-wrap: True
 ---
 
 {text-subtitle}`Webslides Tutorial`
@@ -18,7 +17,6 @@ wrap: True
 ````{slide}
 ---
 horizontal-alignment: center
-wrap: True
 ---
 **{ph2}`Webslides Classes`**
 {ti}`Friendly naming conventions.`
@@ -72,7 +70,6 @@ wrap: True
 
 ````{slide}
 ---
-wrap: True
 wrap-size: 50
 ---
 ```{heading} h2
@@ -92,9 +89,6 @@ wrap-size: 50
 ````
 
 ```````{slide}
----
-wrap: True
----
 ``````{grid}
 
 `````{column}
@@ -146,9 +140,6 @@ horizontal-alignment: right
 ````
 
 ````{slide}
----
-wrap: True
----
 ```{image} _static/images/iphone.png
 ---
 class: alignleft size-50
@@ -166,9 +157,6 @@ Jobs unveiled the iPhone to the public on January 9, 2007, at Macworld 2007 conv
 ````
 
 ````{slide}
----
-wrap: True
----
 ```{image} _static/images/iphone.png
 ---
 class: alignright size-50
@@ -187,9 +175,6 @@ Jobs unveiled the iPhone to the public on January 9, 2007, at Macworld 2007 conv
 ````
 
 ````{slide}
----
-classes: wrap
----
 ```{image} _static/images/iphone.png
 ---
 class: aligncenter size-40
@@ -204,7 +189,6 @@ class: aligncenter size-40
 ---
 content-alignment: left
 vertical-alignment: top
-wrap: True
 ---
 {ph3}`1/9 left top`
 
@@ -217,7 +201,6 @@ Put content wherever you want. Have less. Do more. Create beautiful solutions.
 ---
 content-alignment: center
 vertical-alignment: top
-wrap: True
 ---
 {ph3}`2/9 center top`
 
@@ -230,7 +213,6 @@ In a village of La Mancha, the name of which I have no desire to call to mind,
 ---
 content-alignment: right
 vertical-alignment: top
-wrap: True
 ---
 {ph3}`3/9 right top`
 
@@ -242,7 +224,6 @@ there lived not long since one of those gentlemen that keep a lance in the lance
 ```{slide}
 ---
 content-alignment: left
-wrap: True
 ---
 {ph3}`4/9 left center`
 
@@ -254,7 +235,6 @@ An olla of rather more beef than mutton, a salad on most nights, scraps on Satur
 ```{slide}
 ---
 content-alignment: center
-wrap: True
 ---
 {ph3}`5/9 center`
 
@@ -266,7 +246,6 @@ lentils on Fridays, and a pigeon or so extra on Sundays, made away with three-qu
 ```{slide}
 ---
 content-alignment: right
-wrap: True
 ---
 {ph3}`6/9 right center`
 
@@ -279,7 +258,6 @@ he rest of it went in a doublet of fine cloth and velvet breeches and shoes to m
 ---
 vertical-alignment: bottom
 content-alignment: left
-wrap: True
 ---
 {ph3}`7/9 left bottom`
 
@@ -292,7 +270,6 @@ while on week-days he made a brave figure in his best homespun.
 ---
 vertical-alignment: bottom
 content-alignment: center
-wrap: True
 ---
 {ph3}`8/9 center bottom`
 
@@ -305,7 +282,6 @@ He had in his house a housekeeper past forty, a niece under twenty, and a lad fo
 ---
 vertical-alignment: bottom
 content-alignment: right
-wrap: True
 ---
 {ph3}`9/9 right bottom`
 
@@ -317,7 +293,6 @@ who used to saddle the hack as well as handle the bill-hook.
 ``````{slide}
 ---
 horizontal-alignment: center
-wrap: True
 ---
 {ph2}`.grid + .column`
 {ti}`Basic Grid (auto-fill and equal height).`
@@ -349,7 +324,6 @@ You can create your own presentation instantly. Just a basic knowledge of HTML a
 ``````{slide}
 ---
 horizontal-alignment: center
-wrap: True
 ---
 `````{heading} h2
 .grid.**vertical-align** + .column
@@ -384,9 +358,6 @@ You can create your own presentation instantly. Just a basic knowledge of HTML a
 ``````
 
 `````{slide}
----
-wrap: True
----
 ````{heading} h2
 .grid.**sm** (sidebar + main)
 ````
@@ -413,9 +384,6 @@ When he visited the Basilica of Santa Croce, where Niccolò Machiavelli, Michela
 `````
 
 `````{slide}
----
-wrap: True
----
 ````{heading} h2
 .grid.**ms** (main +  sidebar)
 ````
@@ -441,9 +409,6 @@ The experience of "beauty" often involves an interpretation of some entity as be
 `````
 
 `````{slide}
----
-wrap: True
----
 ````{heading} h2
 .grid.**sms** (sidebar + main + sidebar)
 ````
@@ -473,7 +438,6 @@ The difficulty in establishing a common definition for "information architecture
 
 `````{slide}
 ---
-wrap: True
 card-size: 50
 card-background: bg-white
 ---
@@ -498,7 +462,6 @@ card-background: bg-white
 
 `````{slide}
 ---
-wrap: True
 card-size: 50
 card-background: bg-white
 ---
@@ -556,7 +519,6 @@ painful way
 ````{slide}
 ---
 background-color: bg-gradient-h
-wrap: True
 ---
 {ph1}`Gradients`
 ```{flexblock-border}
@@ -569,7 +531,6 @@ wrap: True
 ```{slide}
 ---
 background-color: bg-gradient-h
-wrap: True
 horizontal-alignment: center
 ---
 {ph1}`Horizontal Gradient`
@@ -580,7 +541,6 @@ horizontal-alignment: center
 ```{slide}
 ---
 background-color: bg-gradient-r
-wrap: True
 horizontal-alignment: center
 ---
 {ph1}`Radial Gradient`
@@ -591,7 +551,6 @@ horizontal-alignment: center
 ```{slide}
 ---
 background-color: bg-gradient-v
-wrap: True
 horizontal-alignment: center
 ---
 {ph1}`Vertical Gradient`
@@ -601,7 +560,6 @@ horizontal-alignment: center
 
 `````{slide}
 ---
-wrap: True
 wrap-size: 60
 ---
 {ph3}`Background Videos`
@@ -620,7 +578,6 @@ wrap-size: 60
 background-color: bg-black
 background-video: https://webslides.tv/static/videos/working.mp4
 background-video-poster: https://webslides.tv/static/images/working.jpg
-wrap: True
 ---
 `.background-video`
 
@@ -635,7 +592,6 @@ background-video-poster: https://webslides.tv/static/images/working.jpg
 background-video: https://webslides.tv/static/videos/working.mp4
 horizontal-alignment: center
 background-color: bg-blue
-wrap: True
 background-video-dark: True
 ---
 {tlh2}`BG Video with Overlay`
@@ -644,9 +600,6 @@ background-video-dark: True
 ```
 
 ``````{slide}
----
-wrap: True
----
 `````{content-left}
 {ph3}`Fullscreen Background Iamges`
 ````{pre}
@@ -689,7 +642,6 @@ How to [embed Unsplash photos](https://source.unsplash.com/)?
 ---
 background-image: _static/images/iphone-hand.png
 background-image-location: right-bottom
-wrap: True
 ---
 ````{content-left}
 {ph3}`.background-(position)`
@@ -707,7 +659,6 @@ wrap: True
 background-color: bg-black
 horizontal-alignment: center
 background-image: https://source.unsplash.com/UJbHNoVPZW0/
-wrap: True
 dark-background-image: True
 ---
 ```{text-landing} h1
@@ -724,7 +675,6 @@ Iceland
 background-color: bg-black
 horizontal-alignment: center
 background-image: https://source.unsplash.com/UJbHNoVPZW0/
-wrap: True
 light-background-image: True
 ---
 ```{text-landing} h1
@@ -742,7 +692,6 @@ background-image-animation: True
 horizontal-alignment: center
 background-color: bg-black
 background-image: https://source.unsplash.com/n9WPPWiPPJw/
-wrap: True
 ---
 {ph2}`.background.anim`
 ```
@@ -750,7 +699,6 @@ wrap: True
 ````{slide}
 ---
 horizontal-alignment: center
-wrap: True
 ---
 ```{heading} h2
 **Flexible blocks**
@@ -782,9 +730,6 @@ Other than the bottom seems to a be link, maybe, cursor changes
 ```
 
 ````{slide}
----
-wrap: True
----
 {ph3}`ul.flexblock.blink.border`
 ```{flexblock-border}
 - {ph3}`Google` 2016.- Google Drive
@@ -799,9 +744,6 @@ wrap: True
 ````
 
 `````{slide}
----
-wrap: True
----
 {ph2}`Clients`
 
 `ul.flexblock.clients`
@@ -842,9 +784,6 @@ wrap: True
 `````
 
 `````{slide}
----
-wrap: True
----
 {ph3}`ul.flexblock.features`
 ````{flexblock-features}
 - ```{heading} h2
@@ -871,7 +810,6 @@ wrap: True
 
 `````{slide}
 ---
-wrap: True
 background-color: bg-primary
 ---
 {ph3}`ul.flexblock.gallery`
@@ -889,9 +827,6 @@ background-color: bg-primary
 `````
 
 `````{slide}
----
-wrap: True
----
 {ph3}`ul.flexblock.gallery + .overlay`
 ````{flexblock-gallery}
 - ```{overlay}
@@ -939,7 +874,6 @@ class: aligncenter
 ````{slide}
 ---
 background-color: bg-gradient-gray
-wrap: True
 wrap-size: 50
 ---
 {ph3}`.flexblock.reasons`
@@ -952,9 +886,6 @@ wrap-size: 50
 ````
 
 `````{slide}
----
-wrap: True
----
 {ph3}`ul.flexblock.steps`
 ````{flexblock-steps}
 - ```{span}
@@ -987,9 +918,6 @@ wrap: True
 `````
 
 ````{slide}
----
-wrap: True
----
 {ph3}`ul.flexblock.activity`
 ```{flexblock-activity}
 - {year}`2016` {title}`UX Designer at ACME` {summary}`This is a job description for the UX Designer role at ACME. Be concise. Content like a tweet: 2-3 lines recommended.`
@@ -999,9 +927,6 @@ wrap: True
 ````
 
 ``````{slide}
----
-wrap: True
----
 `````{cta}
 ````{number}
 {span}`Ag`
@@ -1025,7 +950,6 @@ abcdefghijklmnopqrstuvwxyz
 
 ```{slide}
 ---
-wrap: True
 horizontal-alignment: center
 ---
 {tlh1}`Landings` `.text-landing`
@@ -1033,7 +957,6 @@ horizontal-alignment: center
 
 ```{slide}
 ---
-wrap: True
 horizontal-alignment: center
 ---
 {tlh1}`Landings` {ti}`Create a simple web presence.` `.text-intro`
@@ -1041,7 +964,6 @@ horizontal-alignment: center
 
 ````{slide}
 ---
-wrap: True
 horizontal-alignment: center
 ---
 ```{tsub}
@@ -1056,7 +978,6 @@ Powered by [#WebSlides](https://twitter.com/search?f=tweets&vertical=default&q=%
 horizontal-alignment: center
 background-color: bg-black
 background-image: https://source.unsplash.com/C1HhAQrbykQ/
-wrap: True
 ---
 ```{text-landing} h1
 ---
@@ -1084,16 +1005,10 @@ classes: text-data
 ````
 
 ```{slide}
----
-wrap: True
----
 {tc}`Why WebSlides? .text-context` {ph2}`WebSlides is incredibly easy and versatile. The easiest way to make HTML presentations.`
 ```
 
 ````{slide}
----
-wrap: True
----
 `.text-cols (2 columns)`
 ```{text-cols-div}
 **Why WebSlides?** There are excellent presentation tools out there. WebSlides is about sharing content, essential features, and clean markup. **Each parent `<section>`** in the #webslides element is an individual slide.
@@ -1108,9 +1023,6 @@ wrap: True
 ````
 
 ``````{slide}
----
-wrap: True
----
 `````{grid}
 ---
 alignment: vertical
@@ -1137,7 +1049,6 @@ Skipping `text-serif` slide
 ---
 text-serif: True
 horizontal-alignment: center
-wrap: True
 ---
 ```{content-left}
 {ph2}`WebSlides is incredibly easy and versatile.` `.text-serif` (Maitree)
@@ -1151,7 +1062,6 @@ Clean markup with popular naming conventions. Minimum effort. Just focus on your
 
 ````{slide}
 ---
-wrap: True
 wrap-size: 50
 ---
 ```{heading} h3
@@ -1183,7 +1093,6 @@ horizontal-alignment: center
 `````{slide}
 ---
 horizontal-alignment: center
-wrap: True
 ---
 ````{flexblock-gallery}
 - ```{figure} https://webslides.tv/static/images/demos-why.png  
