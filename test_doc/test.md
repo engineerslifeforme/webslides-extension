@@ -6,10 +6,6 @@ A test again b
 ```
 
 ```{slide}
----
-wrap: True
----
-
 {ph1}`Slide title`
 
 A test again h

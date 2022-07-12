@@ -1,8 +1,7 @@
 .. slide::
     :background-color: bg-apple
     :horizontal-alignment: center
-    :wrap: True
-
+    
     .. heading:: h1
 
         .. image:: _static/images/logos/apple.svg
@@ -10,7 +9,6 @@
 
 .. slide::
     :background-color: bg-apple
-    :wrap: True
     :wrap-size: 50
 
     :ph1:`Make a Keynote presentation using HTML`
@@ -18,7 +16,6 @@
     ``.bg-apple``
 
 .. slide::
-    :wrap: True
     :background-color: bg-apple
     :horizontal-alignment: center
 
@@ -26,8 +23,7 @@
 
 .. slide::
     :background-color: bg-apple
-    :wrap: True
-
+    
     :ph2:`Features`
     
     .. flexblock-features::
@@ -65,8 +61,7 @@
 
 .. slide::
     :background-color: bg-apple
-    :wrap: True
-
+    
     .. content-left::
 
         :ph2:`WebSlides was made to inspire people.`
@@ -86,8 +81,7 @@
 
 .. slide::
     :background-color: bg-apple
-    :wrap: True
-
+    
     .. content-left::
 
         :ph2:`WebSlides help you build a culture of excellence.`
@@ -111,8 +105,7 @@
 
 .. slide::
     :background-color: bg-apple
-    :wrap: True
-
+    
     .. flexblock-metrics::
         :classes: border
 
@@ -142,8 +135,7 @@
     :horizontal-alignment: center
     :background-image: https://source.unsplash.com/pb_lF8VWaPU/
     :dark-background-image: True
-    :wrap: True
-
+    
     .. heading:: h2
         :classes: text-data
 
@@ -153,8 +145,7 @@
 .. slide::
     :background-color: bg-apple
     :horizontal-alignment: center
-    :wrap: True
-
+    
     .. heading:: h2
         :classes: text-data
 
@@ -164,7 +155,6 @@
 .. slide::
     :background-color: bg-apple
     :vertical-alignment: bottom
-    :wrap: True
     :background-image: https://source.unsplash.com/Y5Tjb62cxl8/
 
     .. content-left::
@@ -174,7 +164,6 @@
         :ph3:`We're working to protect up to a million acres of sustainable forest.`
 
 .. slide::
-    :wrap: True
     :background-color: bg-apple
     :card-size: 50
 
@@ -192,7 +181,6 @@
         Every iPhone they have made was built on the same belief. That a phone should be more than a collection of features. That, above all, a phone should be absolutely simple, beautiful, and magical to use.
 
 .. slide::
-    :wrap: True
     :background-color: bg-apple
 
     .. grid::
@@ -216,9 +204,9 @@
             .. figure:: _static/images/iphone.png
 
 .. slide::
-    :wrap: True
     :background-color: bg-apple
     :card-size: 50
+    :no-wrap: True
 
     .. flex-content::
 
