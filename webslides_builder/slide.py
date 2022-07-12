@@ -4,6 +4,7 @@ from sphinx.util.docutils import SphinxDirective
 from docutils import nodes
 from docutils.parsers.rst import directives
 from sphinx.writers.html import HTMLTranslator
+from sphinx.util import logging
 
 from .div import div_wrap_node, div_node
 from .span import background_node
@@ -14,6 +15,8 @@ from .common import (
     GenericDirective,   
     BaseClassNode,
 )
+
+logger = logging.getLogger(__name__)
 
 SECTION_TAG = 'section'
 
@@ -41,7 +44,9 @@ class Slide(GenericDirective):
     node_type = slide_node
     option_spec = deepcopy(GenericDirective.option_spec)
     option_spec.update({
+        # wrap will be deprecated
         'wrap': directives.unchanged,
+        'no-wrap': directives.unchanged,
         'wrap-size': directives.unchanged,
         'background-image': directives.unchanged,
         'dark-background-image': directives.unchanged,
@@ -149,13 +154,15 @@ class Slide(GenericDirective):
     
     def check_wrap(self, node):
         active_node = node
-        if 'wrap' in self.options:
+        if 'no-wrap' not in self.options:
             div = div_wrap_node()
             active_node = div
             ws = 'wrap-size'
             if ws in self.options:
                 div.add_class(f"size-{self.options[ws]}")
             node += div
+            if 'wrap' in self.options:
+                logger.warning("\"wrap\" option on slide directive no longer used, will be removed soon!")
         ca = 'content-alignment'
         if ca in self.options:
             div = div_node()
