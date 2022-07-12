@@ -55,6 +55,13 @@ setup(
     packages=find_packages(exclude=['contrib', 'docs', 'tests']),
 
     install_requires=install_requires,
+    
+    package_data={'webslides_builder/themes/webslides_base': [
+        'theme.conf',
+        '*.html',
+        'static/css/*.css',
+        'static/js/*.js',
+    ]},
 
     include_package_data=True,
 
