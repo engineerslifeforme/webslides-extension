@@ -1,53 +1,37 @@
 from os import path
 
 from .webslides_builder import WebslidesBuilder
-from .webslides_directives import *
+from .slide import setup_slide
+from .font_awesome import setup_fa
+from .heading import setup_heading
+from .header import setup_header
+from .div import setup_div
+from .link import setup_link
+from .paragraph import setup_paragraph
+from .span import setup_span
+from .flexblock import setup_flexblock
+from .hr import setup_hr
+from .description_list import setup_description_list
+from .preformatted import setup_preformatted
+from .footer import setup_footer
+from .web import setup_web
+from .video import setup_video
 
 def setup(app):
     app.add_builder(WebslidesBuilder)
-    app.add_node(slide_class_node)
-    app.add_node(slide_size_node)
-    app.add_node(div_node)
-    app.add_node(flexblock_list_node)
-    app.add_node(pseudo_heading_node)
-    app.add_node(span_node)
-    app.add_node(span_raw_node)
-    app.add_node(generic_node)
-    app.add_node(fa_node)
-    app.add_node(fa_span_node)
-    app.add_node(paragraph_node)
-    app.add_node(slide_node)
-    app.add_node(link_node)
-    app.add_node(topic_shift_node)
-    app.add_node(description_list_node)
-    app.add_node(preformatted_node)
-    app.add_node(slide_header_node)
-    app.add_node(slide_footer_node)
-    app.add_directive('slide-config', SlideConfigDirective)
-    app.add_directive('flexblock', FlexBlock)
-    app.add_directive('div', Div)
-    app.add_directive('generic', GenericDirective)
-    app.add_directive('span', Span)
-    app.add_directive('span-content', SpanWithContent)
-    app.add_directive('slide', Slide)
-    app.add_directive('heading', HeadingDirective)
-    app.add_directive('paragraph', ParagraphDirective)
-    app.add_directive('link', LinkDirective)
-    app.add_directive('description-list', DescriptionList)
-    app.add_directive('preformatted', PreformattedDirective)
-    app.add_directive('header', SlideHeader)
-    app.add_directive('footer', SlideFooter)
     app.add_html_theme('webslides_theme', path.join(path.abspath(path.dirname(__file__)), 'themes', 'webslides_base'))
-    app.add_role('ph1', pseudo_heading_role('h1'))
-    app.add_role('ph2', pseudo_heading_role('h2'))
-    app.add_role('ph3', pseudo_heading_role('h3'))
-    app.add_role('ph4', pseudo_heading_role('h4'))
-    app.add_role('ph5', pseudo_heading_role('h5'))
-    app.add_role('ph6', pseudo_heading_role('h6'))
-    app.add_role('span', span_roles())
-    app.add_role('span-raw', span_roles(raw=True))
-    app.add_role('fa', fa_role_maker())
-    app.add_role('fa_span', fa_role_maker(span=True))
-    app.add_role('p', paragraph_role)
-    app.add_role('hr', topic_shift_role)
-    app.add_role('text-label', span_text_label_role)
+    setup_slide(app)
+    setup_fa(app)
+    setup_header(app)
+    setup_div(app)
+    setup_link(app)
+    setup_paragraph(app)
+    setup_span(app)
+    setup_flexblock(app)
+    setup_hr(app)
+    setup_description_list(app)
+    setup_preformatted(app)
+    setup_heading(app)
+    setup_footer(app)
+    setup_web(app)
+    setup_video(app)
