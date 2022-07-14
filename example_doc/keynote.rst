@@ -96,10 +96,12 @@
         - .. span::
 
             :fa:`fa-users` 
+          
           524M Subscribers
         - .. span::
 
             :fa:`fa-line-chart` 
+          
           Revenue: $16M
         - Monthly Growth :span:`64%`
 
@@ -114,20 +116,24 @@
         - .. span::
 
             :fa:`fa-line-chart`
+          
           Revenue: $16M
         - Monthly Growth :span:`64%`
         - .. span::
 
             :fa:`fa-building-o`
+          
           6 Offices
         - .. span::
 
             :fa:`fa-smile-o`
+          
           14K Employees
         - :span:`$4M` EBITDA
         - .. span::
 
             :fa:`fa-university`
+          
           Bank: $76B
 
 .. slide::
@@ -140,6 +146,7 @@
         :classes: text-data
 
         3,456,789
+    
     :ph3:`iPhone 7 in first 24 hours`
 
 .. slide::
@@ -150,6 +157,7 @@
         :classes: text-data
 
         $48 Billion
+    
     :ph3:`Revenue in Q4 2024`
 
 .. slide::
@@ -191,6 +199,7 @@
             .. heading:: h2
 
                 :fa:`fa-apple` iPhone 7
+            
             :ti:`We worked closely with the very talented people at Acme and created a new website. Content demo.`
             
             .. description-list::
