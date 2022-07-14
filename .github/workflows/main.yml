@@ -38,7 +38,7 @@ jobs:
         run: |
           $CONDA/bin/conda install sphinx
           $CONDA/bin/conda install -c conda-forge myst-parser
-          pip install -e .
+          pip install .
           sphinx-build -b webslides example_doc example_doc/_webslides_build
           echo test, and deploy your project.
       - name: Archive results
