@@ -6,9 +6,9 @@ name: CI
 on:
   # Triggers the workflow on push or pull request events but only for the "main" branch
   push:
-    branches: [ "main", "github_build"]
+    branches: [ "main", "17-fix-github-action-to-use-real-install-not-local"]
   pull_request:
-    branches: [ "main", "github_build" ]
+    branches: [ "main", "17-fix-github-action-to-use-real-install-not-local" ]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
