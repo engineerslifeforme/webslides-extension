@@ -23,15 +23,18 @@ from .common import (
 TAG = 'a'
 
 class link_node(BaseNode): pass
+class link_button_node(BaseClassNode):
+    classes=['button']
 class ghost_button_node(BaseClassNode):
     classes=['ghost', 'button']
 
 def setup_link(app):
     app.add_node(link_node)
     app.add_node(ghost_button_node)
+    app.add_node(link_button_node)
     app.add_directive('link', LinkDirective)
     app.add_directive('ghost-button-link', GhostButtonLinkDirective)
-    app.add_role('ghost-button-link', ghost_button_role)
+    app.add_directive('button-link', ButtonLinkDirective)
 
 class LinkDirective(GenericDirective):
     required_arguments = 1
@@ -43,12 +46,10 @@ class LinkDirective(GenericDirective):
         return [node]
 
 class GhostButtonLinkDirective(LinkDirective):
-    node_type = ghost_button_node    
-
-def ghost_button_role(name, rawtext, text, lineno, inliner, options={}, content=[]):
-    node = ghost_button_node()
-    node['target'] = text
-    return [node], []
+    node_type = ghost_button_node 
+    
+class ButtonLinkDirective(LinkDirective):
+    node_type = link_button_node        
 
 class LinkTranslator(HTMLTranslator):
     
@@ -65,4 +66,10 @@ class LinkTranslator(HTMLTranslator):
         self.visit_link_node(node)
 
     def depart_ghost_button_node(self, node):
+        generic_depart(self, TAG)
+        
+    def visit_link_button_node(self, node):
+        self.visit_link_node(node)
+
+    def depart_link_button_node(self, node):
         generic_depart(self, TAG)

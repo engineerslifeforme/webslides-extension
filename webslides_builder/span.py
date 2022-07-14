@@ -29,6 +29,7 @@ class span_raw_node(span_node): pass
 
 ALLOWED_BACKGROUND_LOCATIONS = [
     'right-bottom',
+    'left-bottom',
 ]
 class background_node(span_node):
     classes=['background']
