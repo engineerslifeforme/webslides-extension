@@ -48,6 +48,7 @@ class Slide(GenericDirective):
         'wrap': directives.unchanged,
         'no-wrap': directives.unchanged,
         'wrap-size': directives.unchanged,
+        'wrap-zoom-in': directives.unchanged,
         'background-image': directives.unchanged,
         'dark-background-image': directives.unchanged,
         'light-background-image': directives.unchanged,
@@ -161,6 +162,9 @@ class Slide(GenericDirective):
             if ws in self.options:
                 div.add_class(f"size-{self.options[ws]}")
             node += div
+            wzi = 'wrap-zoom-in'
+            if wzi in self.options:
+                div.add_class('zoomIn')
             if 'wrap' in self.options:
                 logger.warning("\"wrap\" option on slide directive no longer used, will be removed soon!")
         ca = 'content-alignment'

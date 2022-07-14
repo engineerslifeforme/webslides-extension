@@ -215,7 +215,6 @@
 .. slide::
     :background-color: bg-apple
     :card-size: 50
-    :no-wrap: True
 
     .. flex-content::
 
@@ -226,4 +225,84 @@
             - :fa:`fa-life-ring` :ph2:`Lifetime Warranty` We'll fix it or if we can't, we'll replace it.
 
     .. figure:: _static/images/iphone.png
-        
+        :class: aligncenter
+
+.. slide::
+    :background-color: bg-apple
+    :horizontal-alignment: center
+    :wrap-zoom-in: True
+
+    .. heading:: h1
+
+        :fa:`fa-apple` Pay
+
+.. slide::
+    :background-color: bg-apple
+    :background-image: _static/images/iphone-hand.png
+    :background-image-location: left-bottom
+
+    .. content-right::
+
+        .. heading:: h2
+
+            Redesigning :fa:`fa-apple` Pay
+
+        We've been working with the Acme team over the last three months to build a new app.
+
+        .. button-link:: #
+
+            Case study ›
+
+        .. ghost-button-link:: https://www.apple.com/apple-pay/
+
+            Open site ›
+
+.. slide::
+    :background-color: bg-apple
+    :background-image: _static/images/iphone-hand.png
+    :background-image-location: right-bottom
+
+    .. content-left::
+
+        :ph2:`Payments Made Simple`
+        Apple Pay is so easy. Pay with your debit cards and credit cards with just a touch.
+
+        .. content-left::
+
+            :ph3:`Secure`            
+            Your card is never stored. Apple Pay uses a device-specific number and unique transaction code.
+
+        .. content-left::
+
+            :ph3:`Universal`
+            Apple Pay works with most major credit and debit cards from nearly all banks.
+
+.. slide::
+    :background-color: bg-apple
+    :background-image: _static/images/iphone-hand.png
+    :background-image-location: left-bottom
+
+    .. content-right::
+
+        .. flexblock-spec::
+
+            - :fa:`fa-bolt` :ph2:`Incredibly fast` Just hold your iPhone near the reader.
+            - :fa:`fa-globe` :ph2:`Works with all major banks` Apple Pay is accepted in restaurants, hotels...
+            - :fa:`fa-lock` :ph2:`The safer way to pay` Your card number is never stored.
+
+.. slide::
+    :background-color: bg-apple
+    :background-image: _static/images/iphone-hand.png
+    :background-image-location: right-bottom
+
+    .. content-left::
+
+        .. heading:: h1
+
+            :fa:`fa-apple` Pay
+
+        Use your iPhone to pay securely and easily at over a million store locations and within apps — with a single touch. See where you can use Apple Pay:
+
+        Not implementing form.
+
+
