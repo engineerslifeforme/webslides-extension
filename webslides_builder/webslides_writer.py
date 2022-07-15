@@ -3,7 +3,7 @@ from sphinx.writers.html import HTMLWriter
 from .slide import SlideTranslator
 from .font_awesome import FontAwesomeTranslator
 from .heading import HeadingTranslator
-from .header import HeaderTranslator
+from .header_footer import HeaderFooterTranslator
 from .div import DivTranslator
 from .span import SpanTranslator
 from .paragraph import ParagraphTranslator
@@ -12,7 +12,6 @@ from .flexblock import FlexblockTranslator
 from .hr import HRTranslator
 from .description_list import DescriptionListTranslator
 from .preformatted import PreformattedTranslator
-from .footer import FooterTranslator
 from .figure import FigureTranslator
 from .web import WebTranslator
 from .video import VideoTranslator
@@ -30,8 +29,7 @@ class WebslidesTranslator(
     HRTranslator,
     DescriptionListTranslator,
     PreformattedTranslator,
-    HeaderTranslator,
-    FooterTranslator,
+    HeaderFooterTranslator,
     FigureTranslator,
     WebTranslator,
     VideoTranslator,
