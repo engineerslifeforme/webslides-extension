@@ -16,6 +16,7 @@ from .preformatted import setup_preformatted
 from .footer import setup_footer
 from .web import setup_web
 from .video import setup_video
+from .blockquote import setup_blockquote
 
 def setup(app):
     app.add_builder(WebslidesBuilder)
@@ -35,3 +36,4 @@ def setup(app):
     setup_footer(app)
     setup_web(app)
     setup_video(app)
+    setup_blockquote(app)
