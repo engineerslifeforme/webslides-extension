@@ -305,4 +305,25 @@
 
         Not implementing form.
 
+.. slide::
+    :background-color: bg-apple
+
+    .. text-quote::
+        :citation: Steve Jobs.
+
+        I'm an optimist in the sense that I believe humans are noble and honorable, and some of them are really smart. I have a very optimistic view of individuals.
+
+.. slide::
+    :background-color: bg-apple
+    :background-image: https://webslides.tv/static/images/tim-cook.png
+    :background-image-location: right-bottom
+
+    .. content-left::
+
+        .. blockquote::
+            :citation: Tim Cook, CEO of Apple.
+
+            "We see that privacy is a fundamental human right that people have. We are going to do everything that we can to help maintain that trust."
+
+
 
