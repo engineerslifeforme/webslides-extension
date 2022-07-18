@@ -34,6 +34,8 @@ class flex_content_node(BaseClassNode):
     classes=['flex-content']
 class content_left_node(BaseClassNode):
     classes=['content-left']
+class content_center_node(BaseClassNode):
+    classes=['content-center']
 class content_right_node(BaseClassNode):
     classes=['content-right']
 class overlay_node(BaseClassNode):
@@ -102,6 +104,7 @@ div_map = {
     'center': center_node,
     'flex-content': flex_content_node,
     'content-left': content_left_node,
+    'content-center': content_center_node,
     'content-right': content_right_node,
     'overlay': overlay_node,
     'cta': cta_node,

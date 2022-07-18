@@ -343,3 +343,46 @@
             .. link:: #
 
                 :fa:`fa-twitter` @username
+
+.. slide::
+    :vertical-alignment: top
+
+    .. content-left::
+
+        :ph3:`1/9 left top` 
+        
+        Put content wherever you want. Have less. Do more. Create beautiful solutions.
+
+        ``.slide-top and .content-left``
+
+.. slide::
+    :vertical-alignment: top
+
+    .. content-center::
+
+        :ph3:`2/9 center top` 
+        
+        Apple I was designed and hand-built by Steve Wozniak. Steve Jobs had the idea of selling the computer.
+
+        ``.slide-top and .content-center``
+
+.. slide::
+    :vertical-alignment: top
+
+    .. content-right::
+
+        :ph3:`3/9 right top` 
+        
+        The Apple II is one of the first highly successful computers.
+
+        ``.slide-top and .content-right``
+
+.. slide::
+
+    .. content-left::
+
+        :ph3:`4/9 left center` 
+        
+        The Apple III is a business-oriented personal computer that was intended as the successor to the Apple II series.
+
+        ``.content-left``
