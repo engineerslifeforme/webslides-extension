@@ -9,6 +9,8 @@ from sphinx.util import logging
 from .div import div_wrap_node, div_node
 from .span import background_node
 from .video import video_node
+from .header_footer import make_header_node, set_alignment, make_footer_node
+from .paragraph import paragraph_node
 from .common import (
     add_class_to_tag,
     process_classes,
@@ -71,6 +73,10 @@ class Slide(GenericDirective):
         'background-video-dark': directives.unchanged,
         'text-serif': directives.unchanged,
         'no-defaults': directives.unchanged,
+        'header': directives.unchanged,
+        'header-alignment': directives.unchanged,
+        'footer': directives.unchanged,
+        'footer-alignment': directives.unchanged,
     })
 
     def run(self):        
@@ -95,12 +101,37 @@ class Slide(GenericDirective):
         # Add before wrap
         active_node = self.set_background_image(active_node)        
         active_node = self.set_background_video(active_node)
+        active_node = self.set_header(active_node)
+        active_node = self.set_footer(active_node)
         # wrap
         active_node = self.check_wrap(active_node)  
         # after wrap
         active_node = self.check_card(active_node)
         active_node = self._process_content(active_node)      
         return [node]
+
+    def set_header(self, node):
+        return self.set_header_footer('header', 'header-alignment', node, make_header_node)
+    
+    def set_footer(self, node):
+        return self.set_header_footer('footer', 'footer-alignment', node, make_footer_node)
+
+    def set_header_footer(self, option_name, alignment_name, node, node_maker):
+        if option_name in self.options:
+            hf_node, hf_active_node = node_maker()
+            # Need to wrap as paragraph when not using header
+            # directive, paragraph wraps alignment span
+            paragraph = paragraph_node()
+            hf_active_node += paragraph
+            hf_active_node = paragraph
+            if alignment_name in self.options:
+                hf_active_node = set_alignment(
+                    {'horizontal-alignment': self.options[alignment_name]}, 
+                    hf_active_node
+                )
+            hf_active_node += nodes.Text(self.options[option_name])
+            node += hf_node
+        return node
     
     def set_full_screen(self, node):
         fs = 'full-screen'
