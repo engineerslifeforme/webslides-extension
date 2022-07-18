@@ -1,5 +1,7 @@
-.. slide::
+.. slide-config::
     :background-color: bg-apple
+
+.. slide::
     :horizontal-alignment: center
     
     .. heading:: h1
@@ -8,7 +10,6 @@
             :class: whitelogo
 
 .. slide::
-    :background-color: bg-apple
     :wrap-size: 50
 
     :ph1:`Make a Keynote presentation using HTML`
@@ -16,13 +17,11 @@
     ``.bg-apple``
 
 .. slide::
-    :background-color: bg-apple
     :horizontal-alignment: center
 
     :ph2:`HTML presentations can be easy`
 
 .. slide::
-    :background-color: bg-apple
     
     :ph2:`Features`
     
@@ -60,7 +59,6 @@
           Font Awesome Kit.
 
 .. slide::
-    :background-color: bg-apple
     
     .. content-left::
 
@@ -80,7 +78,6 @@
             :class: whitelogo
 
 .. slide::
-    :background-color: bg-apple
     
     .. content-left::
 
@@ -106,7 +103,6 @@
         - Monthly Growth :span:`64%`
 
 .. slide::
-    :background-color: bg-apple
     
     .. flexblock-metrics::
         :classes: border
@@ -137,7 +133,6 @@
           Bank: $76B
 
 .. slide::
-    :background-color: bg-apple
     :horizontal-alignment: center
     :background-image: https://source.unsplash.com/pb_lF8VWaPU/
     :dark-background-image: True
@@ -150,7 +145,6 @@
     :ph3:`iPhone 7 in first 24 hours`
 
 .. slide::
-    :background-color: bg-apple
     :horizontal-alignment: center
     
     .. heading:: h2
@@ -161,7 +155,6 @@
     :ph3:`Revenue in Q4 2024`
 
 .. slide::
-    :background-color: bg-apple
     :vertical-alignment: bottom
     :background-image: https://source.unsplash.com/Y5Tjb62cxl8/
 
@@ -172,7 +165,6 @@
         :ph3:`We're working to protect up to a million acres of sustainable forest.`
 
 .. slide::
-    :background-color: bg-apple
     :card-size: 50
 
     .. figure:: _static/images/iphone.png
@@ -189,8 +181,7 @@
         Every iPhone they have made was built on the same belief. That a phone should be more than a collection of features. That, above all, a phone should be absolutely simple, beautiful, and magical to use.
 
 .. slide::
-    :background-color: bg-apple
-
+    
     .. grid::
         :alignment: vertical
 
@@ -213,7 +204,6 @@
             .. figure:: _static/images/iphone.png
 
 .. slide::
-    :background-color: bg-apple
     :card-size: 50
 
     .. flex-content::
@@ -228,7 +218,6 @@
         :class: aligncenter
 
 .. slide::
-    :background-color: bg-apple
     :horizontal-alignment: center
     :wrap-zoom-in: True
 
@@ -237,7 +226,6 @@
         :fa:`fa-apple` Pay
 
 .. slide::
-    :background-color: bg-apple
     :background-image: _static/images/iphone-hand.png
     :background-image-location: left-bottom
 
@@ -258,7 +246,6 @@
             Open site ›
 
 .. slide::
-    :background-color: bg-apple
     :background-image: _static/images/iphone-hand.png
     :background-image-location: right-bottom
 
@@ -278,7 +265,6 @@
             Apple Pay works with most major credit and debit cards from nearly all banks.
 
 .. slide::
-    :background-color: bg-apple
     :background-image: _static/images/iphone-hand.png
     :background-image-location: left-bottom
 
@@ -291,7 +277,6 @@
             - :fa:`fa-lock` :ph2:`The safer way to pay` Your card number is never stored.
 
 .. slide::
-    :background-color: bg-apple
     :background-image: _static/images/iphone-hand.png
     :background-image-location: right-bottom
 
