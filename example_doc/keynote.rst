@@ -386,3 +386,108 @@
         The Apple III is a business-oriented personal computer that was intended as the successor to the Apple II series.
 
         ``.content-left``
+
+.. slide::
+    
+    .. content-center::
+
+        :ph3:`5/9 center` 
+        
+        Apple Lisa was one of the first personal computers to offer a graphical user interface.
+
+        ``.content-center``
+
+.. slide::
+    
+    .. content-right::
+
+        :ph3:`6/9 right center` 
+        
+        The Macintosh was the company's first mass-market personal computer featuring a GUI and mouse.
+
+        ``.content-right``
+
+.. slide::
+    :vertical-alignment: bottom
+
+    .. content-left::
+
+        :ph3:`7/9 left bottom` 
+        
+        The iBook was a line of laptop computers designed and marketed by Apple Inc. from 1999 to 2006.
+
+        ``.slide-bottom`` and ``.content-left``
+
+.. slide::
+    :vertical-alignment: bottom
+
+    .. content-center::
+
+        :ph3:`8/9 center bottom` 
+        
+        Apple introduced the first generation iPod on October 23, 2001, with the slogan "1,000 songs in your pocket".
+
+        ``.slide-bottom`` and ``.content-center``
+
+.. slide::
+    :vertical-alignment: bottom
+
+    .. content-right::
+
+        :ph3:`9/9 right bottom` 
+        
+        The original iPhone was introduced by Steve Jobs on January 9, 2007. Jobs introduced the iPhone as a combination of three devices.
+
+        ``.slide-bottom`` and ``.content-right``
+
+.. slide::
+    :wrap-size: 50
+
+    :ph2:`CSS Animations`
+
+    Fadein transition to all slides.
+
+    .. pre::
+    
+        .. code-block::
+
+            <article id="webslides">
+                <section>
+                    <div class="wrap fadeInUp">
+                    <h1>Slide</h1>
+                    </div>
+                </section>
+            </article>
+
+    Just 5 basic animations: .fadeIn, .fadeInUp, .zoomIn, .slideInLeft, and .slideInRight.
+
+.. slide::
+    :horizontal-alignment: center
+    :background-image: https://source.unsplash.com/UxtIESWxLh8/
+    :light-background-image: True
+
+    :ph2:`Embedding Media`
+
+.. slide::
+
+    .. content-left::
+
+        .. heading:: h3
+
+            `YouTube API <https://webslides.tv/demos/media#slide=2>`_
+
+        Embed videos with loop, autoplay, and muted attributes. The video will automatically play when the slide is loaded.
+
+        .. pre::
+
+            .. code-block::
+
+                <div class="embed">
+                    <div data-youtube data-youtube-id="CQY3KUR3VzM" data-autoplay ></div>
+                </div>
+        
+        ``.embed`` (responsive)
+
+    .. content-left::
+
+        youtube video here
