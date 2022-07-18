@@ -20,9 +20,14 @@ logger = logging.getLogger(__name__)
 
 SECTION_TAG = 'section'
 
+def source_read_handler(app, docname, source):
+    app.config['slide_config'] = {}
+
 def setup_slide(app):
     app.add_node(slide_node)
     app.add_directive('slide', Slide)
+    app.add_directive('slide-config', SlideConfig)
+    app.connect('source-read', source_read_handler)
 
 class slide_node(BaseClassNode):
     pass
@@ -65,9 +70,18 @@ class Slide(GenericDirective):
         'background-video-poster': directives.unchanged,
         'background-video-dark': directives.unchanged,
         'text-serif': directives.unchanged,
+        'no-defaults': directives.unchanged,
     })
 
-    def run(self):
+    def run(self):        
+        if 'no-defaults' not in self.options:
+            # get defaults and update with specific requests for this directive
+            # i.e. requests override defaults
+            slide_settings = deepcopy(self.env.app.config['slide_config'])
+            slide_settings.update(
+                self.options
+            )
+            self.options = slide_settings
         node = slide_node()
         active_node = node
         # Slide Node modifcations        
@@ -198,6 +212,10 @@ class Slide(GenericDirective):
                 node.add_class('slide-bottom')
             else:
                 print(f'ERROR: Vertical alignment {requested_alignment} unknown, ignoring...')
-        return node   
+        return node
 
-        
+class SlideConfig(Slide):
+
+    def run(self):
+        self.env.app.config['slide_config'] = deepcopy(self.options)
+        return []
