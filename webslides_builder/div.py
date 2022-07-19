@@ -34,6 +34,10 @@ class flex_content_node(BaseClassNode):
     classes=['flex-content']
 class content_left_node(BaseClassNode):
     classes=['content-left']
+class content_center_node(BaseClassNode):
+    classes=['content-center']
+class content_right_node(BaseClassNode):
+    classes=['content-right']
 class overlay_node(BaseClassNode):
     classes=['overlay']
 class cta_node(BaseClassNode):
@@ -44,6 +48,22 @@ class benefit_node(BaseClassNode):
     classes=['benefit']
 class text_cols_div_node(BaseClassNode):
     classes=['text-cols']
+class embed_node(BaseClassNode):
+    classes=['embed']
+class youtube_node(BaseClassNode):
+    youtube_attributes = {
+        'data-youtube': None,
+        'data-autoplay': None,
+        'data-no-controls': None,
+    }
+
+    def __init__(self, youtube_id: str, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.youtube_attributes['data-youtube-id'] = youtube_id
+
+    def show_controls(self):
+        del(self.youtube_attributes['data-no-controls'])
+
 class process_step_node(BaseClassNode):
     classes=['process']
 
@@ -64,6 +84,22 @@ class ProcessStepDirective(GenericDirective):
         node.add_step_number(self.arguments[0])
         return [node]
 
+class YoutubeDirective(GenericDirective):
+    required_arguments = 1
+    node_type = embed_node
+    option_spec = copy.deepcopy(GenericDirective.option_spec)
+    option_spec.update({
+        'show-controls': directives.unchanged,
+    })
+
+    def run(self):
+        node = super().run()[0]
+        yt_node = youtube_node(self.arguments[0])
+        if 'show-controls' in self.options:
+            yt_node.show_controls()
+        yt_node.add_attributes(yt_node.youtube_attributes)
+        node += yt_node
+        return [node]
 
 ALLOWED_SIDEBAR_CONFIGS = [
     'sm', 'ms', 'sms'
@@ -100,6 +136,8 @@ div_map = {
     'center': center_node,
     'flex-content': flex_content_node,
     'content-left': content_left_node,
+    'content-center': content_center_node,
+    'content-right': content_right_node,
     'overlay': overlay_node,
     'cta': cta_node,
     'number': number_node,
@@ -119,9 +157,12 @@ def setup_div(app):
         add_role_and_directive(app, node_type, label)
     app.add_node(grid_node)
     app.add_node(process_step_node)
+    app.add_node(embed_node)
+    app.add_node(youtube_node)
     app.add_directive('grid', GridDirective)
     app.add_directive('process-step', ProcessStepDirective)
     app.add_role('process-step', process_step_role)
+    app.add_directive('youtube', YoutubeDirective)
     # Convenience
     app.add_role('ps', process_step_role)
 
@@ -130,6 +171,8 @@ class DivTranslator(HTMLTranslator):
 
 add_visit_depart(DivTranslator, grid_node.__name__, TAG)
 add_visit_depart(DivTranslator, process_step_node.__name__, TAG)
+add_visit_depart(DivTranslator, embed_node.__name__, TAG)
+add_visit_depart(DivTranslator, youtube_node.__name__, TAG)
 for node_type in div_map.values():
     add_visit_depart(DivTranslator, node_type.__name__, TAG)
 
