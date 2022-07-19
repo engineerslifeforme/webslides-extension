@@ -494,6 +494,9 @@
 
 .. slide::
     :full-screen: True
+    :no-defaults:
+    :background-color: bg-apple
+    :no-wrap: True
 
     .. youtube:: lvOKBQvbLhg
         :show-controls: True
