@@ -25,7 +25,7 @@ def process_classes(content: str, node, tag_name: str) -> str:
         )
     return content
 
-def process_attributes(content: str, node, tag_name: str, ) -> str:
+def process_attributes(content: str, node, tag_name: str) -> str:
     a = 'attributes' 
     if a in node:
         for label in node[a]:

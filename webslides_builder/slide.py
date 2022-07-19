@@ -9,6 +9,8 @@ from sphinx.util import logging
 from .div import div_wrap_node, div_node
 from .span import background_node
 from .video import video_node
+from .header_footer import make_header_node, set_alignment, make_footer_node
+from .paragraph import paragraph_node
 from .common import (
     add_class_to_tag,
     process_classes,
@@ -20,9 +22,14 @@ logger = logging.getLogger(__name__)
 
 SECTION_TAG = 'section'
 
+def source_read_handler(app, docname, source):
+    app.config['slide_config'] = {}
+
 def setup_slide(app):
     app.add_node(slide_node)
     app.add_directive('slide', Slide)
+    app.add_directive('slide-config', SlideConfig)
+    app.connect('source-read', source_read_handler)
 
 class slide_node(BaseClassNode):
     pass
@@ -48,6 +55,7 @@ class Slide(GenericDirective):
         'wrap': directives.unchanged,
         'no-wrap': directives.unchanged,
         'wrap-size': directives.unchanged,
+        'wrap-zoom-in': directives.unchanged,
         'background-image': directives.unchanged,
         'dark-background-image': directives.unchanged,
         'light-background-image': directives.unchanged,
@@ -64,9 +72,22 @@ class Slide(GenericDirective):
         'background-video-poster': directives.unchanged,
         'background-video-dark': directives.unchanged,
         'text-serif': directives.unchanged,
+        'no-defaults': directives.unchanged,
+        'header': directives.unchanged,
+        'header-alignment': directives.unchanged,
+        'footer': directives.unchanged,
+        'footer-alignment': directives.unchanged,
     })
 
-    def run(self):
+    def run(self):        
+        if 'no-defaults' not in self.options:
+            # get defaults and update with specific requests for this directive
+            # i.e. requests override defaults
+            slide_settings = deepcopy(self.env.app.config['slide_config'])
+            slide_settings.update(
+                self.options
+            )
+            self.options = slide_settings
         node = slide_node()
         active_node = node
         # Slide Node modifcations        
@@ -80,12 +101,37 @@ class Slide(GenericDirective):
         # Add before wrap
         active_node = self.set_background_image(active_node)        
         active_node = self.set_background_video(active_node)
+        active_node = self.set_header(active_node)
+        active_node = self.set_footer(active_node)
         # wrap
         active_node = self.check_wrap(active_node)  
         # after wrap
         active_node = self.check_card(active_node)
         active_node = self._process_content(active_node)      
         return [node]
+
+    def set_header(self, node):
+        return self.set_header_footer('header', 'header-alignment', node, make_header_node)
+    
+    def set_footer(self, node):
+        return self.set_header_footer('footer', 'footer-alignment', node, make_footer_node)
+
+    def set_header_footer(self, option_name, alignment_name, node, node_maker):
+        if option_name in self.options:
+            hf_node, hf_active_node = node_maker()
+            # Need to wrap as paragraph when not using header
+            # directive, paragraph wraps alignment span
+            paragraph = paragraph_node()
+            hf_active_node += paragraph
+            hf_active_node = paragraph
+            if alignment_name in self.options:
+                hf_active_node = set_alignment(
+                    {'horizontal-alignment': self.options[alignment_name]}, 
+                    hf_active_node
+                )
+            hf_active_node += nodes.Text(self.options[option_name])
+            node += hf_node
+        return node
     
     def set_full_screen(self, node):
         fs = 'full-screen'
@@ -161,6 +207,9 @@ class Slide(GenericDirective):
             if ws in self.options:
                 div.add_class(f"size-{self.options[ws]}")
             node += div
+            wzi = 'wrap-zoom-in'
+            if wzi in self.options:
+                div.add_class('zoomIn')
             if 'wrap' in self.options:
                 logger.warning("\"wrap\" option on slide directive no longer used, will be removed soon!")
         ca = 'content-alignment'
@@ -194,6 +243,10 @@ class Slide(GenericDirective):
                 node.add_class('slide-bottom')
             else:
                 print(f'ERROR: Vertical alignment {requested_alignment} unknown, ignoring...')
-        return node   
+        return node
 
-        
+class SlideConfig(Slide):
+
+    def run(self):
+        self.env.app.config['slide_config'] = deepcopy(self.options)
+        return []

@@ -1,5 +1,7 @@
-.. slide::
+.. slide-config::
     :background-color: bg-apple
+
+.. slide::
     :horizontal-alignment: center
     
     .. heading:: h1
@@ -8,7 +10,6 @@
             :class: whitelogo
 
 .. slide::
-    :background-color: bg-apple
     :wrap-size: 50
 
     :ph1:`Make a Keynote presentation using HTML`
@@ -16,13 +17,11 @@
     ``.bg-apple``
 
 .. slide::
-    :background-color: bg-apple
     :horizontal-alignment: center
 
     :ph2:`HTML presentations can be easy`
 
 .. slide::
-    :background-color: bg-apple
     
     :ph2:`Features`
     
@@ -60,7 +59,6 @@
           Font Awesome Kit.
 
 .. slide::
-    :background-color: bg-apple
     
     .. content-left::
 
@@ -80,7 +78,6 @@
             :class: whitelogo
 
 .. slide::
-    :background-color: bg-apple
     
     .. content-left::
 
@@ -106,7 +103,6 @@
         - Monthly Growth :span:`64%`
 
 .. slide::
-    :background-color: bg-apple
     
     .. flexblock-metrics::
         :classes: border
@@ -137,7 +133,6 @@
           Bank: $76B
 
 .. slide::
-    :background-color: bg-apple
     :horizontal-alignment: center
     :background-image: https://source.unsplash.com/pb_lF8VWaPU/
     :dark-background-image: True
@@ -150,7 +145,6 @@
     :ph3:`iPhone 7 in first 24 hours`
 
 .. slide::
-    :background-color: bg-apple
     :horizontal-alignment: center
     
     .. heading:: h2
@@ -161,7 +155,6 @@
     :ph3:`Revenue in Q4 2024`
 
 .. slide::
-    :background-color: bg-apple
     :vertical-alignment: bottom
     :background-image: https://source.unsplash.com/Y5Tjb62cxl8/
 
@@ -172,7 +165,6 @@
         :ph3:`We're working to protect up to a million acres of sustainable forest.`
 
 .. slide::
-    :background-color: bg-apple
     :card-size: 50
 
     .. figure:: _static/images/iphone.png
@@ -189,8 +181,7 @@
         Every iPhone they have made was built on the same belief. That a phone should be more than a collection of features. That, above all, a phone should be absolutely simple, beautiful, and magical to use.
 
 .. slide::
-    :background-color: bg-apple
-
+    
     .. grid::
         :alignment: vertical
 
@@ -213,9 +204,7 @@
             .. figure:: _static/images/iphone.png
 
 .. slide::
-    :background-color: bg-apple
     :card-size: 50
-    :no-wrap: True
 
     .. flex-content::
 
@@ -226,4 +215,379 @@
             - :fa:`fa-life-ring` :ph2:`Lifetime Warranty` We'll fix it or if we can't, we'll replace it.
 
     .. figure:: _static/images/iphone.png
+        :class: aligncenter
+
+.. slide::
+    :horizontal-alignment: center
+    :wrap-zoom-in: True
+
+    .. heading:: h1
+
+        :fa:`fa-apple` Pay
+
+.. slide::
+    :background-image: _static/images/iphone-hand.png
+    :background-image-location: left-bottom
+
+    .. content-right::
+
+        .. heading:: h2
+
+            Redesigning :fa:`fa-apple` Pay
+
+        We've been working with the Acme team over the last three months to build a new app.
+
+        .. button-link:: #
+
+            Case study ›
+
+        .. ghost-button-link:: https://www.apple.com/apple-pay/
+
+            Open site ›
+
+.. slide::
+    :background-image: _static/images/iphone-hand.png
+    :background-image-location: right-bottom
+
+    .. content-left::
+
+        :ph2:`Payments Made Simple`
+        Apple Pay is so easy. Pay with your debit cards and credit cards with just a touch.
+
+        .. content-left::
+
+            :ph3:`Secure`            
+            Your card is never stored. Apple Pay uses a device-specific number and unique transaction code.
+
+        .. content-left::
+
+            :ph3:`Universal`
+            Apple Pay works with most major credit and debit cards from nearly all banks.
+
+.. slide::
+    :background-image: _static/images/iphone-hand.png
+    :background-image-location: left-bottom
+
+    .. content-right::
+
+        .. flexblock-spec::
+
+            - :fa:`fa-bolt` :ph2:`Incredibly fast` Just hold your iPhone near the reader.
+            - :fa:`fa-globe` :ph2:`Works with all major banks` Apple Pay is accepted in restaurants, hotels...
+            - :fa:`fa-lock` :ph2:`The safer way to pay` Your card number is never stored.
+
+.. slide::
+    :background-image: _static/images/iphone-hand.png
+    :background-image-location: right-bottom
+
+    .. content-left::
+
+        .. heading:: h1
+
+            :fa:`fa-apple` Pay
+
+        Use your iPhone to pay securely and easily at over a million store locations and within apps — with a single touch. See where you can use Apple Pay:
+
+        Not implementing form.
+
+.. slide::
+    :background-color: bg-apple
+
+    .. text-quote::
+        :citation: Steve Jobs.
+
+        I'm an optimist in the sense that I believe humans are noble and honorable, and some of them are really smart. I have a very optimistic view of individuals.
+
+.. slide::
+    :background-color: bg-apple
+    :background-image: https://webslides.tv/static/images/tim-cook.png
+    :background-image-location: right-bottom
+
+    .. content-left::
+
+        .. blockquote::
+            :citation: Tim Cook, CEO of Apple.
+
+            "We see that privacy is a fundamental human right that people have. We are going to do everything that we can to help maintain that trust."
+
+.. slide::
+    :background-color: bg-apple
+    :no-wrap: True
+
+    .. header::
+
+        Header
+
+        .. span::
+            :classes: alignright
+
+            .alignright
+
+    .. center::
+        :classes: fadeInUp
+
+        :ph2:`Simple CSS Alignments`
+        Put content wherever you want.
+
+    .. footer::
+        :classes: bg-trans-dark
+
+        .. span::
+            :classes: alignleft
+
+            Footer
+
+        .. span::
+            :classes: alignright
+
+            .. link:: #
+
+                :fa:`fa-twitter` @username
+
+.. slide::
+    :vertical-alignment: top
+
+    .. content-left::
+
+        :ph3:`1/9 left top` 
         
+        Put content wherever you want. Have less. Do more. Create beautiful solutions.
+
+        ``.slide-top and .content-left``
+
+.. slide::
+    :vertical-alignment: top
+
+    .. content-center::
+
+        :ph3:`2/9 center top` 
+        
+        Apple I was designed and hand-built by Steve Wozniak. Steve Jobs had the idea of selling the computer.
+
+        ``.slide-top and .content-center``
+
+.. slide::
+    :vertical-alignment: top
+
+    .. content-right::
+
+        :ph3:`3/9 right top` 
+        
+        The Apple II is one of the first highly successful computers.
+
+        ``.slide-top and .content-right``
+
+.. slide::
+
+    .. content-left::
+
+        :ph3:`4/9 left center` 
+        
+        The Apple III is a business-oriented personal computer that was intended as the successor to the Apple II series.
+
+        ``.content-left``
+
+.. slide::
+    
+    .. content-center::
+
+        :ph3:`5/9 center` 
+        
+        Apple Lisa was one of the first personal computers to offer a graphical user interface.
+
+        ``.content-center``
+
+.. slide::
+    
+    .. content-right::
+
+        :ph3:`6/9 right center` 
+        
+        The Macintosh was the company's first mass-market personal computer featuring a GUI and mouse.
+
+        ``.content-right``
+
+.. slide::
+    :vertical-alignment: bottom
+
+    .. content-left::
+
+        :ph3:`7/9 left bottom` 
+        
+        The iBook was a line of laptop computers designed and marketed by Apple Inc. from 1999 to 2006.
+
+        ``.slide-bottom`` and ``.content-left``
+
+.. slide::
+    :vertical-alignment: bottom
+
+    .. content-center::
+
+        :ph3:`8/9 center bottom` 
+        
+        Apple introduced the first generation iPod on October 23, 2001, with the slogan "1,000 songs in your pocket".
+
+        ``.slide-bottom`` and ``.content-center``
+
+.. slide::
+    :vertical-alignment: bottom
+
+    .. content-right::
+
+        :ph3:`9/9 right bottom` 
+        
+        The original iPhone was introduced by Steve Jobs on January 9, 2007. Jobs introduced the iPhone as a combination of three devices.
+
+        ``.slide-bottom`` and ``.content-right``
+
+.. slide::
+    :wrap-size: 50
+
+    :ph2:`CSS Animations`
+
+    Fadein transition to all slides.
+
+    .. pre::
+    
+        .. code-block::
+
+            <article id="webslides">
+                <section>
+                    <div class="wrap fadeInUp">
+                    <h1>Slide</h1>
+                    </div>
+                </section>
+            </article>
+
+    Just 5 basic animations: .fadeIn, .fadeInUp, .zoomIn, .slideInLeft, and .slideInRight.
+
+.. slide::
+    :horizontal-alignment: center
+    :background-image: https://source.unsplash.com/UxtIESWxLh8/
+    :light-background-image: True
+
+    :ph2:`Embedding Media`
+
+.. slide::
+
+    .. content-left::
+
+        .. heading:: h3
+
+            `YouTube API <https://webslides.tv/demos/media#slide=2>`_
+
+        Embed videos with loop, autoplay, and muted attributes. The video will automatically play when the slide is loaded.
+
+        .. pre::
+
+            .. code-block::
+
+                <div class="embed">
+                    <div data-youtube data-youtube-id="CQY3KUR3VzM" data-autoplay ></div>
+                </div>
+        
+        ``.embed`` (responsive)
+
+    .. content-left::
+
+        .. youtube:: CQY3KUR3VzM
+
+.. slide::
+    :full-screen: True
+    :no-defaults:
+    :background-color: bg-apple
+    :no-wrap: True
+
+    .. youtube:: lvOKBQvbLhg
+        :show-controls: True
+
+.. slide::
+    :full-screen: True
+    :background-video: https://webslides.tv/static/videos/peggy.mp4
+    :background-video-poster: https://webslides.tv/static/images/peggy.jpg
+    :wrap-size: 50
+    :horizontal-alignment: center
+
+    .. heading:: h2
+        
+        **Be Awesome**
+
+.. slide::
+    :full-screen: True
+    :background-video: https://webslides.tv/static/videos/peggy.mp4
+    :background-video-poster: https://webslides.tv/static/images/peggy.jpg
+    :wrap-size: 50
+    :horizontal-alignment: center
+    :background-video-dark: True
+
+    .. heading:: h2
+        
+        **Think Different**
+
+    Overlay: ``fulscreen.bg-black > .embed.dark`` or .light
+
+.. slide::
+    :horizontal-alignment: center
+    :background-image: https://webslides.tv/static/images/tim-cook.png
+    :background-image-location: right-bottom
+
+    :ph1:`One more thing...`
+
+.. slide::
+    :horizontal-alignment: center
+
+    .. cta::
+
+        .. number::
+            
+            .. paragraph::
+                
+                :span:`Ag`
+
+        .. benefit::
+
+            :tsub:`San Francisco`
+
+            .. heading:: h3
+
+                **The quick brown fox jumps over the lazy dog**
+
+            ABCDEFGHIJKLMNOPQRSTUVWXYZ
+
+            abcdefghijklmnopqrstuvwxyz
+
+            1234567890(,.;:?!$&*)
+
+.. slide::
+    :horizontal-alignment: center
+
+    .. heading:: h2
+
+        **Start in seconds**
+
+    :ti:`120+ prebuilt slides ready to use.`
+
+    .. button-link:: https://webslides.tv/webslides-latest.zip
+
+        :fa:`fa-cloud-download` Free Download
+
+    .. try::
+
+        .. link:: https://www.paypal.me/jlantunez/8
+
+            :fa:`fa-paypal` Pay what you want.
+
+.. slide::
+    :horizontal-alignment: center
+    :no-wrap: True
+
+    .. heading:: h2
+        :classes: text-emoji zoomIn
+
+        😎
+
+    .. heading:: h3
+
+        **Thank you!**
+
+    `@WebSlides <https://twitter.com/webslides>`_
