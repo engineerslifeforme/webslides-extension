@@ -500,3 +500,94 @@
 
     .. youtube:: lvOKBQvbLhg
         :show-controls: True
+
+.. slide::
+    :full-screen: True
+    :background-video: https://webslides.tv/static/videos/peggy.mp4
+    :background-video-poster: https://webslides.tv/static/images/peggy.jpg
+    :wrap-size: 50
+    :horizontal-alignment: center
+
+    .. heading:: h2
+        
+        **Be Awesome**
+
+.. slide::
+    :full-screen: True
+    :background-video: https://webslides.tv/static/videos/peggy.mp4
+    :background-video-poster: https://webslides.tv/static/images/peggy.jpg
+    :wrap-size: 50
+    :horizontal-alignment: center
+    :background-video-dark: True
+
+    .. heading:: h2
+        
+        **Think Different**
+
+    Overlay: ``fulscreen.bg-black > .embed.dark`` or .light
+
+.. slide::
+    :horizontal-alignment: center
+    :background-image: https://webslides.tv/static/images/tim-cook.png
+    :background-image-location: right-bottom
+
+    :ph1:`One more thing...`
+
+.. slide::
+    :horizontal-alignment: center
+
+    .. cta::
+
+        .. number::
+            
+            .. paragraph::
+                
+                :span:`Ag`
+
+        .. benefit::
+
+            :tsub:`San Francisco`
+
+            .. heading:: h3
+
+                **The quick brown fox jumps over the lazy dog**
+
+            ABCDEFGHIJKLMNOPQRSTUVWXYZ
+
+            abcdefghijklmnopqrstuvwxyz
+
+            1234567890(,.;:?!$&*)
+
+.. slide::
+    :horizontal-alignment: center
+
+    .. heading:: h2
+
+        **Start in seconds**
+
+    :ti:`120+ prebuilt slides ready to use.`
+
+    .. button-link:: https://webslides.tv/webslides-latest.zip
+
+        :fa:`fa-cloud-download` Free Download
+
+    .. try::
+
+        .. link:: https://www.paypal.me/jlantunez/8
+
+            :fa:`fa-paypal` Pay what you want.
+
+.. slide::
+    :horizontal-alignment: center
+    :no-wrap: True
+
+    .. heading:: h2
+        :classes: text-emoji zoomIn
+
+        😎
+
+    .. heading:: h3
+
+        **Thank you!**
+
+    `@WebSlides <https://twitter.com/webslides>`_

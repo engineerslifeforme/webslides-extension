@@ -25,6 +25,8 @@ TAG = 'span'
 class span_node(BaseClassNode):pass
 class text_label_node(BaseClassNode):
     classes = ['text-label']
+class try_node(BaseClassNode):
+    classes = ['try']
 class span_raw_node(span_node): pass
 
 ALLOWED_BACKGROUND_LOCATIONS = [
@@ -105,6 +107,8 @@ def setup_span(app):
     app.add_node(span_raw_node)
     app.add_node(background_node)
     app.add_node(text_label_node)
+    app.add_node(try_node)
+    add_role_and_directive(app, try_node, 'try')
     add_role_and_directive(app, span_node, 'span')
     app.add_role('span-raw', raw_span_role)
     add_role_and_directive(app, text_label_node, 'text-label')
@@ -146,5 +150,11 @@ class SpanTranslator(HTMLTranslator):
         self.visit_span_node(node)
 
     def depart_text_label_node(self, node):
+        self.depart_span_node(node)
+        
+    def visit_try_node(self, node):
+        self.visit_span_node(node)
+
+    def depart_try_node(self, node):
         self.depart_span_node(node)
 
