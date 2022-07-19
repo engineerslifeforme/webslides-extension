@@ -8,3 +8,4 @@ example_doc/_webslides_build
 _webslides_builder
 old_example_doc
 build/**
+webslides_builder/themes/webslides_base/static/

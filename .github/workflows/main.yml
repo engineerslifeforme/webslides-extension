@@ -29,6 +29,10 @@ jobs:
         with:
           python-version: 3.8
 
+      - name: Get webslides
+        run: ./.github/scripts/get_webslides.sh
+        shell: bash
+
       # Runs a single command using the runners shell
       - name: Run a one-line script
         run: echo Hello, world!
