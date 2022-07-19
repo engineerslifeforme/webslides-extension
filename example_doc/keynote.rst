@@ -490,4 +490,10 @@
 
     .. content-left::
 
-        youtube video here
+        .. youtube:: CQY3KUR3VzM
+
+.. slide::
+    :full-screen: True
+
+    .. youtube:: lvOKBQvbLhg
+        :show-controls: True
