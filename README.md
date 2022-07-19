@@ -13,5 +13,5 @@ Both restructuredtext and markdown are supported.
 Make sure you add the webslides dependencies:
 
 ```
-bash get_webslides.sh
+bash .github/scripts/get_webslides.sh
 ```
