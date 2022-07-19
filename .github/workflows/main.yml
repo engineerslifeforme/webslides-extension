@@ -22,16 +22,16 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      - name: Get webslides
-        run: ./.github/scripts/get_webslides.sh
-        shell: bash
-
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
       - name: Set up Python 3.8
         uses: actions/setup-python@v2
         with:
           python-version: 3.8
+
+      - name: Get webslides
+        run: ./.github/scripts/get_webslides.sh
+        shell: bash
 
       # Runs a single command using the runners shell
       - name: Run a one-line script
