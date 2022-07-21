@@ -1,7 +1,7 @@
 name: Publish releases to PyPI
 on: 
   push:
-    branches: ["main"]
+    branches: ["main", "28-missing-webslides-resources-in-pipy-package"]
 jobs:
   build-publish:
     name: Build and publish 
@@ -12,6 +12,9 @@ jobs:
         uses: actions/setup-python@v3
         with:
           python-version: "3.8"
+      - name: Get webslides
+        run: ./.github/scripts/get_webslides.sh
+        shell: bash
       - name: Install pypa/build
         run: >-
           python -m
