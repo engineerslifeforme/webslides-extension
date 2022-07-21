@@ -1,6 +1,6 @@
 curl -L -o webslides.zip https://github.com/webslides/WebSlides/releases/download/1.5.0/webslides.zip
 unzip webslides.zip -d webslides
-DESTINATION=webslides_builder/themes/webslides_base/static
+DESTINATION=sphinx_webslides_builder/themes/webslides_base/static
 mkdir $DESTINATION
 mkdir $DESTINATION/css
 mkdir $DESTINATION/js
