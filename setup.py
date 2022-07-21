@@ -12,7 +12,7 @@ here = path.abspath(path.dirname(__file__))
 
 # with open(path.join(here, 'README.rst'), encoding='utf-8') as f:
 #     long_description = f.read()
-long_description = ""
+long_description = "Sphinx extension with a builder for webslides"
 
 install_requires = list()
 with open(path.join(here, 'requirements.txt'), 'r', encoding='utf-8') as f:
@@ -20,7 +20,7 @@ with open(path.join(here, 'requirements.txt'), 'r', encoding='utf-8') as f:
         install_requires.append(line)
 
 setup(
-    name='webslides-builder',
+    name='sphinx-webslides-builder',
 
     version='0.0.1',
 
@@ -42,12 +42,7 @@ setup(
         'Intended Audience :: Developers',
         'Topic :: Utilities',
         'License :: OSI Approved :: MIT License',
-        'Programming Language :: Python :: 2',
-        'Programming Language :: Python :: 2.7',
-        'Programming Language :: Python :: 3',
-        'Programming Language :: Python :: 3.3',
-        'Programming Language :: Python :: 3.4',
-        'Programming Language :: Python :: 3.5',
+        'Programming Language :: Python :: 3.8',
     ],
 
     keywords='sphinx docs documentation webslides',
@@ -56,7 +51,7 @@ setup(
 
     install_requires=install_requires,
     
-    package_data={'webslides_builder/themes/webslides_base': [
+    package_data={'sphinx_webslides_builder/themes/webslides_base': [
         'theme.conf',
         '*.html',
         'static/css/*.css',
@@ -67,7 +62,7 @@ setup(
 
     entry_points = {
         'sphinx.builders': [
-            'webslides = webslides_builder',
+            'webslides = sphinx_webslides_builder',
         ],
     }
 )
