@@ -28,7 +28,7 @@ author = 'Me'
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 extensions = [
-    'webslides_builder',
+    'sphinx_webslides_builder',
     'myst_parser',
 ]
 
