@@ -39,12 +39,13 @@ def process_attributes(content: str, node, tag_name: str) -> str:
 
 def process_style(content: str, node, tag_name: str) -> str:
     if 'style' in node:
-        content = add_attribute_to_tag(
-            content,
-            tag_name,
-            'style',
-            node['style']
-        )
+        if node['style'] != '':
+            content = add_attribute_to_tag(
+                content,
+                tag_name,
+                'style',
+                node['style']
+            )
     return content
 
 def create_role(node_type, classes: list = None):
@@ -59,6 +60,7 @@ def create_role(node_type, classes: list = None):
 class GenericDirective(SphinxDirective):
     option_spec = {
         'classes': directives.unchanged,
+        'style': directives.unchanged,
         'horizontal-alignment': directives.unchanged,
     }
     has_content = True
@@ -70,6 +72,7 @@ class GenericDirective(SphinxDirective):
     def generic_process(self, node):
         node = self.set_horizontal_alignment(node)
         node = self.set_class_options(node)
+        node = self.set_style(node)
         if self.has_content:
             node = self._process_content(node)
         return [node]    
@@ -78,6 +81,13 @@ class GenericDirective(SphinxDirective):
         par = nodes.paragraph()
         self.state.nested_parse(self.content, self.content_offset, par)
         node += par
+        return node
+
+    def set_style(self, node):
+        if 'style' not in node:
+            node['style'] = ''
+        if 'style' in self.options:
+            node['style'] = node['style'] + self.options['style']
         return node
 
     def set_class_options(self, node):

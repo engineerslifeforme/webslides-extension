@@ -22,7 +22,7 @@ with open(path.join(here, 'requirements.txt'), 'r', encoding='utf-8') as f:
 setup(
     name='sphinx-webslides-builder',
 
-    version='0.0.2',
+    version='0.0.3',
 
     description='sphinx builder that outputs webslides',
 

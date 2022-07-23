@@ -73,8 +73,10 @@ class Slide(GenericDirective):
         'background-video-dark': directives.unchanged,
         'text-serif': directives.unchanged,
         'no-defaults': directives.unchanged,
+        'no-header': directives.unchanged,
         'header': directives.unchanged,
         'header-alignment': directives.unchanged,
+        'no-footer': directives.unchanged,
         'footer': directives.unchanged,
         'footer-alignment': directives.unchanged,
     })
@@ -111,10 +113,30 @@ class Slide(GenericDirective):
         return [node]
 
     def set_header(self, node):
-        return self.set_header_footer('header', 'header-alignment', node, make_header_node)
+        sh = 'slide_header'
+        set_requested_header = True
+        try:
+            if 'no-header' not in self.options:
+                node += deepcopy(self.env.app.config[sh])
+                set_requested_header = False
+        except AttributeError:
+            pass
+        if set_requested_header:
+            self.set_header_footer('header', 'header-alignment', node, make_header_node)
+        return node
     
     def set_footer(self, node):
-        return self.set_header_footer('footer', 'footer-alignment', node, make_footer_node)
+        sf = 'slide_footer'
+        set_requested_footer = True
+        try:
+            if 'no-footer' not in self.options:
+                node += deepcopy(self.env.app.config[sf])
+                set_requested_footer = False
+        except AttributeError:
+            pass
+        if set_requested_footer:
+            self.set_header_footer('footer', 'footer-alignment', node, make_footer_node)
+        return node
 
     def set_header_footer(self, option_name, alignment_name, node, node_maker):
         if option_name in self.options:
@@ -131,7 +153,6 @@ class Slide(GenericDirective):
                 )
             hf_active_node += nodes.Text(self.options[option_name])
             node += hf_node
-        return node
     
     def set_full_screen(self, node):
         fs = 'full-screen'
