@@ -193,7 +193,7 @@ class Slide(GenericDirective):
         bvp = 'background-video-poster'
         if bv in self.options:
             video = video_node(
-                poster_target=self.options[bvp],
+                poster_target=self.options.get(bvp, None),
                 video_target=self.options[bv],
                 dark=('background-video-dark' in self.options),
             )
