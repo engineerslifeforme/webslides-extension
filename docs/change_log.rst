@@ -2,6 +2,11 @@
 Change Log
 ===================
 
+0.0.4
+======
+
+Bug fix to background video to not require poster.
+
 0.0.3
 ======
 
