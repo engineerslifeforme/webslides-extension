@@ -12,7 +12,8 @@ here = path.abspath(path.dirname(__file__))
 
 # with open(path.join(here, 'README.rst'), encoding='utf-8') as f:
 #     long_description = f.read()
-long_description = "Sphinx extension with a builder for webslides"
+with open ('README.md', 'r') as fh:
+    long_description = fh.read()
 
 install_requires = list()
 with open(path.join(here, 'requirements.txt'), 'r', encoding='utf-8') as f:
@@ -22,13 +23,14 @@ with open(path.join(here, 'requirements.txt'), 'r', encoding='utf-8') as f:
 setup(
     name='sphinx-webslides-builder',
 
-    version='0.0.4',
+    version='0.0.5',
 
     description='sphinx builder that outputs webslides',
 
     long_description=long_description,
+    long_description_content_type='text/markdown',
 
-    url='https://github.com/creativerigor/webslides-builder',
+    url='https://github.com/creativerigor/webslides-extension',
 
     author='Creative Rigor, LLC',
 
