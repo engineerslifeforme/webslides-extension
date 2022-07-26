@@ -2,6 +2,11 @@
 Change Log
 ===================
 
+0.0.5
+======
+
+Fixed pypi repo link and set pypi description to README.
+
 0.0.4
 ======
 
