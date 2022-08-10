@@ -11,6 +11,7 @@ Welcome to Test Doc's documentation!
    :caption: Contents:
 
    test
+   heading_test
 
 Indices and tables
 ==================
