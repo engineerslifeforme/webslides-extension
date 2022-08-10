@@ -2,6 +2,11 @@
 Change Log
 ===================
 
+0.0.6
+=====
+
+Added ability to use markdown style headings
+
 0.0.5
 ======
 

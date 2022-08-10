@@ -68,6 +68,11 @@ def setup_paragraph(app):
     add_role_and_directive(app, text_pull_right_node, 'tpr')
 
 class ParagraphTranslator(HTMLTranslator):
+
+    def __init__(self, *args, **kwargs):
+        self.markdown_heading = None
+        self.markdown_tag = None
+        super().__init__(*args, **kwargs)
     
     def visit_paragraph(self, node):
         """ Filter blank paragraphs
@@ -75,12 +80,36 @@ class ParagraphTranslator(HTMLTranslator):
         webslides is very sensitive to blank paragraphs
         AND sphinx really likes to produce them.
         """
-        if node.astext() != '':
+        if node.astext() == '':
+            return
+        if node.astext()[0] == '#':
+            count = 1
+            while node.astext()[count] == '#':
+                count += 1
+            self.markdown_heading = '#' * count
+            self.markdown_tag = f'h{count}'
+            generic_visit(self, self.markdown_tag, node)
+        else:
             super().visit_paragraph(node)
 
+    def visit_Text(self, node):
+        if self.markdown_heading is not None:
+            super().visit_Text(
+                nodes.Text(node.astext().replace(self.markdown_heading, ''))
+            )
+        else:
+            super().visit_Text(node)
+
     def depart_paragraph(self, node):
-        if node.astext() != '':
+        if node.astext() == '':
+            return
+        if node.astext()[0] == '#':
+            generic_depart(self, self.markdown_tag)
+            self.markdown_heading = None
+            self.markdown_tag = None
+        else:
             super().depart_paragraph(node)
+
 
 for thing in paragraph_map.values():
     add_visit_depart(
