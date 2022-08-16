@@ -67,12 +67,13 @@ def setup_paragraph(app):
     add_role_and_directive(app, text_context_node, 'tc')
     add_role_and_directive(app, text_pull_right_node, 'tpr')
 
-class ParagraphTranslator(HTMLTranslator):
+def get_tag_and_heading(node_text: str):
+    count = 1
+    while node_text[count] == '#':
+        count += 1
+    return (f'h{count}', '#' * count)
 
-    def __init__(self, *args, **kwargs):
-        self.markdown_heading = None
-        self.markdown_tag = None
-        super().__init__(*args, **kwargs)
+class ParagraphTranslator(HTMLTranslator):
     
     def visit_paragraph(self, node):
         """ Filter blank paragraphs
@@ -82,31 +83,32 @@ class ParagraphTranslator(HTMLTranslator):
         """
         if node.astext() == '':
             return
-        if node.astext()[0] == '#':
-            count = 1
-            while node.astext()[count] == '#':
-                count += 1
-            self.markdown_heading = '#' * count
-            self.markdown_tag = f'h{count}'
-            generic_visit(self, self.markdown_tag, node)
         else:
             super().visit_paragraph(node)
 
     def visit_Text(self, node):
-        if self.markdown_heading is not None:
+        if node.astext()[0] == '#':
+            markdown_tag, markdown_heading = get_tag_and_heading(node.astext())            
+            self.body.append(f"<{markdown_tag}>")
             super().visit_Text(
-                nodes.Text(node.astext().replace(self.markdown_heading, ''))
+                nodes.Text(node.astext().replace(markdown_heading, ''))
             )
         else:
             super().visit_Text(node)
 
+    def depart_Text(self, node):
+        if node.astext()[0] == '#':
+            markdown_tag, markdown_heading = get_tag_and_heading(node.astext())            
+            self.body.append(f"</{markdown_tag}>")
+            super().depart_Text(
+                nodes.Text(node.astext().replace(markdown_heading, ''))
+            )
+        else:
+            super().depart_Text(node)
+
     def depart_paragraph(self, node):
         if node.astext() == '':
             return
-        if node.astext()[0] == '#':
-            generic_depart(self, self.markdown_tag)
-            self.markdown_heading = None
-            self.markdown_tag = None
         else:
             super().depart_paragraph(node)
 
