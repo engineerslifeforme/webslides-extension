@@ -2,6 +2,13 @@
 Change Log
 ===================
 
+0.0.7
+=====
+
+Bug in how the markdown style headings were implemented.
+Changes made to address issues, but solution limits any formating
+for now.
+
 0.0.6
 =====
 
