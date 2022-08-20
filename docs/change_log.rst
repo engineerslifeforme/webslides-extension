@@ -2,6 +2,13 @@
 Change Log
 ===================
 
+0.0.8
+======
+
+Added ``paragraph-style`` directive to allow temporary
+paragraph styling for things like reduced vertical separatation
+or fontsize changes.
+
 0.0.7
 =====
 
