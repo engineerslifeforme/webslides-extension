@@ -40,6 +40,7 @@ class text_context_node(BaseClassNode, paragraph_node):
     classes=['text-context']
 class text_pull_right_node(BaseClassNode, paragraph_node):
     classes=['text-pull-right']
+class paragraph_style_node(BaseClassNode): pass
 
 paragraph_map = {
     'paragraph': paragraph_node,
@@ -54,11 +55,25 @@ paragraph_map = {
     'text-pull-right': text_pull_right_node,
 }
 
+class ParagraphStyleDirective(GenericDirective):
+    node_type = paragraph_style_node
+    required_arguments = 1
+    has_content = True
+
+    def run(self):
+        # Don't need the logic of super()
+        node = paragraph_style_node()
+        node['style'] = self.arguments[0]
+        if self.has_content:
+            node = self._process_content(node)
+        return [node]
+
 def setup_paragraph(app):
     for label in paragraph_map:
         node_type = paragraph_map[label]
         app.add_node(node_type)
         add_role_and_directive(app, node_type, label)
+    app.add_directive('paragraph-style', ParagraphStyleDirective)
     # Convenience label
     add_role_and_directive(app, text_intro_node, 'ti')
     add_role_and_directive(app, text_center_node, 'c')
@@ -74,6 +89,10 @@ def get_tag_and_heading(node_text: str):
     return (f'h{count}', '#' * count)
 
 class ParagraphTranslator(HTMLTranslator):
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.paragraph_style = None
     
     def visit_paragraph(self, node):
         """ Filter blank paragraphs
@@ -85,6 +104,14 @@ class ParagraphTranslator(HTMLTranslator):
             return
         else:
             super().visit_paragraph(node)
+            if '<p' in self.body[-1]:
+                if self.paragraph_style is not None:
+                    self.body[-1] = add_attribute_to_tag(
+                        self.body[-1], 
+                        'p', 
+                        'style', 
+                        self.paragraph_style
+                    )
 
     def visit_Text(self, node):
         if node.astext()[0] == '#':
@@ -111,6 +138,12 @@ class ParagraphTranslator(HTMLTranslator):
             return
         else:
             super().depart_paragraph(node)
+
+    def visit_paragraph_style_node(self, node):
+        self.paragraph_style = node['style']
+
+    def depart_paragraph_style_node(self, node):
+        self.paragraph_style = None
 
 
 for thing in paragraph_map.values():
