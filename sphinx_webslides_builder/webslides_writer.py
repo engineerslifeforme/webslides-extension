@@ -16,6 +16,7 @@ from .figure import FigureTranslator
 from .web import WebTranslator
 from .video import VideoTranslator
 from .blockquote import BlockquoteTranslator
+from .template import TemplateTranslator
 
 class WebslidesTranslator(
     SlideTranslator,
@@ -34,6 +35,7 @@ class WebslidesTranslator(
     WebTranslator,
     VideoTranslator,
     BlockquoteTranslator,
+    TemplateTranslator,
 ):
 
     def visit_section(self, node):
