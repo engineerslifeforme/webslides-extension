@@ -2,6 +2,12 @@
 Change Log
 ===================
 
+0.0.9
+======
+
+Add ``template`` and ``template-define`` directives to allow creating
+reusable slide templates.
+
 0.0.8
 ======
 
