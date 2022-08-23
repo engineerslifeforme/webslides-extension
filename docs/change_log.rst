@@ -2,6 +2,13 @@
 Change Log
 ===================
 
+0.0.10
+======
+
+The sphinx directive arugment implementation in the previous
+version was not robust enough to real data.  Changed to
+inputing arguments as YAML in the body of the directive.
+
 0.0.9
 ======
 
