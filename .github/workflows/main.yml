@@ -6,9 +6,9 @@ name: CI
 on:
   # Triggers the workflow on push or pull request events but only for the "main" branch
   push:
-    branches: [ "main", "17-fix-github-action-to-use-real-install-not-local"]
+    branches: [ "main"]
   pull_request:
-    branches: [ "main", "17-fix-github-action-to-use-real-install-not-local" ]
+    branches: [ "main"]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -44,11 +44,11 @@ jobs:
           $CONDA/bin/conda install -c conda-forge myst-parser
           pip install .
           pip install myst-parser
-          sphinx-build -b webslides example_doc example_doc/_webslides_build
+          sphinx-build -b webslides webslides_deck_conversions webslides_deck_conversions/_webslides_build
           echo test, and deploy your project.
       - name: Archive results
         uses: actions/upload-artifact@v3
         with:
-          name: example_doc_html
+          name: webslides_deck_conversions_html
           path: |
-            example_doc/_webslides_build
+            webslides_deck_conversions/_webslides_build
