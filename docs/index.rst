@@ -10,6 +10,8 @@ Welcome to Webslides Sphinx Builder Extension Documentation's documentation!
    :maxdepth: 2
    :caption: Contents:
 
+   purpose
+   examples
    dev_log
 
 Indices and tables

@@ -2,6 +2,38 @@
 Change Log
 ===================
 
+0.0.10
+======
+
+The sphinx directive arugment implementation in the previous
+version was not robust enough to real data.  Changed to
+inputing arguments as YAML in the body of the directive.
+
+0.0.9
+======
+
+Add ``template`` and ``template-define`` directives to allow creating
+reusable slide templates.
+
+0.0.8
+======
+
+Added ``paragraph-style`` directive to allow temporary
+paragraph styling for things like reduced vertical separatation
+or fontsize changes.
+
+0.0.7
+=====
+
+Bug in how the markdown style headings were implemented.
+Changes made to address issues, but solution limits any formating
+for now.
+
+0.0.6
+=====
+
+Added ability to use markdown style headings
+
 0.0.5
 ======
 

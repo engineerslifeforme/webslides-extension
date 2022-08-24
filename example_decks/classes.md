@@ -1,3 +1,13 @@
+```{slide}
+
+{ph1}`Webslides Tutorial Classes`
+
+This slide deck is a conversion of the webslides
+example deck entitled "CLASSES".
+
+[Webslides Demo Link](https://webslides.tv/demos/classes#slide=1)
+```
+
 ````{slide}
 ---
 horizontal-alignment: center
