@@ -10,9 +10,22 @@ Welcome to Webslides Sphinx Builder Extension Documentation's documentation!
    :maxdepth: 2
    :caption: Contents:
 
+   overview
    purpose
-   examples
+   installation
+   get_started
+   content_organization
+   slide_styleing
+   webslide_features
+   header_footer
+   templating
+   pdf_export
+   powerpoint_conversion
+   other_extensions
+   examples   
+   change_log
    dev_log
+
 
 Indices and tables
 ==================

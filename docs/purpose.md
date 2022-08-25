@@ -5,12 +5,15 @@ presentation framework is capable of producing rich web based
 presentations.  The sphinx webslides builder extension attempts
 to provide the full set of features of the framework as an
 output type from the [Sphinx Python Documentation Generator](https://www.sphinx-doc.org/en/master/).
+This allows the building of WebSlides presentations via
+reStructuredText or markdown and the utilization of the ecosystem
+of Sphinx plugins.
 
 ## Motivation
 
 Microsoft Powerpoint has a firm grip as the utility of choice
 for business presentation creation.  Powerpoint and other WYSIWYG
-presentaion utilities provide a very capable and effective tool
+presentation utilities provide a very capable and effective tool
 in many scenarios.  Powerpoint in particular struggles in the
 following scenarios:
 
@@ -27,10 +30,10 @@ issues.
 The WebSlides framework itself solves all of these issues, but
 it requires users to create presentations directly in HTML.
 The verbose tag structure of HTML is arguably difficult to read
-and write.  The markup also does not provide great mechanisms
-for extension or organization/complexity management.  The HTML
-centered implementation (as opposed to javascript) makes the
-WebSlides framework an excellent target for Sphinx (and
+and write.  HTML itself also does not provide great mechanisms
+for extension or organization/complexity management.  On the other
+hand, the HTML centered implementation (as opposed to javascript) 
+makes the WebSlides framework an excellent target for Sphinx (and
 underlying [docutils](https://docutils.sourceforge.io/)).
 
 ### Strengths of Powerpoint
