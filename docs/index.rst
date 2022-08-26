@@ -14,11 +14,15 @@ Welcome to Webslides Sphinx Builder Extension Documentation's documentation!
    purpose
    installation
    get_started
+   slide_layout
    content_organization
    slide_styleing
+   images
    webslide_features
+   directive_reference/div
    header_footer
    templating
+   general_design
    pdf_export
    powerpoint_conversion
    other_extensions
