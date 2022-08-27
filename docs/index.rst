@@ -20,6 +20,7 @@ Welcome to Webslides Sphinx Builder Extension Documentation's documentation!
    images
    webslide_features
    directive_reference/div
+   directive_reference/slide
    header_footer
    templating
    general_design
