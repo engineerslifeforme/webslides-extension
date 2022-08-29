@@ -66,7 +66,6 @@ class Slide(GenericDirective):
         'content-alignment': directives.unchanged,
         'card-size': directives.unchanged,
         'card-background': directives.unchanged,
-        'flex-content': directives.unchanged,
         'full-screen': directives.unchanged,
         'background-video': directives.unchanged,
         'background-video-poster': directives.unchanged,

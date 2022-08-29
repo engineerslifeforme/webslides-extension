@@ -90,3 +90,98 @@
 
     (``content-alignment`` ``right``)
     
+.. slide::
+    :card-size: 50
+
+    .. figure:: https://cdn.britannica.com/06/9306-050-1816909E/Great-Sphinx-dynasty-Giza.jpg
+        :class: aligncenter
+
+    # Slide 2
+
+.. slide::
+    :card-size: 50
+
+    .. figure:: https://cdn.britannica.com/06/9306-050-1816909E/Great-Sphinx-dynasty-Giza.jpg
+        :class: aligncenter
+
+    .. flex-content::
+
+        # Slide 2
+        
+        :ti:`Sphinx`
+
+        An ancient structure in Egypt.
+
+.. slide::
+    :card-size: 50
+
+    .. flex-content::
+
+        # Slide 2
+        
+        :ti:`Sphinx`
+
+        An ancient structure in Egypt.
+        
+    .. figure:: https://cdn.britannica.com/06/9306-050-1816909E/Great-Sphinx-dynasty-Giza.jpg
+        :class: aligncenter
+
+.. slide::
+    :card-size: 60
+
+    .. flex-content::
+
+        # Slide 2
+        
+        :ti:`Sphinx`
+
+        ``card-size`` = 60
+        
+    .. figure:: https://cdn.britannica.com/06/9306-050-1816909E/Great-Sphinx-dynasty-Giza.jpg
+        :class: aligncenter
+
+.. slide::
+    :background-color: bg-apple
+    :card-size: 60
+    :card-background: bg-white
+
+    .. flex-content::
+
+        # Slide 2
+        
+        :ti:`Sphinx`
+
+        ``card-size`` = 60
+        
+    .. figure:: https://cdn.britannica.com/06/9306-050-1816909E/Great-Sphinx-dynasty-Giza.jpg
+        :class: aligncenter
+
+.. slide::
+    :full-screen: True
+    :no-wrap: True
+
+    .. youtube:: WuHSBSLK3_A
+
+.. slide::
+    :full-screen: True
+    :no-wrap: True
+    :background-video: https://webslides.tv/static/videos/peggy.mp4
+    :background-video-poster: https://webslides.tv/static/images/peggy.jpg
+
+.. slide::
+    :full-screen: True
+    :no-wrap: True
+    :background-video: https://webslides.tv/static/videos/peggy.mp4
+
+.. slide::
+    :full-screen: True
+    :background-video: https://webslides.tv/static/videos/peggy.mp4
+    :background-video-dark: True
+    :background-color: bg-apple
+
+    # Slide 2
+
+.. slide::
+    :text-serif: True
+
+    # Slide 2

@@ -222,3 +222,141 @@ Supported values:
 
     # Slide 2
 ```
+
+### `card-size`
+
+`card-size` allows the use of the WebSlides `.card` class features. 
+Typically used to present an image with structured data to the side,
+e.g.:
+
+```rst
+.. slide::
+    :card-size: 50
+
+    .. figure:: https://cdn.britannica.com/06/9306-050-1816909E/Great-Sphinx-dynasty-Giza.jpg
+        :class: aligncenter
+
+    .. flex-content::
+
+        # Slide 2
+        
+        :ti:`Sphinx`
+
+        An ancient structure in Egypt.
+```
+
+```{note}
+`figure` MUST be used for the image as opposed to `image`.
+```
+
+To put the picture on the right simply change the order of the content.
+
+Different sizes will adjust the amount used by the image.
+
+```rst
+.. slide::
+    :card-size: 60
+
+    .. flex-content::
+
+        # Slide 2
+        
+        :ti:`Sphinx`
+
+        ``card-size`` = 60
+        
+    .. figure:: https://cdn.britannica.com/06/9306-050-1816909E/Great-Sphinx-dynasty-Giza.jpg
+        :class: aligncenter
+```
+
+### `card-background`
+
+`card-background` sets the background color of the card to differentiate
+from the background.
+
+```rst
+.. slide::
+    :background-color: bg-apple
+    :card-size: 60
+    :card-background: bg-white
+
+    .. flex-content::
+
+        # Slide 2
+        
+        :ti:`Sphinx`
+
+        ``card-size`` = 60
+        
+    .. figure:: https://cdn.britannica.com/06/9306-050-1816909E/Great-Sphinx-dynasty-Giza.jpg
+        :class: aligncenter
+```
+
+### `full-screen`
+
+`full-screen` is used in combination with a video to display it as a
+full-screen video.  It can be used with both youtube videos and normal
+`background-video`s.
+
+```{note}
+This is one of the rare situations where `no-wrap` can/should be used.
+```
+
+```rst
+.. slide::
+    :full-screen: True
+    :no-wrap: True
+
+    .. youtube:: WuHSBSLK3_A
+```
+
+```rst
+.. slide::
+    :full-screen: True
+    :no-wrap: True
+    :background-video: https://webslides.tv/static/videos/peggy.mp4
+    :background-video-poster: https://webslides.tv/static/images/peggy.jpg
+```
+
+### `background-video`
+
+`background-video` produces a video as the background for the slide.
+Typically used with `full-screen` and `back-video-poster`.
+
+```rst
+.. slide::
+    :full-screen: True
+    :no-wrap: True
+    :background-video: https://webslides.tv/static/videos/peggy.mp4
+    :background-video-poster: https://webslides.tv/static/images/peggy.jpg
+```
+
+### `background-video-poster`
+
+It is not clear what the effects of NOT using `background-video-poster`
+with `background-video` are.  The video appears to function exactly
+the same.  WebSlides examples typically use them together.
+
+```rst
+.. slide::
+    :full-screen: True
+    :no-wrap: True
+    :background-video: https://webslides.tv/static/videos/peggy.mp4
+    :background-video-poster: https://webslides.tv/static/images/peggy.jpg
+```
+
+### `background-video-dark`
+
+`background-video-dark` can make the video opaque for easier reading
+of the text.  `background-color` should be used simultaneously as 
+shown below.
+
+```rst
+.. slide::
+    :full-screen: True
+    :background-video: https://webslides.tv/static/videos/peggy.mp4
+    :background-video-dark: True
+    :background-color: bg-apple
+
+    # Slide 2
+```
