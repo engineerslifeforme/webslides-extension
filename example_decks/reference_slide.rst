@@ -185,3 +185,25 @@
     :text-serif: True
 
     # Slide 2
+
+.. slide::
+    :header: A simple header
+
+    # Slide 2
+
+.. slide::
+    :header: A simple header
+    :header-alignment: left
+
+    # Slide 2
+
+.. slide::
+    :header: A simple header
+    :header-alignment: right
+
+    # Slide 2
+
+.. slide::
+    :footer: a simple footer
+
+    # Slide 2

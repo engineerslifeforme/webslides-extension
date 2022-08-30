@@ -360,3 +360,78 @@ shown below.
 
     # Slide 2
 ```
+
+### `text-serif`
+
+`text-serif` to use serif text on the slide.
+
+```rst
+.. slide::
+    :text-serif: True
+
+    # Slide 2
+```
+
+### `no-header`
+
+`no-header` allows the temporary removal of a default header
+set by the `slide-config` directive.
+
+### `header`
+
+`header` allows the addition of simple text headers.
+
+```rst
+.. slide::
+    :header: A simple header
+
+    # Slide 2
+```
+
+### `header-alignment`
+
+`header-alignment` is used with `header` to align the text used in
+the `header` option.
+
+Allowed alignment values:
+
+- left (default)
+- right
+
+```rst
+.. slide::
+    :header: A simple header
+    :header-alignment: left
+
+    # Slide 2
+```
+
+```rst
+.. slide::
+    :header: A simple header
+    :header-alignment: right
+
+    # Slide 2
+```
+
+### `no-footer`
+
+`no-footer` temporarily disables the slide footer when a default has
+been set with `slide-config` directive.
+
+### `footer`
+
+`footer` same behavior as header, except footer.
+
+```rst
+.. slide::
+    :footer: a simple footer
+
+    # Slide 2
+```
+
+### `footer-alignment`
+
+`footer-alignment` has the same functionalitiy as `header-alignment`
+except for the footer.
+
