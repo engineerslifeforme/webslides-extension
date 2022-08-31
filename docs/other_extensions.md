@@ -11,8 +11,28 @@ additional recommend configuration within `conf.py`.
 
 ## Markdown
 
-Describe functionality with myst-parser
+While Sphinx does have some basic markdown capabilities out of the
+box, [MyST](https://myst-parser.readthedocs.io/en/latest/) is the
+recommended robust solution for markdown in Sphinx documents, and
+it is necessary to utilize an extension like the WebSlides builder
+which utilizes a lot of directives.
+
+```{note}
+The primary author of the WebSlides extension almost exclusively
+uses MyST for typical Sphinx documentation, but reStructuredText
+was actually preferred for WebSlides due to the frequent use
+of directives.
+```
 
 ## Kroki Diagrams
 
-kroki diagrams
+Another type of extension that can be used in conjunction with the
+WebSlides builder are diagram extensions like 
+[sphinxcontrib-kroki](https://github.com/sphinx-contrib/kroki)
+which is a Sphinx extension providing directives to utilize an
+instance of the [kroki](https://kroki.io/) API service.
+
+Extensions like kroki can provide inline text diagram definition or
+direct reuse of diagrams designed for Sphinx documentation.  These
+text based solutions are very friendly to configuration management
+which is also a key motivator for using the Sphinx WebSlides builder.

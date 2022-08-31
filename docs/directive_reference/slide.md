@@ -1,4 +1,6 @@
-# Slide Directive
+(slide_directive)=
+
+# `slide` Directive
 
 The `slide` directive is the single required directive within the
 extension, i.e. it is impossible to make a slide deck without
