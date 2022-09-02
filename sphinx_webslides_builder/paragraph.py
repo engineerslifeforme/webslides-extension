@@ -114,23 +114,29 @@ class ParagraphTranslator(HTMLTranslator):
                     )
 
     def visit_Text(self, node):
-        if node.astext()[0] == '#':
-            markdown_tag, markdown_heading = get_tag_and_heading(node.astext())            
-            self.body.append(f"<{markdown_tag}>")
-            super().visit_Text(
-                nodes.Text(node.astext().replace(markdown_heading, ''))
-            )
-        else:
+        fail = True
+        if len(node.astext()) > 0:
+            if node.astext()[0] == '#':
+                markdown_tag, markdown_heading = get_tag_and_heading(node.astext())            
+                self.body.append(f"<{markdown_tag}>")
+                super().visit_Text(
+                    nodes.Text(node.astext().replace(markdown_heading, ''))
+                )
+                fail = False
+        if fail:
             super().visit_Text(node)
 
     def depart_Text(self, node):
-        if node.astext()[0] == '#':
-            markdown_tag, markdown_heading = get_tag_and_heading(node.astext())            
-            self.body.append(f"</{markdown_tag}>")
-            super().depart_Text(
-                nodes.Text(node.astext().replace(markdown_heading, ''))
-            )
-        else:
+        fail = True
+        if len(node.astext()) > 0:
+            if node.astext()[0] == '#':
+                markdown_tag, markdown_heading = get_tag_and_heading(node.astext())            
+                self.body.append(f"</{markdown_tag}>")
+                super().depart_Text(
+                    nodes.Text(node.astext().replace(markdown_heading, ''))
+                )
+                fail = False
+        if fail:
             super().depart_Text(node)
 
     def depart_paragraph(self, node):
