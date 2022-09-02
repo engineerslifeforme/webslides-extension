@@ -2,6 +2,13 @@
 Change Log
 ===================
 
+0.0.11
+=======
+
+Removed hover header on slides.
+
+Made offline compatible.
+
 0.0.10
 ======
 
