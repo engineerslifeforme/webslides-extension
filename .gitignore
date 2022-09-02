@@ -8,4 +8,6 @@ example_doc/_webslides_build
 _webslides_builder
 old_example_doc
 build/**
-sphinx_webslides_builder/themes/webslides_base/static/
+sphinx_webslides_builder/themes/webslides_base/static/css/*
+!google_fonts.css
+sphinx_webslides_builder/themes/webslides_base/static/js/*
