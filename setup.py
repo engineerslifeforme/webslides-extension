@@ -58,6 +58,8 @@ setup(
         '*.html',
         'static/css/*.css',
         'static/js/*.js',
+        'static/css/*.woff',
+        'static/css/*.woff2',
     ]},
 
     include_package_data=True,
