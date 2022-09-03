@@ -2,6 +2,14 @@
 Change Log
 ===================
 
+0.0.12
+=======
+
+``google_font.css`` paths to fonts did not match filenames retrieved
+via curl in the github build.  Fixed.
+
+``pyyaml`` was not in the dependencies.
+
 0.0.11
 =======
 
