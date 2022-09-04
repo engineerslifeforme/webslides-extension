@@ -3,7 +3,8 @@ example_doc/_build
 example_doc/_webslides_build
 *.pyc
 *.egg-info
-.vscode
+.vscode/*
+!.vscode/launch.json
 *_build
 _webslides_builder
 old_example_doc

@@ -2,6 +2,12 @@
 Change Log
 ===================
 
+0.0.13
+=======
+
+Added ``content-mode`` to the ``template`` directive allowing normal
+RST content instead of yaml content.
+
 0.0.12
 =======
 
