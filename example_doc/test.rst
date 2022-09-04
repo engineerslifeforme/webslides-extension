@@ -63,3 +63,18 @@
 
         2 Some content
 
+.. template-define:: test_content
+
+    .. slide::
+        :background-color: bg-apple
+
+        {{ content }}
+
+.. template:: test_content
+    :content_mode:
+
+    # Using a content template
+
+    - with
+    - some
+    - bullets
