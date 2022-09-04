@@ -78,3 +78,17 @@
     - with
     - some
     - bullets
+
+.. slide::
+
+    .. content-left::
+
+        # A slide
+
+        content
+
+    .. content-left::
+
+        .. web:: https://badge.fury.io/py/sphinx-webslides-builder.svg
+            :height: 200
+            :width: 200

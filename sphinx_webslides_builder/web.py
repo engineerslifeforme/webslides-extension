@@ -1,3 +1,5 @@
+from copy import deepcopy
+
 from sphinx.util.docutils import SphinxDirective
 from docutils import nodes
 from docutils.parsers.rst import directives
@@ -23,6 +25,12 @@ web_map = {
 class WebDirective(GenericDirective):
     node_type = web_node
     required_arguments = 1
+    option_spec = deepcopy(GenericDirective.option_spec)
+    option_spec.update({
+        # wrap will be deprecated
+        'height': directives.unchanged,
+        'width': directives.unchanged,
+    })
 
     def run(self):
         node = super().run()[0]
@@ -32,10 +40,20 @@ class WebDirective(GenericDirective):
             figcaption = figcaption_node()
             figcaption = self._process_content(figcaption)
             node += figcaption
+        height = 'height'
+        if height in self.options:
+            height_value = self.options[height]
+        else:
+            height_value = 600
+        width = 'width'
+        if width in self.options:
+            width_value = self.options[width]
+        else:
+            width_value = 800
         iframe['attributes'] = {
             'src': self.arguments[0],
-            'width': '800',
-            'height': '600',
+            'width': str(height_value),
+            'height': str(width_value),
         }
         return [node]
 
