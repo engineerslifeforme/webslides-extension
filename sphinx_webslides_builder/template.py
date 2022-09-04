@@ -26,15 +26,32 @@ class TemplateDefinitionDirective(SphinxDirective):
 
 class TemplateExecuteDirective(SphinxDirective):
     required_arguments = 1
+    optional_arguments = 1
     has_content = True
+    option_spec = {
+        'content_mode': directives.unchanged,
+    }
 
     def run(self):
-        option_data = yaml.safe_load('\n'.join(self.content.data))
-
+        
         rendered_content = []
-        for template_line in self.env.app.config[TD][self.arguments[0]]:
-            template = environment.from_string(template_line)
-            rendered_content.append(template.render(**option_data))
+        if 'content_mode' not in self.options:
+            defined_input = '\n'.join(self.content.data)
+            option_data = yaml.safe_load(defined_input)
+            for template_line in self.env.app.config[TD][self.arguments[0]]:
+                template = environment.from_string(template_line)
+                rendered_content.append(template.render(**option_data))
+        else:
+            for template_line in self.env.app.config[TD][self.arguments[0]]:
+                if '{{' in template_line and 'content' in template_line.lower() and '}}' in template_line:
+                    char_index = 0
+                    while template_line[char_index].isspace():
+                        char_index +=1
+                    white_space = template_line[0:char_index]
+                    for line in self.content.data:
+                        rendered_content.append(white_space+line)
+                else:
+                    rendered_content.append(template_line)
 
         return [self._process_content(rendered_content)]
         
