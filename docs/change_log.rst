@@ -2,6 +2,12 @@
 Change Log
 ===================
 
+0.0.14
+========
+
+Added ``width`` and ``height`` options to ``web`` directive to allow
+for more customized sizing.
+
 0.0.13
 =======
 
