@@ -63,3 +63,14 @@
 
         2 Some content
 
+.. slide::
+
+    .. content-left::
+
+        # A slide
+
+        Good words
+
+    .. content-left::
+
+        .. web:: _static/plots/bar_example.html

@@ -9,3 +9,5 @@ _webslides_builder
 old_example_doc
 build/**
 sphinx_webslides_builder/themes/webslides_base/static/
+.ipynb*
+*.ipynb
