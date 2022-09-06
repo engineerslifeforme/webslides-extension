@@ -18,7 +18,6 @@ Welcome to Webslides Sphinx Builder Extension Documentation's documentation!
    content_organization
    slide_styleing
    images
-   webslide_features
    directive_reference/div
    directive_reference/slide
    directive_reference/slide_config
@@ -30,7 +29,6 @@ Welcome to Webslides Sphinx Builder Extension Documentation's documentation!
    other_extensions
    examples   
    change_log
-   dev_log
 
 
 Indices and tables
