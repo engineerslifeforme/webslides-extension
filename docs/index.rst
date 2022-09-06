@@ -22,6 +22,7 @@ Welcome to Webslides Sphinx Builder Extension Documentation's documentation!
    directive_reference/slide
    directive_reference/slide_config
    directive_reference/header_footer
+   directive_reference/quote
    templating
    general_design
    pdf_export
