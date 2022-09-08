@@ -34,14 +34,18 @@ class TemplateExecuteDirective(SphinxDirective):
 
     def run(self):
         
-        rendered_content = []
+        rendered_content = None
         if 'content_mode' not in self.options:
             defined_input = '\n'.join(self.content.data)
             option_data = yaml.safe_load(defined_input)
-            for template_line in self.env.app.config[TD][self.arguments[0]]:
-                template = environment.from_string(template_line)
-                rendered_content.append(template.render(**option_data))
+            #for template_line in self.env.app.config[TD][self.arguments[0]]:
+            #    template = environment.from_string(template_line)
+            #    rendered_content.append(template.render(**option_data))
+            rendered_content = environment.from_string(
+                '\n'.join(self.env.app.config[TD][self.arguments[0]])
+            ).render(**option_data).split('\n')
         else:
+            rendered_content = []
             for template_line in self.env.app.config[TD][self.arguments[0]]:
                 if '{{' in template_line and 'content' in template_line.lower() and '}}' in template_line:
                     char_index = 0

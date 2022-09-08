@@ -2,6 +2,18 @@
 Change Log
 ===================
 
+0.0.15
+=======
+
+Fixed bug in the template rendering.  Method did not allow jinja
+commands that span lines, e.g. typical multiline if statements
+
+.. code-block:: rst
+
+    {% if True %}
+        Do one thing
+    {% endif %}
+
 0.0.14
 ========
 
